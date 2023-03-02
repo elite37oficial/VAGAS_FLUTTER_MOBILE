@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,9 +49,10 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Exemplo',
-              style: TextStyle(color: AppColors.darkBlue),
+              style: context.textStyles.textInterRegular
+                  .copyWith(color: Colors.pink),
             ),
           ],
         ),
