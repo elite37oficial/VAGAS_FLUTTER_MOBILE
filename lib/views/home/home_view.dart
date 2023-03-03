@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
-import "../card/card_widget.dart";
+import '../../core/ui/widgets/card/card_widget.dart';
 import '../../data/mock_job.dart';
 
 class HomeView extends StatelessWidget {
@@ -16,18 +17,21 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 22),
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 17),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text("Vagas"),
+              children: [
+                Text(
+                  "Vagas",
+                  style: context.textStyles.textTitle,
+                ),
                 Icon(Icons.tune),
               ],
             ),
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 4),
+              padding: const EdgeInsets.symmetric(horizontal: 32),
               child: ListView.builder(
                 itemCount: jobsList.length,
                 itemBuilder: (context, index) =>

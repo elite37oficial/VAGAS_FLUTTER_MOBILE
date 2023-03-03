@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
 
 class CardWidget extends StatelessWidget {
@@ -17,8 +19,8 @@ class CardWidget extends StatelessWidget {
       child: Card(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: const BorderSide(
-            color: Color(0xffE4EDF2),
+          side: BorderSide(
+            color: AppColors.grey,
           ),
         ),
         child: Row(children: [
@@ -31,10 +33,13 @@ class CardWidget extends StatelessWidget {
                 ),
                 height: 48,
                 width: 48,
-                child: Image.network(
-                  job.imageUrl,
-                  height: 48,
-                  width: 48,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(6.0),
+                  child: Image.network(
+                    job.imageUrl,
+                    height: 48,
+                    width: 48,
+                  ),
                 )),
           ),
           Column(
@@ -43,43 +48,25 @@ class CardWidget extends StatelessWidget {
             children: [
               Text(
                 job.jobOportunity,
-                style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600),
+                style: context.textStyles.textTitleJobList,
               ),
               Text(
                 job.company,
-                style: const TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 11,
-                    fontWeight: FontWeight.w400),
+                style: context.textStyles.textCompanyJobList,
               ),
               Row(
                 children: [
                   Text(
                     "${job.city} - ",
-                    style: const TextStyle(
-                        color: Color(0xFF545D69),
-                        fontFamily: 'Inter',
-                        fontSize: 9,
-                        fontWeight: FontWeight.w400),
+                    style: context.textStyles.textCityTypeJobList,
                   ),
                   Text(
                     "${job.jobType} - ",
-                    style: const TextStyle(
-                        color: Color(0xFF545D69),
-                        fontFamily: 'Inter',
-                        fontSize: 9,
-                        fontWeight: FontWeight.w400),
+                    style: context.textStyles.textCityTypeJobList,
                   ),
                   Text(
                     "R\$ ${job.value}",
-                    style: const TextStyle(
-                        color: Color(0xff023E73),
-                        fontFamily: 'Inter',
-                        fontSize: 9,
-                        fontWeight: FontWeight.w600),
+                    style: context.textStyles.textValueJobList,
                   ),
                 ],
               )
