@@ -1,21 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/models/job_model.dart';
 
-class VagasCard extends StatelessWidget {
-  VagasCard(
-      {super.key,
-      required this.jobOportunity,
-      required this.company,
-      required this.path,
-      required this.jobType,
-      required this.value,
-      required this.city});
-
-  String jobOportunity;
-  String company;
-  String city;
-  String jobType;
-  String value;
-  String path;
+class CardWidget extends StatelessWidget {
+  final JobModel job;
+  const CardWidget({
+    Key? key,
+    required this.job,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +32,7 @@ class VagasCard extends StatelessWidget {
                 height: 48,
                 width: 48,
                 child: Image.asset(
-                  path,
+                  job.imageUrl,
                   height: 48,
                   width: 48,
                 )),
@@ -51,14 +42,14 @@ class VagasCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                jobOportunity,
+                job.jobOportunity,
                 style: const TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 18,
                     fontWeight: FontWeight.w600),
               ),
               Text(
-                company,
+                job.company,
                 style: const TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 11,
@@ -67,7 +58,7 @@ class VagasCard extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "$city - ",
+                    "${job.city} - ",
                     style: const TextStyle(
                         color: Color(0xFF545D69),
                         fontFamily: 'Inter',
@@ -75,7 +66,7 @@ class VagasCard extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    "$jobType - ",
+                    "${job.jobType} - ",
                     style: const TextStyle(
                         color: Color(0xFF545D69),
                         fontFamily: 'Inter',
@@ -83,7 +74,7 @@ class VagasCard extends StatelessWidget {
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
-                    "R\$ $value",
+                    "R\$ ${job.value}",
                     style: const TextStyle(
                         color: Color(0xff023E73),
                         fontFamily: 'Inter',
