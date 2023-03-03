@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
               children: [
                 Text(
                   "Vagas",
-                  style: context.textStyles.textTitle,
+                  style: context.textStyles.textTitleCards,
                 ),
                 Icon(Icons.tune),
               ],

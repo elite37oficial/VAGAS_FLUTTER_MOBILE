@@ -51,28 +51,22 @@ class TextStyles {
         fontWeight: FontWeight.normal,
         fontFamily: fontInter,
       );
-  TextStyle get textInterMedium => TextStyle(
-        fontWeight: FontWeight.w500,
-        fontFamily: fontInter,
-      );
-
-  TextStyle get textInterSemiBold => TextStyle(
+  TextStyle get textTitle => textInterRegular.copyWith(
         fontWeight: FontWeight.w600,
-        fontFamily: fontInter,
+        fontSize: 18,
       );
-
-  TextStyle get textInterBold => TextStyle(
-        fontWeight: FontWeight.bold,
-        fontFamily: fontInter,
+  TextStyle get textCompanyCard => textInterRegular.copyWith(
+        fontWeight: FontWeight.w400,
+        fontSize: 11,
       );
-  TextStyle get textInterExtraBold => TextStyle(
-        fontWeight: FontWeight.w800,
-        fontFamily: fontInter,
+  TextStyle get textFooterCard => textInterRegular.copyWith(
+        fontSize: 9,
+        fontWeight: FontWeight.w400,
       );
-
-  TextStyle get textInterBlack => TextStyle(
-        fontWeight: FontWeight.w900,
-        fontFamily: fontInter,
+  TextStyle get textFooterCardPrice => textInterRegular.copyWith(
+        fontSize: 9,
+        fontWeight: FontWeight.w600,
+        color: AppColors.darkBlue,
       );
 //======= SOURCE SANS PRO FONT =====================
 
@@ -102,7 +96,7 @@ class TextStyles {
       );
 
   //*======= CARDS CONFIG ====================================
-  TextStyle get textTitle => TextStyle(
+  TextStyle get textTitleCards => TextStyle(
         fontWeight: FontWeight.w600,
         fontFamily: fontInter,
         color: AppColors.darkBlue,

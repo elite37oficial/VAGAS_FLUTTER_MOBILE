@@ -13,6 +13,7 @@ class AppColors {
   static Color get grey => const Color(0XFFE4EDF2);
   static Color get lightBlue => const Color(0XFF43BDD9);
   static Color get background => const Color(0XFF1E1E1E);
+  static Color get black => const Color(0XFF0D0D0D);
 }
 
 extension AppColorsExtensions on BuildContext {
