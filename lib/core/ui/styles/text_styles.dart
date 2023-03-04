@@ -90,6 +90,7 @@ class TextStyles {
         fontSize: 18,
       );
   TextStyle get textTitleJobList => textInterSemiBold.copyWith(
+        color: AppColors.titleList,
         fontSize: 18,
       );
   TextStyle get textCompanyJobList => textInterRegular.copyWith(
@@ -97,7 +98,7 @@ class TextStyles {
         fontSize: 11,
       );
   TextStyle get textCityTypeJobList => textSourceSansProRegular.copyWith(
-        color: AppColors.jobCityType,
+        color: AppColors.neutral,
         fontSize: 9,
       );
   TextStyle get textValueJobList => textInterSemiBold.copyWith(
