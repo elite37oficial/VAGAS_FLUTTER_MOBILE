@@ -8,30 +8,34 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<JobModel> jobsList = MockJob;
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Elite Vagas"),
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 22),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  Text("Vagas"),
-                  Icon(Icons.tune),
-                ],
+    final List<JobModel> jobsList = mockJob;
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Elite Vagas"),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 22),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text("Vagas"),
+                Icon(Icons.tune),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 4),
+              child: ListView.builder(
+                itemCount: jobsList.length,
+                itemBuilder: (context, index) =>
+                    CardWidget(job: jobsList[index]),
               ),
             ),
-            ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) => CardWidget(job: jobsList[0]),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

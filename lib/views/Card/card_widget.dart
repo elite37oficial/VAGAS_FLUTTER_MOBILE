@@ -31,7 +31,7 @@ class CardWidget extends StatelessWidget {
                 ),
                 height: 48,
                 width: 48,
-                child: Image.asset(
+                child: Image.network(
                   job.imageUrl,
                   height: 48,
                   width: 48,
@@ -62,7 +62,7 @@ class CardWidget extends StatelessWidget {
                     style: const TextStyle(
                         color: Color(0xFF545D69),
                         fontFamily: 'Inter',
-                        fontSize: 11,
+                        fontSize: 9,
                         fontWeight: FontWeight.w400),
                   ),
                   Text(
@@ -78,7 +78,7 @@ class CardWidget extends StatelessWidget {
                     style: const TextStyle(
                         color: Color(0xff023E73),
                         fontFamily: 'Inter',
-                        fontSize: 11,
+                        fontSize: 9,
                         fontWeight: FontWeight.w600),
                   ),
                 ],
