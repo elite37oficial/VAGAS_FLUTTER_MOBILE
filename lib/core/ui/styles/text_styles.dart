@@ -51,23 +51,11 @@ class TextStyles {
         fontWeight: FontWeight.normal,
         fontFamily: fontInter,
       );
-  TextStyle get textTitle => textInterRegular.copyWith(
+  TextStyle get textInterSemiBold => TextStyle(
         fontWeight: FontWeight.w600,
-        fontSize: 18,
+        fontFamily: fontInter,
       );
-  TextStyle get textCompanyCard => textInterRegular.copyWith(
-        fontWeight: FontWeight.w400,
-        fontSize: 11,
-      );
-  TextStyle get textFooterCard => textInterRegular.copyWith(
-        fontSize: 9,
-        fontWeight: FontWeight.w400,
-      );
-  TextStyle get textFooterCardPrice => textInterRegular.copyWith(
-        fontSize: 9,
-        fontWeight: FontWeight.w600,
-        color: AppColors.darkBlue,
-      );
+
 //======= SOURCE SANS PRO FONT =====================
 
   TextStyle get textSourceSansProLight => TextStyle(
@@ -96,33 +84,23 @@ class TextStyles {
       );
 
   //*======= CARDS CONFIG ====================================
-  TextStyle get textTitleCards => TextStyle(
-        fontWeight: FontWeight.w600,
-        fontFamily: fontInter,
+
+  TextStyle get textTitleCards => textInterSemiBold.copyWith(
         color: AppColors.darkBlue,
         fontSize: 18,
       );
-  TextStyle get textTitleJobList => TextStyle(
-        fontWeight: FontWeight.w600,
-        fontFamily: fontInter,
-        color: AppColors.titleList,
+  TextStyle get textTitleJobList => textInterSemiBold.copyWith(
         fontSize: 18,
       );
-  TextStyle get textCompanyJobList => TextStyle(
-        fontWeight: FontWeight.w400,
-        fontFamily: fontInter,
+  TextStyle get textCompanyJobList => textInterRegular.copyWith(
         color: AppColors.titleList.withOpacity(.5),
         fontSize: 11,
       );
-  TextStyle get textCityTypeJobList => TextStyle(
-        fontWeight: FontWeight.w400,
-        fontFamily: fontSourceSansPro,
+  TextStyle get textCityTypeJobList => textSourceSansProRegular.copyWith(
         color: AppColors.jobCityType,
         fontSize: 9,
       );
-  TextStyle get textValueJobList => TextStyle(
-        fontWeight: FontWeight.w600,
-        fontFamily: fontInter,
+  TextStyle get textValueJobList => textInterSemiBold.copyWith(
         color: AppColors.darkBlue,
         fontSize: 9,
       );

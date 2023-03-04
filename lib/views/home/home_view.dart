@@ -25,7 +25,13 @@ class HomeView extends StatelessWidget {
                   "Vagas",
                   style: context.textStyles.textTitleCards,
                 ),
-                Icon(Icons.tune),
+                const SizedBox(
+                  width: 25.28,
+                  height: 20,
+                  child: Icon(
+                    Icons.tune,
+                  ),
+                ),
               ],
             ),
           ),
