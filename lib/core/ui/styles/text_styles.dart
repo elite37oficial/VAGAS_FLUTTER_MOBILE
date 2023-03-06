@@ -83,7 +83,7 @@ class TextStyles {
         fontFamily: fontSourceSansPro,
       );
 
-  //*======= CARDS CONFIG ====================================
+  //*======= CARDS CONFIG =====================================
 
   TextStyle get textTitleCards => textInterSemiBold.copyWith(
         color: AppColors.darkBlue,
