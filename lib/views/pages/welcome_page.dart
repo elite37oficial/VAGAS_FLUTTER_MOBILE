@@ -26,7 +26,7 @@ class WelcomePage extends StatelessWidget {
                       width: mediaQuery.size.width * .9,
                     ),
                   ),
-                  const Positioned(
+                  Positioned(
                     bottom: 3,
                     left: 0,
                     child: Text(
@@ -34,7 +34,7 @@ class WelcomePage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
-                        color: AppColors.grey,
+                        color: AppColors.neutral,
                       ),
                     ),
                   ),
@@ -50,7 +50,7 @@ class WelcomePage extends StatelessWidget {
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: const <Widget>[
+                children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
                       left: 35,
@@ -62,7 +62,7 @@ class WelcomePage extends StatelessWidget {
                       'Encontre aqui as melhores vagas de Flutter!',
                       style: TextStyle(
                         fontSize: 22,
-                        color: AppColors.grey,
+                        color: AppColors.neutral,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -92,7 +92,7 @@ class WelcomePage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.grey,
                   ),
-                  child: const Text(
+                  child: Text(
                     'Ver vagas',
                     style: TextStyle(
                       color: AppColors.greyBlue,
