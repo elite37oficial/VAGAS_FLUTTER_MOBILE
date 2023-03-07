@@ -10,7 +10,7 @@ class WelcomePage extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
-      backgroundColor: const Color(0xFF387CA6),
+      backgroundColor: const Color.fromRGBO(56, 124, 166, 1),
       body: SafeArea(
         child: Center(
           child: Column(
