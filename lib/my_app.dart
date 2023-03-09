@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:vagas_flutter_mobile/views/home/home_view.dart';
 
 class MyApp extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import '../../core/ui/styles/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -10,7 +11,7 @@ class WelcomePage extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
 
     return Scaffold(
-      backgroundColor: const Color.fromRGBO(56, 124, 166, 1),
+      backgroundColor: AppColors.greyBlue,
       body: SafeArea(
         child: Center(
           child: Column(
@@ -22,8 +23,8 @@ class WelcomePage extends StatelessWidget {
                   Positioned(
                     child: SvgPicture.asset(
                       'assets/images/background_icons.svg',
-                      height: mediaQuery.size.height * .6,
-                      width: mediaQuery.size.width * .9,
+                      height: context.percentHeight(.6),
+                      width: context.percentHeight(.9),
                     ),
                   ),
                   Positioned(
@@ -34,7 +35,7 @@ class WelcomePage extends StatelessWidget {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 22,
-                        color: AppColors.neutral,
+                        color: AppColors.white,
                       ),
                     ),
                   ),
@@ -52,7 +53,7 @@ class WelcomePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 35,
                       right: 35,
                       bottom: 10,
@@ -62,13 +63,13 @@ class WelcomePage extends StatelessWidget {
                       'Encontre aqui as melhores vagas de Flutter!',
                       style: TextStyle(
                         fontSize: 22,
-                        color: AppColors.neutral,
+                        color: AppColors.white,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(
+                    padding: const EdgeInsets.only(
                       left: 40,
                       right: 40,
                       bottom: 40,
@@ -77,7 +78,7 @@ class WelcomePage extends StatelessWidget {
                       "Aqui na EliteVagas você terá acesso\n"
                       "direto com os recrutadores",
                       style: TextStyle(
-                        color: AppColors.grey,
+                        color: AppColors.white,
                         fontSize: 15,
                       ),
                     ),
