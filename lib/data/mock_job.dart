@@ -8,6 +8,11 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    // Falta Regime (CLT ou PJ)
+    // Informações da empresa
+    // Tipo de Vaga (Tempo Integral ou Meio periodo)
+    // Sobre a vaga
+    // Competencias
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
