@@ -270,17 +270,40 @@ class VacancyDetailsPage extends StatelessWidget {
                   )
                 ],
               ),
-              Center(
-                child: TextButton(
-                  onPressed: () {},
-                  child: Text(
-                    'Denunciar essa vaga',
-                    style: TextStyle(
-                      color: AppColors.greyBlue,
-                      fontSize: 16,
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(''),
+                      ),
+                      //Spacer(),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(''),
+                      ),
+                      //Spacer(),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text('Jabulane'),
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        'Denunciar essa vaga',
+                        style: TextStyle(
+                          color: AppColors.greyBlue,
+                          fontSize: 16,
+                        ),
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
             ],
           ),
