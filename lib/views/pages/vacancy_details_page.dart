@@ -5,6 +5,7 @@ import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/data/mock_job.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
 import '../../core/ui/styles/app_colors.dart';
+import 'vacancy_detail_text.dart';
 
 class VacancyDetailsPage extends StatelessWidget {
   const VacancyDetailsPage({
@@ -28,6 +29,7 @@ class VacancyDetailsPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
+
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -109,42 +111,15 @@ class VacancyDetailsPage extends StatelessWidget {
               customTextColumn(
                 text: listJobs.value.toString(),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 20),
-              //   child: Text(
-              //     listJobs.value.toString(),
-              //     style: const TextStyle(
-              //       fontSize: 18,
-              //       //fontWeight: FontWeight.bold,
-              //     ),
-              //   ),
-              // ),
+              
               customTextColumn(
                 text: 'Tipo',
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
-              // const Padding(
-              //   padding: EdgeInsets.only(top: 20, left: 20),
-              //   child: Text(
-              //     'Tipo',
-              //     style: TextStyle(
-              //       fontSize: 18,
-              //       fontWeight: FontWeight.bold,
-              //     ),
-              //   ),
-              // ),
+              
               customTextColumn(text: listJobs.jobType),
-              // const Padding(
-              //   padding: EdgeInsets.only(left: 20),
-              //   child: Text(
-              //     'Remoto',
-              //     style: TextStyle(
-              //       fontSize: 18,
-              //       //fontWeight: FontWeight.bold,
-              //     ),
-              //   ),
-              // ),
+              
               const Padding(
                 padding: EdgeInsets.only(top: 20, left: 20),
                 child: Text(
