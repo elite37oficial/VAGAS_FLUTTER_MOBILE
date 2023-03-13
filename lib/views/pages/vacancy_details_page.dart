@@ -1,6 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-//import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/data/mock_job.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
@@ -31,244 +30,299 @@ class VacancyDetailsPage extends StatelessWidget {
       body: SafeArea(
 
         child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 35, left: 20),
-                child: Text(
-                  listJobs.jobOportunity,
-                  style: const TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold,
-                  ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: 25,
+              right: 8.0,
+              left: 8.0,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                customTextColumnInformation(
+                  text: listJobs.jobOportunity,
+                  fontSize: 28,
+                  color: AppColors.greyBlue,
                 ),
-              ),
-              Row(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      top: 20.0,
-                      left: 10,
-                      right: 10,
-                    ),
-                    // child: SizedBox(
-                    //   child: ClipRRect(
-                    //     borderRadius: const BorderRadius.only(
-                    //       topLeft: Radius.circular(15.0),
-                    //       topRight: Radius.circular(15.0),
-                    //       bottomLeft: Radius.circular(15.0),
-                    //       bottomRight: Radius.circular(15.0),
-                    //     ),
-                    //     child: Image.network(
-                    //       listJobs.imageUrl,
-                    //       width: context.percentHeight(.06),
-                    //       height: context.percentHeight(.06),
-                    //     ),
-                    //   ),
-                    // ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 15.0,
-                      right: 10,
-                    ),
-                    child: Text(
-                      listJobs.company,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 15.0,
-                      right: 10,
-                    ),
-                    child: Text(
-                      listJobs.city,
-                      style: const TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15.0),
-                    child: Text(
-                      '(Remoto)',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              customTextColumn(
-                text: 'Faixa Salarial',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              customTextColumn(
-                text: listJobs.value.toString(),
-              ),
-              
-              customTextColumn(
-                text: 'Tipo',
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
-              
-              customTextColumn(text: listJobs.jobType),
-              
-              const Padding(
-                padding: EdgeInsets.only(top: 20, left: 20),
-                child: Text(
-                  'Regime',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
+                customTextColumnInformation(
+                  text: listJobs.company,
+                  color: AppColors.neutral,
+                  fontSize: 16,
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 5, left: 20),
-                child: Text(
-                  'CLT',
-                  style: TextStyle(
-                    fontSize: 18,
-                    //fontWeight: FontWeight.bold,
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 24.0,
+                    left: 8.0,
+                    bottom: 32.0,
                   ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 35, left: 20),
-                child: Text(
-                  'Sobre a vaga',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(
-                  top: 5,
-                  left: 20,
-                  right: 25,
-                  //bottom: 50,
-                ),
-                child: Text(
-                  "Vaga para Desenvolvedor Pleno: \nO candidato deve ter experiência sólida em desenvolvimento de software e ser capaz de trabalhar de forma independente para projetar, implementar e testar novas funcionalidades. Deve ter conhecimento avançado em pelo menos uma linguagem de programação, habilidades de resolução de problemas e capacidade de trabalhar em equipe.",
-                  style: TextStyle(
-                    fontSize: 18,
-                  ),
-                  textAlign: TextAlign.justify,
-                  softWrap: true,
-                ),
-              ),
-              Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      top: 35,
-                    ),
-                    child: Text(
-                      'Sobre a empresa',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                  Column(
+                  child: Column(
                     children: [
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 20.0,
-                              left: 20,
-                              right: 10,
-                            ),
-                            child: SizedBox(
-                              child: ClipRRect(
-                                borderRadius: const BorderRadius.only(
-                                  topLeft: Radius.circular(15.0),
-                                  topRight: Radius.circular(15.0),
-                                  bottomLeft: Radius.circular(15.0),
-                                  bottomRight: Radius.circular(15.0),
-                                ),
-                                child: Image.network(
-                                  listJobs.imageUrl,
-                                  width: context.percentHeight(.06),
-                                  height: context.percentHeight(.06),
-                                ),
-                              ),
-                            ),
+                          Icon(
+                            Icons.location_on,
+                            color: AppColors.greyBlue,
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 15.0,
-                              right: 10,
-                            ),
-                            child: Text(
-                              listJobs.company,
-                              style: const TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
+                          customTextColumnInformation(
+                            text: listJobs.city,
+                            fontSize: 18,
+                            color: AppColors.greyBlue,
                           ),
-                          // SvgPicture.asset(
-                          //   'assets/images/logo_ifood.svg',
-                          //   width: context.percentHeight(.06),
-                          //   height: context.percentHeight(.06),
-                          // ),
+                          customTextColumnInformation(
+                            //text: listJobs.modality,
+                            text: 'Remoto',
+                            fontSize: 18,
+                            color: AppColors.greyBlue,
+                          ),
                         ],
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(
-                          top: 5,
-                          left: 20,
-                          right: 25,
-                          bottom: 30,
-                        ),
-                        child: Text(
-                          "Vaga para Desenvolvedor Pleno: \nO candidato deve ter experiência sólida em desenvolvimento de software e ser capaz de trabalhar de forma independente para projetar, implementar e testar novas funcionalidades. Deve ter conhecimento avançado em pelo menos uma linguagem de programação, habilidades de resolução de problemas e capacidade de trabalhar em equipe.",
-                          style: TextStyle(
-                            fontSize: 18,
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.business_center,
+                            color: AppColors.greyBlue,
                           ),
-                          textAlign: TextAlign.justify,
-                          softWrap: true,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(''),
-                      ),
-                      //Spacer(),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text(''),
-                      ),
-                      //Spacer(),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text('Jabulane'),
+                          customTextColumnInformation(
+                            text: 'Tempo Integral',
+                            fontSize: 18,
+                            color: AppColors.greyBlue,
+                          ),
+                          customTextColumnInformation(
+                            text: 'Jr',
+                            fontSize: 18,
+                            color: AppColors.greyBlue,
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  Center(
-                    child: TextButton(
-                      onPressed: () {},
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 3,
+                        left: 20,
+                        bottom: 20,
+                      ),
+                      child: Text(
+                        'Meios de contato:',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          color: AppColors.greyBlue,
+                        ),
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: SvgPicture.asset(
+                              'assets/images/icon_vacant_link.svg',
+                              width: context.percentWidth(.06),
+                              height: context.percentHeight(.06),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: SvgPicture.asset(
+                              'assets/images/icons8-whatsapp-48.svg',
+                              width: context.percentWidth(.04),
+                              height: context.percentHeight(.04),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: Image.asset(
+                              'assets/images/icons8-gmail.svg',
+                              width: context.percentWidth(.08),
+                              height: context.percentHeight(.08),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    // ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 35, left: 20),
+                  child: Text(
+                    'Sobre a vaga',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.greyBlue,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 5,
+                    left: 20,
+                    right: 25,
+                    bottom: 25,
+                    //bottom: 50,
+                  ),
+                  child: RichText(
+                    text: TextSpan(
+                      text:
+                          "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. \n\nBeneficios \n\nVale Transporte; \n\nVale Refeição; \n\nAssistência Médica; \n\nAssistência Odontológica; \n\nFormação Acadêmica \n\nEnsino Superior Completo \n\nExperiência \n\nEntendemos que para essa evolução, é necessário o conhecimento nas tecnologias: Flutter; Google Firebase; React.Js; CI/CD; Android Crashlytics; Jest. \n\nSalário \n\nAcima de R\$ 10.000,00 \n\nCargo \n\nAnalista Desenvolvedor Front End \n\nEmpresa \n\nInnolevels \n\nAtua como reparação e manutenção de computadores e de equipamentos periféricos. \n\nRamo \n\nInformática/ Tecnologia",
+                      //style: DefaultTextStyle.of(context).style,
+                      style: TextStyle(
+                        //fontFamily: 'textLatoThin',
+                        color: AppColors.black,
+                        fontSize: 16,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'contratando',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.red,
+                          ),
+                        ),
+                      ],
+                    ),
+                    textAlign: TextAlign.justify,
+                    softWrap: true,
+                  ),
+                  // child: Text(
+                  //   "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. \n\nBeneficios \n\nVale Transporte; \n\nVale Refeição; \n\nAssistência Médica; \n\nAssistência Odontológica; \n\nFormação Acadêmica \n\nEnsino Superior Completo \n\nExperiência \n\nEntendemos que para essa evolução, é necessário o conhecimento nas tecnologias: Flutter; Google Firebase; React.Js; CI/CD; Android Crashlytics; Jest. \n\nSalário \n\nAcima de R\$ 10.000,00 \n\nCargo \n\nAnalista Desenvolvedor Front End \n\nEmpresa \n\nInnolevels \n\nAtua como reparação e manutenção de computadores e de equipamentos periféricos. \n\nRamo \n\nInformática/ Tecnologia",
+                  //   style: TextStyle(
+                  //     fontSize: 16,
+                  //   ),
+                  //   textAlign: TextAlign.justify,
+                  //   softWrap: true,
+                  // ),
+                ),
+                Card(
+                  shape: RoundedRectangleBorder(
+                    side: const BorderSide(
+                      color: Colors.grey,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  elevation: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Sobre a empresa',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.greyBlue,
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(
+                                top: 28,
+                                bottom: 16,
+                              ),
+                              child: Row(
+                                children: [
+                                  SizedBox(
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(4),
+                                      child: Image.network(
+                                        listJobs.imageUrl,
+                                        width: 40,
+                                        height: 40,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  Text(
+                                    listJobs.company,
+                                    style: const TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Text(
+                              "Tecnologia da informação e serviços. Compartilhando ideias. Transformando pessoas. Desenvolvendo negócios.",
+                              style: TextStyle(
+                                fontSize: 16,
+                              ),
+                              textAlign: TextAlign.justify,
+                              softWrap: true, // Quebra de linha automatica
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(
+                    top: 40,
+                    bottom: 25,
+                  ),
+                  child: Center(
+                    child: InkWell(
+                      //highlightColor: Colors.green,
+                      splashColor: AppColors.white,
+                      onTap: () {},
                       child: Text(
                         'Denunciar essa vaga',
                         style: TextStyle(
@@ -278,27 +332,32 @@ class VacancyDetailsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                ],
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Padding customTextColumn({
+  Padding customTextColumnInformation({
     required String text,
     double fontSize = 18,
     FontWeight fontWeight = FontWeight.normal,
+    Color color = Colors.black,
   }) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, left: 20),
+      padding: const EdgeInsets.only(
+        top: 2,
+        left: 10,
+      ),
       child: Text(
         text,
         style: TextStyle(
           fontSize: fontSize,
           fontWeight: fontWeight,
+          color: color,
         ),
       ),
     );

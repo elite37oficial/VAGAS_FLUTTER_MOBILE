@@ -14,6 +14,7 @@ class AppColors {
   static Color get background => const Color(0XFF1E1E1E);
   static Color get typeJob => const Color(0XFF2EC221);
   static Color get grey => const Color(0XFFE4EDF2);
+  static Color get greyLight => const Color(0XFFEBF2F6);
   static Color get black => const Color(0XFF000000);
   static Color get white => const Color(0XFFFFFFFF);
   static Color get red => const Color(0XFFF40000);
