@@ -58,8 +58,9 @@ class VacancyDetailsPage extends StatelessWidget {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.location_on,
+                            color: AppColors.greyBlue,
                           ),
                           customTextColumnInformation(
                             text: listJobs.city,
@@ -74,10 +75,14 @@ class VacancyDetailsPage extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(
+                        height: 16,
+                      ),
                       Row(
                         children: [
-                          const Icon(
+                          Icon(
                             Icons.business_center,
+                            color: AppColors.greyBlue,
                           ),
                           customTextColumnInformation(
                             text: 'Tempo Integral',
@@ -115,47 +120,69 @@ class VacancyDetailsPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.greyLight,
-                            // shape: BeveledRectangleBorder(
-                            //   borderRadius: BorderRadius.all(
-                            //     Radius.circular(20),
-                            //   ),
-                            // ),
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
                           ),
-                          onPressed: () {},
-                          child: SvgPicture.asset(
-                            'assets/images/icon_link.svg',
-                            width: context.percentHeight(.06),
-                            height: context.percentHeight(.06),
-                            // theme: SvgTheme(
-                            //   currentColor: AppColors.greyLight,
-                            // ),
-                          ),
-                        ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.greyLight,
-                          ),
-                          onPressed: () {},
-                          child: SvgPicture.asset(
-                            'assets/images/icons8-whatsapp-48.svg',
-                            width: context.percentHeight(.06),
-                            height: context.percentHeight(.06),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: SvgPicture.asset(
+                              'assets/images/icon_vacant_link.svg',
+                              width: context.percentWidth(.06),
+                              height: context.percentHeight(.06),
+                            ),
                           ),
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.greyLight,
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
                           ),
-                          onPressed: () {},
-                          child: SvgPicture.asset(
-                            'assets/images/icons8-gmail.svg',
-                            width: context.percentHeight(.06),
-                            height: context.percentHeight(.06),
-                            theme: SvgTheme(
-                              currentColor: AppColors.greyBlue,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: SvgPicture.asset(
+                              'assets/images/icons8-whatsapp-48.svg',
+                              width: context.percentWidth(.04),
+                              height: context.percentHeight(.04),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          height: 48,
+                          width: 48,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            border: Border.all(
+                              color: AppColors.grey,
+                              width: 1,
+                            ),
+                          ),
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: AppColors.greyLight,
+                            ),
+                            onPressed: () {},
+                            child: Image.asset(
+                              'assets/images/icons8-gmail.svg',
+                              width: context.percentWidth(.08),
+                              height: context.percentHeight(.08),
                             ),
                           ),
                         ),
@@ -176,22 +203,45 @@ class VacancyDetailsPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(
+                Padding(
+                  padding: const EdgeInsets.only(
                     top: 5,
                     left: 20,
                     right: 25,
                     bottom: 25,
                     //bottom: 50,
                   ),
-                  child: Text(
-                    "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. \n\nBeneficios \n\nVale Transporte; \n\nVale Refeição; \n\nAssistência Médica; \n\nAssistência Odontológica; \n\nFormação Acadêmica \n\nEnsino Superior Completo \n\nExperiência \n\nEntendemos que para essa evolução, é necessário o conhecimento nas tecnologias: Flutter; Google Firebase; React.Js; CI/CD; Android Crashlytics; Jest. \n\nSalário \n\nAcima de R\$ 10.000,00 \n\nCargo \n\nAnalista Desenvolvedor Front End \n\nEmpresa \n\nInnolevels \n\nAtua como reparação e manutenção de computadores e de equipamentos periféricos. \n\nRamo \n\nInformática/ Tecnologia",
-                    style: TextStyle(
-                      fontSize: 16,
+                  child: RichText(
+                    text: TextSpan(
+                      text:
+                          "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. \n\nBeneficios \n\nVale Transporte; \n\nVale Refeição; \n\nAssistência Médica; \n\nAssistência Odontológica; \n\nFormação Acadêmica \n\nEnsino Superior Completo \n\nExperiência \n\nEntendemos que para essa evolução, é necessário o conhecimento nas tecnologias: Flutter; Google Firebase; React.Js; CI/CD; Android Crashlytics; Jest. \n\nSalário \n\nAcima de R\$ 10.000,00 \n\nCargo \n\nAnalista Desenvolvedor Front End \n\nEmpresa \n\nInnolevels \n\nAtua como reparação e manutenção de computadores e de equipamentos periféricos. \n\nRamo \n\nInformática/ Tecnologia",
+                      //style: DefaultTextStyle.of(context).style,
+                      style: TextStyle(
+                        //fontFamily: 'textLatoThin',
+                        color: AppColors.black,
+                        fontSize: 16,
+                      ),
+                      children: <TextSpan>[
+                        TextSpan(
+                          text: 'contratando',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: AppColors.red,
+                          ),
+                        ),
+                      ],
                     ),
                     textAlign: TextAlign.justify,
                     softWrap: true,
                   ),
+                  // child: Text(
+                  //   "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. \n\nBeneficios \n\nVale Transporte; \n\nVale Refeição; \n\nAssistência Médica; \n\nAssistência Odontológica; \n\nFormação Acadêmica \n\nEnsino Superior Completo \n\nExperiência \n\nEntendemos que para essa evolução, é necessário o conhecimento nas tecnologias: Flutter; Google Firebase; React.Js; CI/CD; Android Crashlytics; Jest. \n\nSalário \n\nAcima de R\$ 10.000,00 \n\nCargo \n\nAnalista Desenvolvedor Front End \n\nEmpresa \n\nInnolevels \n\nAtua como reparação e manutenção de computadores e de equipamentos periféricos. \n\nRamo \n\nInformática/ Tecnologia",
+                  //   style: TextStyle(
+                  //     fontSize: 16,
+                  //   ),
+                  //   textAlign: TextAlign.justify,
+                  //   softWrap: true,
+                  // ),
                 ),
                 Card(
                   shape: RoundedRectangleBorder(
@@ -264,7 +314,7 @@ class VacancyDetailsPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(
                     top: 40,
-                    bottom: 10,
+                    bottom: 25,
                   ),
                   child: Center(
                     child: InkWell(
