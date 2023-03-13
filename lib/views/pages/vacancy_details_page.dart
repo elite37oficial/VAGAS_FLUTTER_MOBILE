@@ -4,6 +4,7 @@ import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/data/mock_job.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
 import '../../core/ui/styles/app_colors.dart';
+import 'vacancy_detail_text.dart';
 
 class VacancyDetailsPage extends StatelessWidget {
   const VacancyDetailsPage({
@@ -27,6 +28,7 @@ class VacancyDetailsPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
+
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
