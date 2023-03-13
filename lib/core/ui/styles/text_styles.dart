@@ -85,25 +85,25 @@ class TextStyles {
 
   //*======= CARDS CONFIG =====================================
 
-  TextStyle get textTitleCards => textInterSemiBold.copyWith(
-        color: AppColors.darkBlue,
+  TextStyle get textTitleCards => textInterRegular.copyWith(
+        color: AppColors.cardJobTitle,
         fontSize: 18,
       );
-  TextStyle get textTitleJobList => textInterSemiBold.copyWith(
-        color: AppColors.titleList,
-        fontSize: 18,
+  TextStyle get textFilterCards => textInterRegular.copyWith(
+        color: AppColors.cardFilter,
+        fontSize: 17,
+      );
+  TextStyle get textTitleJobList => textInterRegular.copyWith(
+        color: AppColors.cardJobTitle,
+        fontSize: 16,
       );
   TextStyle get textCompanyJobList => textInterRegular.copyWith(
-        color: AppColors.titleList.withOpacity(.5),
-        fontSize: 11,
+        color: AppColors.cardJobCompany,
+        fontSize: 12,
       );
   TextStyle get textCityTypeJobList => textSourceSansProRegular.copyWith(
-        color: AppColors.neutral,
-        fontSize: 9,
-      );
-  TextStyle get textValueJobList => textInterSemiBold.copyWith(
-        color: AppColors.darkBlue,
-        fontSize: 9,
+        color: AppColors.cardDetail,
+        fontSize: 10,
       );
 }
 
