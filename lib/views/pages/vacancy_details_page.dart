@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
+import 'package:vagas_flutter_mobile/data/mock_job.dart';
+import 'package:vagas_flutter_mobile/models/job_model.dart';
 
 import '../../core/ui/styles/app_colors.dart';
 
