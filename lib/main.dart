@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'views/pages/vacancy_details_page.dart';
+import 'views/vacancy_details/vacancy_details_page.dart';
 
 void main() {
   runApp(const MyApp());

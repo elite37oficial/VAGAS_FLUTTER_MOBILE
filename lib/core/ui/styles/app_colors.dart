@@ -15,9 +15,12 @@ class AppColors {
   static Color get typeJob => const Color(0XFF2EC221);
   static Color get grey => const Color(0XFFE4EDF2);
   static Color get greyLight => const Color(0XFFEBF2F6);
+  static Color get grey500 => Colors.grey.shade500;
   static Color get black => const Color(0XFF000000);
   static Color get white => const Color(0XFFFFFFFF);
   static Color get red => const Color(0XFFF40000);
+  static Color get greyBorderDetails => const Color(0XFfC1D6E3);
+  static Color get greyTitle => const Color(0XFF142B3A);
 }
 
 extension AppColorsExtensions on BuildContext {
