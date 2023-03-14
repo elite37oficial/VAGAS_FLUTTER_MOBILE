@@ -91,7 +91,7 @@ class TextStyles {
       );
   TextStyle get textFilterCards => textInterRegular.copyWith(
         color: AppColors.cardFilter,
-        fontSize: 17,
+        fontSize: 14,
       );
   TextStyle get textTitleJobList => textInterRegular.copyWith(
         color: AppColors.cardJobTitle,
@@ -132,6 +132,10 @@ class TextStyles {
   TextStyle get textNameAppSplash => textInterLight.copyWith(
         color: AppColors.greyBlue,
         fontSize: 36,
+      );
+  TextStyle get textFilter => textInterRegular.copyWith(
+        color: AppColors.cardBorderLine,
+        fontSize: 16,
       );
 }
 
