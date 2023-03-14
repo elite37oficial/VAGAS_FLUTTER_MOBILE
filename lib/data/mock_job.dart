@@ -8,6 +8,12 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    seniority: 'JR',
+    modality: "Remoto",
+    // Falta Regime (CLT ou PJ)
+    // Informações da empresa
+    // Tipo de Vaga (Tempo Integral ou Meio periodo)
+    // Sobre a vaga
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -17,6 +23,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -25,6 +33,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -34,6 +44,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -42,6 +54,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -51,6 +65,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -59,6 +75,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -68,6 +86,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -76,6 +96,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -85,6 +107,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -93,6 +117,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -102,6 +128,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -110,6 +138,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -119,6 +149,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -127,6 +159,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -136,6 +170,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -144,6 +180,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -153,6 +191,8 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Engineer",
@@ -161,6 +201,8 @@ final mockJob = [
     jobType: "FullTime",
     value: 15000.0,
     imageUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
   JobModel(
     jobOportunity: "Flutter Developer Jr.",
@@ -170,5 +212,7 @@ final mockJob = [
     value: 15000.0,
     imageUrl:
         "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
+    seniority: 'JR',
+    modality: "Remoto",
   ),
 ];

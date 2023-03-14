@@ -6,6 +6,8 @@ class JobModel {
   String jobType;
   double value;
   String imageUrl;
+  String modality;
+  String seniority;
 
   JobModel({
     required this.jobOportunity,
@@ -14,5 +16,8 @@ class JobModel {
     required this.jobType,
     required this.value,
     required this.imageUrl,
+    required this.modality,
+    required this.seniority,
+    
   });
 }
