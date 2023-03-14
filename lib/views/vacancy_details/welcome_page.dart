@@ -8,8 +8,6 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-
     return Scaffold(
       backgroundColor: AppColors.greyBlue,
       body: SafeArea(
@@ -24,7 +22,7 @@ class WelcomePage extends StatelessWidget {
                     child: SvgPicture.asset(
                       'assets/images/background_icons.svg',
                       height: context.percentHeight(.6),
-                      width: context.percentHeight(.9),
+                      width: context.percentWidth(.9),
                     ),
                   ),
                   Positioned(
@@ -43,8 +41,8 @@ class WelcomePage extends StatelessWidget {
                     bottom: 70,
                     child: SvgPicture.asset(
                       'assets/images/logo_elite_37.svg',
-                      height: mediaQuery.size.height * 0.36,
-                      width: mediaQuery.size.width * .4,
+                      height: context.percentHeight(0.36),
+                      width: context.percentWidth(.4),
                     ),
                   ),
                 ],
@@ -86,8 +84,8 @@ class WelcomePage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: mediaQuery.size.height * .06,
-                width: mediaQuery.size.width * .8,
+                height: context.percentHeight(.06),
+                width: context.percentWidth(.8),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(

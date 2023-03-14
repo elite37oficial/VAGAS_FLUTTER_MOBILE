@@ -12,67 +12,92 @@ class CardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size medida = MediaQuery.of(context).size;
     return SizedBox(
-      height: medida.height * 0.10,
-      width: medida.width * 0.8,
+      width: double.infinity,
       child: Card(
+        elevation: 0,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
           side: BorderSide(
-            color: AppColors.grey,
+            color: AppColors.cardBorderLine,
           ),
         ),
-        child: Row(children: [
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
+        child: Row(
+          children: [
+            Container(
+              margin: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(4),
+              ),
+              height: 48,
+              width: 48,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(6.0),
+                child: Image.network(
+                  job.imageUrl,
+                  height: 48,
+                  width: 48,
                 ),
-                height: 48,
-                width: 48,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6.0),
-                  child: Image.network(
-                    job.imageUrl,
-                    height: 48,
-                    width: 48,
-                  ),
-                )),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                job.jobOportunity,
-                style: context.textStyles.textTitleJobList,
               ),
-              Text(
-                job.company,
-                style: context.textStyles.textCompanyJobList,
-              ),
-              Row(
+            ),
+            SizedBox(
+              height: 56,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "${job.city} - ",
-                    style: context.textStyles.textCityTypeJobList,
+                    job.jobOportunity,
+                    style: context.textStyles.textTitleJobList,
                   ),
                   Text(
-                    "${job.jobType} - ",
-                    style: context.textStyles.textCityTypeJobList,
+                    job.company,
+                    style: context.textStyles.textCompanyJobList,
                   ),
-                  Text(
-                    "R\$ ${job.value}",
-                    style: context.textStyles.textValueJobList,
-                  ),
+                  Row(
+                    children: [
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.location_on_sharp,
+                            size: 12,
+                            color: AppColors.cardDetail,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            job.city,
+                            style: context.textStyles.textCityTypeJobList,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.access_time_filled_outlined,
+                            size: 12,
+                            color: AppColors.cardDetail,
+                          ),
+                          SizedBox(
+                            width: 4,
+                          ),
+                          Text(
+                            job.jobType,
+                            style: context.textStyles.textCityTypeJobList,
+                          ),
+                        ],
+                      ),
+                    ],
+                  )
                 ],
-              )
-            ],
-          )
-        ]),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
