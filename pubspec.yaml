@@ -62,7 +62,8 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
-  #   - images/a_dot_ham.jpeg
+    - assets/images/Logo_medium_2.svg
+    - assets/images/logo_small.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

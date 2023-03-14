@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
@@ -59,7 +60,7 @@ class WelcomePage extends StatelessWidget {
                 height: context.percentHeight(0.1),
               ), */
               SizedBox(
-                width: context.percentWith(.8),
+                width: context.percentWidth(.8),
                 height: context.percentHeight(.06),
                 child: ElevatedButton(
                   onPressed: () {},

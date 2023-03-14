@@ -1,9 +1,9 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\filip\fvm\default"
-export "FLUTTER_APPLICATION_PATH=D:\Projetos e estudos\dart_flutter\app_vagas\VAGAS_FLUTTER_MOBILE"
+export "FLUTTER_ROOT=/usr/local/Caskroom/flutter/3.7.1/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/wellysonpontes/Documents/Curso/Flutter/Elite37/VAGAS_FLUTTER_MOBILE"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
-export "FLUTTER_TARGET=lib\main.dart"
+export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
 export "FLUTTER_BUILD_NUMBER=1"
