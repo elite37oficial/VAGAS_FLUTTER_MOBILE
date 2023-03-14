@@ -14,6 +14,8 @@ class AppColors {
   static Color get cardFilter => const Color(0XffA0A0A0);
   static Color get greyBlue => const Color(0XFF387CA6);
   static Color get grey => const Color(0XFFE4EDF2);
+  static Color get greyLight => const Color(0XFFEBF2F6);
+  static Color get black => const Color(0XFF000000);
   static Color get white => const Color(0XFFFFFFFF);
 }
 
