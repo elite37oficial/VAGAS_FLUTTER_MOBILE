@@ -1,14 +1,19 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
-
+import 'package:vagas_flutter_mobile/data/mock_job.dart';
+import 'package:vagas_flutter_mobile/models/job_model.dart';
 import '../../core/ui/styles/app_colors.dart';
 
 class VacancyDetailsPage extends StatelessWidget {
-  const VacancyDetailsPage({super.key});
+  const VacancyDetailsPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final JobModel listJobs = mockJob[0];
     return Scaffold(
       appBar: AppBar(
         title: const Text('Detalhes da vaga'),

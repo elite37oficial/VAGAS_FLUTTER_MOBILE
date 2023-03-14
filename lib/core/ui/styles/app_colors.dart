@@ -12,6 +12,7 @@ class AppColors {
   static Color get darkBlue => const Color(0XFF023E73);
   static Color get lightBlue => const Color(0XFF43BDD9);
   static Color get background => const Color(0XFF1E1E1E);
+  static Color get typeJob => const Color(0XFF2EC221);
   static Color get grey => const Color(0XFFE4EDF2);
   static Color get black => const Color(0XFF000000);
   static Color get white => const Color(0XFFFFFFFF);
