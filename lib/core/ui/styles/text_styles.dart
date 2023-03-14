@@ -105,6 +105,30 @@ class TextStyles {
         color: AppColors.cardDetail,
         fontSize: 10,
       );
+  TextStyle get textTitleDetails => textLatoRegular.copyWith(
+        color: AppColors.greyTitle,
+        fontSize: 28,
+      );
+  TextStyle get textSubTitleDetails => textLatoRegular.copyWith(
+        color: AppColors.greyTitle,
+        fontSize: 18,
+      );
+  TextStyle get textDetails => textLatoRegular.copyWith(
+        color: AppColors.greyTitle,
+        fontSize: 16,
+      );
+  TextStyle get textCompanyDetails => textLatoRegular.copyWith(
+        color: AppColors.greyTitle,
+        fontSize: 24,
+      );
+  TextStyle get textEmphasisDetails => textLatoRegular.copyWith(
+        color: AppColors.greyBlue,
+        fontSize: 18,
+      );
+  TextStyle get textDenounceDetails => textInterRegular.copyWith(
+        color: AppColors.white,
+        fontSize: 19,
+      );
 }
 
 extension TextStylesExtensions on BuildContext {

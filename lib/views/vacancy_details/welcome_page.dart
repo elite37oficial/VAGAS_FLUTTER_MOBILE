@@ -22,7 +22,7 @@ class WelcomePage extends StatelessWidget {
                     child: SvgPicture.asset(
                       'assets/images/background_icons.svg',
                       height: context.percentHeight(.6),
-                      width: context.percentWith(.9),
+                      width: context.percentWidth(.9),
                     ),
                   ),
                   Positioned(
@@ -42,7 +42,7 @@ class WelcomePage extends StatelessWidget {
                     child: SvgPicture.asset(
                       'assets/images/logo_elite_37.svg',
                       height: context.percentHeight(0.36),
-                      width: context.percentWith(.4),
+                      width: context.percentWidth(.4),
                     ),
                   ),
                 ],
@@ -85,7 +85,7 @@ class WelcomePage extends StatelessWidget {
               ),
               SizedBox(
                 height: context.percentHeight(.06),
-                width: context.percentWith(.8),
+                width: context.percentWidth(.8),
                 child: ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
