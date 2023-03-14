@@ -63,7 +63,9 @@ class WelcomePage extends StatelessWidget {
                 width: context.percentWidth(.8),
                 height: context.percentHeight(.06),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushReplacementNamed(AppRoutes.home);
+                  },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
                     backgroundColor: AppColors.greyBlue,
