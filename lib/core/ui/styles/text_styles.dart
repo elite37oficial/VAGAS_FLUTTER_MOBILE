@@ -129,6 +129,10 @@ class TextStyles {
         color: AppColors.greyBlue,
         fontSize: 16,
       );
+  TextStyle get textNameAppSplash => textInterLight.copyWith(
+        color: AppColors.greyBlue,
+        fontSize: 36,
+      );
   TextStyle get textFilter => textInterRegular.copyWith(
         color: AppColors.cardBorderLine,
         fontSize: 16,
