@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
 import '../../core/ui/widgets/card/card_widget.dart';
+import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 import '../../data/mock_job.dart';
 
 class HomeView extends StatelessWidget {
@@ -12,22 +14,14 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<JobModel> jobsList = mockJob;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Elite Vagas",
-          style: TextStyle(fontSize: 32),
-        ),
-        backgroundColor: AppColors.appBar,
-        elevation: 0,
-      ),
+      backgroundColor: AppColors.white,
+      appBar: CustomAppBar(),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
+            automaticallyImplyLeading: !Navigator.canPop(context),
             backgroundColor: AppColors.appBar,
-            title: const Text(
-              "Busque pela vaga ideal...",
-              style: TextStyle(color: Colors.black),
-            ),
+            title: CustomSliverAppBar(),
             flexibleSpace: FlexibleSpaceBar(
               background: Align(
                 alignment: Alignment.center,
@@ -38,7 +32,7 @@ class HomeView extends StatelessWidget {
                     Container(
                       color: Colors.white,
                       padding: const EdgeInsets.only(
-                          left: 22, right: 22, top: 38, bottom: 24),
+                          left: 22, right: 22, top: 24, bottom: 24),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +61,7 @@ class HomeView extends StatelessWidget {
                 ),
               ),
             ),
-            expandedHeight: 150,
+            expandedHeight: 140,
             floating: true,
             pinned: false,
           ),
