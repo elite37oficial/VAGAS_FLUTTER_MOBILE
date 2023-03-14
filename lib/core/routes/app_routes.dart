@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/views/home/home_view.dart';
+import 'package:vagas_flutter_mobile/views/splash/splash_screen_view.dart';
 import 'package:vagas_flutter_mobile/views/vacancy_details/vacancy_details_page.dart';
 import 'package:vagas_flutter_mobile/views/vacancy_details/welcome_page.dart';
 
 class AppRoutes {
-  static const welcome = "/";
+  static const splash = "/";
+  static const welcome = "welcome";
   static const home = "/home";
   static const vacancy = "/vacancy";
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case AppRoutes.splash:
+      return MaterialPageRoute(builder: (context) => SplashScreenView());
     case AppRoutes.welcome:
       return MaterialPageRoute(builder: (context) => WelcomePage());
     case AppRoutes.home:
