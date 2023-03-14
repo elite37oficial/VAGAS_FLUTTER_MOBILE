@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/core/ui/styles/image_styles.dart';
 import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/data/mock_job.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
@@ -111,16 +112,17 @@ class VacancyDetailsPage extends StatelessWidget {
                       children: [
                         contactButton(
                           context: context,
-                          svgAsset: 'assets/images/link_contact.png.svg',
+                          svgAsset: context.image.linkContact,
+                          //svgAsset: 'assets/images/link_contact.png.svg',
                         ),
                         contactButton(
                           isWhatsApp: true,
                           context: context,
-                          svgAsset: 'assets/images/whats_app_contact.svg',
+                          svgAsset: context.image.whatsAppContact,
                         ),
                         contactButton(
                           context: context,
-                          svgAsset: 'assets/images/email_contact.svg',
+                          svgAsset: context.image.emailContact,
                         ),
                       ],
                     ),
@@ -219,10 +221,7 @@ class VacancyDetailsPage extends StatelessWidget {
                       onTap: () {},
                       child: Text(
                         'Denunciar essa vaga',
-                        style: TextStyle(
-                          color: AppColors.greyBlue,
-                          fontSize: 16,
-                        ),
+                        style: context.textStyles.textDenounceDetails,
                       ),
                     ),
                   ),

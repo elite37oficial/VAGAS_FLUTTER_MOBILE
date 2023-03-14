@@ -126,8 +126,8 @@ class TextStyles {
         fontSize: 18,
       );
   TextStyle get textDenounceDetails => textInterRegular.copyWith(
-        color: AppColors.white,
-        fontSize: 19,
+        color: AppColors.greyBlue,
+        fontSize: 16,
       );
 }
 
