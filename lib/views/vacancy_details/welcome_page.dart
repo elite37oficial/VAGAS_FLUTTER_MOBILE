@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
 import '../../core/ui/styles/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -87,7 +88,9 @@ class WelcomePage extends StatelessWidget {
                 height: context.percentHeight(.06),
                 width: context.percentWidth(.8),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(AppRoutes.home);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: AppColors.grey,
                   ),
