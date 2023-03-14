@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'views/pages/vacancy_details_page.dart';
 import 'views/pages/welcome_page.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const VacancyDetailsPage(),
+      home: const WelcomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
