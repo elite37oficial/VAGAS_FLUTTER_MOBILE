@@ -5,7 +5,6 @@ import 'package:vagas_flutter_mobile/data/mock_job.dart';
 import 'package:vagas_flutter_mobile/models/job_model.dart';
 
 import '../../core/ui/styles/app_colors.dart';
-import 'vacancy_detail_text.dart';
 
 class VacancyDetailsPage extends StatelessWidget {
   const VacancyDetailsPage({
@@ -29,7 +28,6 @@ class VacancyDetailsPage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.only(
@@ -47,7 +45,7 @@ class VacancyDetailsPage extends StatelessWidget {
                 ),
                 customTextColumnInformation(
                   text: listJobs.company,
-                  color: AppColors.neutral,
+                  color: AppColors.black,
                   fontSize: 16,
                 ),
                 Padding(
@@ -229,7 +227,7 @@ class VacancyDetailsPage extends StatelessWidget {
                           text: 'contratando',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            color: AppColors.red,
+                            color: AppColors.cardDetail,
                           ),
                         ),
                       ],
