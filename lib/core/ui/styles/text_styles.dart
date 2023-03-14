@@ -105,6 +105,14 @@ class TextStyles {
         color: AppColors.darkBlue,
         fontSize: 9,
       );
+  TextStyle get textNameAppWelcomePage => textInterRegular.copyWith(
+        color: AppColors.greyBlue,
+        fontSize: 40,
+      );
+  TextStyle get textButtonWelcomePage => textInterRegular.copyWith(
+        color: AppColors.white,
+        fontSize: 18,
+      );
 }
 
 extension TextStylesExtensions on BuildContext {
