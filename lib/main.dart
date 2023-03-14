@@ -1,23 +1,10 @@
 import 'package:flutter/material.dart';
+import 'my_app.dart';
+
 import 'views/pages/vacancy_details_page.dart';
 import 'views/pages/welcome_page.dart';
 
+
 void main() {
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Elite Vagas',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const VacancyDetailsPage(),
-      debugShowCheckedModeBanner: false,
-    );
-  }
 }
