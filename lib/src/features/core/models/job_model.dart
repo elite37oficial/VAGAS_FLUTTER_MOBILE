@@ -1,23 +1,25 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class JobModel {
-  String jobOportunity;
+  String oportunity;
   String company;
   String city;
-  String jobType;
+  String type;
   double value;
   String imageUrl;
   String modality;
   String seniority;
+  String description;
+  String aboutCompany;
 
   JobModel({
-    required this.jobOportunity,
+    required this.oportunity,
     required this.company,
     required this.city,
-    required this.jobType,
+    required this.type,
     required this.value,
     required this.imageUrl,
     required this.modality,
     required this.seniority,
-    
+    required this.description,
+    required this.aboutCompany,
   });
 }

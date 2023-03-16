@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
