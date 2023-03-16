@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 
 class TextStyles {
   static TextStyles? _instance;

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/core/ui/widgets/custom_app_bar.dart';
-import 'package:vagas_flutter_mobile/models/job_model.dart';
-import '../../core/ui/widgets/card/card_widget.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
+import 'package:vagas_flutter_mobile/src/features/core/models/job_model.dart';
+import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
-import '../../data/mock_job.dart';
+import '../../../data/datasource/mock/mock_job.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

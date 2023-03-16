@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/image_styles.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/data/mock_job.dart';
-import 'package:vagas_flutter_mobile/models/job_model.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/mock/mock_job.dart';
+import 'package:vagas_flutter_mobile/src/features/core/models/job_model.dart';
 import '../../core/ui/styles/app_colors.dart';
 
-class VacancyDetailsPage extends StatelessWidget {
-  const VacancyDetailsPage({
+class JobDetailsView extends StatelessWidget {
+  const JobDetailsView({
     Key? key,
   }) : super(key: key);
 
@@ -39,7 +39,7 @@ class VacancyDetailsPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  listJobs.jobOportunity,
+                  listJobs.oportunity,
                   style: context.textStyles.textTitleDetails,
                 ),
                 customTextColumnInformation(
@@ -82,7 +82,7 @@ class VacancyDetailsPage extends StatelessWidget {
                             color: AppColors.greyBlue,
                           ),
                           customTextColumnInformation(
-                            text: ' ${listJobs.jobType} - ',
+                            text: ' ${listJobs.type} - ',
                             textStyle: context.textStyles.textEmphasisDetails,
                           ),
                           customTextColumnInformation(
@@ -113,7 +113,6 @@ class VacancyDetailsPage extends StatelessWidget {
                         contactButton(
                           context: context,
                           svgAsset: context.image.linkContact,
-                          //svgAsset: 'assets/images/link_contact.png.svg',
                         ),
                         contactButton(
                           isWhatsApp: true,
@@ -144,7 +143,7 @@ class VacancyDetailsPage extends StatelessWidget {
                     bottom: 25,
                   ),
                   child: Text(
-                    "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.  ",
+                    listJobs.description,
                     style: context.textStyles.textDetails,
                     textAlign: TextAlign.justify,
                     softWrap: true,
@@ -199,7 +198,7 @@ class VacancyDetailsPage extends StatelessWidget {
                               ),
                             ),
                             Text(
-                              "Tecnologia da informação e serviços. Compartilhando ideias. Transformando pessoas. Desenvolvendo negócios.",
+                              listJobs.aboutCompany,
                               style: context.textStyles.textDetails,
                               textAlign: TextAlign.justify,
                               softWrap: true,

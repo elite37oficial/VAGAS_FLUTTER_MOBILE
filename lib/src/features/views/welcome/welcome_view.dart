@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/core/routes/app_routes.dart';
-import 'package:vagas_flutter_mobile/core/ui/helpers/size_extensions.dart';
+import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import '../../core/ui/styles/app_colors.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class WelcomeView extends StatelessWidget {
+  const WelcomeView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/app_colors.dart';
-import 'package:vagas_flutter_mobile/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/models/job_model.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/models/job_model.dart';
 
 class CardWidget extends StatelessWidget {
   final JobModel job;
@@ -47,7 +47,7 @@ class CardWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    job.jobOportunity,
+                    job.oportunity,
                     style: context.textStyles.textTitleJobList,
                   ),
                   Text(
@@ -86,7 +86,7 @@ class CardWidget extends StatelessWidget {
                             width: 4,
                           ),
                           Text(
-                            job.jobType,
+                            job.type,
                             style: context.textStyles.textCityTypeJobList,
                           ),
                         ],
