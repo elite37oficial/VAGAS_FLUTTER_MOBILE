@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/models/job_model.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
 
 class CardWidget extends StatelessWidget {
-  final JobModel job;
+  final JobEntity job;
   const CardWidget({
     Key? key,
     required this.job,

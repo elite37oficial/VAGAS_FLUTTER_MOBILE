@@ -1,4 +1,4 @@
-class JobModel {
+class JobEntity {
   String oportunity;
   String company;
   String city;
@@ -10,7 +10,7 @@ class JobModel {
   String description;
   String aboutCompany;
 
-  JobModel({
+  JobEntity({
     required this.oportunity,
     required this.company,
     required this.city,
