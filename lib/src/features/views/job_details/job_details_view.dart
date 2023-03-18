@@ -16,7 +16,7 @@ class JobDetailsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(title: "Detalhes da vaga"),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
