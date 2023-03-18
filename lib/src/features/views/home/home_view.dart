@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/mock/get_jobs/get_jobs_datasource_mock_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_jobs_repository_imp.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_jobs/get_jobs_usecase_imp.dart';
-import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
