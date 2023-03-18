@@ -1,32 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/mock/mock_job.dart';
-import 'package:vagas_flutter_mobile/src/features/core/models/job_model.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import '../../core/ui/styles/app_colors.dart';
 
 class JobDetailsView extends StatelessWidget {
+  final JobEntity listJobs;
   const JobDetailsView({
     Key? key,
+    required this.listJobs,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final JobModel listJobs = mockJob[0];
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Detalhes da vaga'),
-        backgroundColor: AppColors.greyBlue,
-        centerTitle: true,
-        leading: const Icon(Icons.arrow_back),
-        actions: <Widget>[
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.share),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
