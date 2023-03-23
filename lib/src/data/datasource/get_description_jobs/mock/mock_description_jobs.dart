@@ -1,7 +1,8 @@
-import 'package:vagas_flutter_mobile/src/data/dtos/job_dto.dart';
+import 'package:vagas_flutter_mobile/src/data/dtos/description_job_dto.dart';
 
-final mockJob = [
-  JobDto(
+final mockDescriptionJobs = [
+  DescriptionJobDto(
+    id: 10,
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -15,7 +16,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 20,
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -30,7 +32,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 30,
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -44,7 +47,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 40,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -59,7 +63,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 50,
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -73,7 +78,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 60,
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -88,7 +94,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 70,
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -102,7 +109,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 80,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -117,7 +125,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 90,
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -131,7 +140,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 100,
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -146,7 +156,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 110,
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -160,7 +171,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 120,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -175,7 +187,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 130,
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -189,7 +202,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 140,
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -204,7 +218,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 150,
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -218,7 +233,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 160,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -233,7 +249,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 170,
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -247,7 +264,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 180,
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -262,7 +280,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 190,
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -276,7 +295,8 @@ final mockJob = [
         "Estamos contratando Desenvolvedor Front-end Flutter para a execução de projetos de transformação digital, desenvolvendo ferramentas inovadoras para entregar a melhor experiência para os usuários da plataforma de uma grande empresa. Se você conhece ou deseja aprendizado em Redux, Kotlin, React Native, Swift; desenvolveu e implantou aplicativos na App Store ou Google Play; AWS; Javascript ES6+, Node Js; desenvolvimento de aplicações web responsivas; design patterns; pencil, balsamiq; Metodologias Ágeis; GraphQL; será um grande diferencial para oportunidade. Atuação 100% remota. Beneficios Vale Transporte.",
     modality: "Remoto",
   ),
-  JobDto(
+  DescriptionJobDto(
+    id: 200,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",

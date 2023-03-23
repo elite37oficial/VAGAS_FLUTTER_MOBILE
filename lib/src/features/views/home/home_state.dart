@@ -1,5 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 
 abstract class HomeState {}
 
@@ -12,7 +11,7 @@ class ErroHomeState implements HomeState {
 }
 
 class ListJobsHomeState implements HomeState {
-  final List<JobEntity> listJobs;
+  final List<HomeJobEntity> listJobs;
   ListJobsHomeState({required this.listJobs});
 }
 

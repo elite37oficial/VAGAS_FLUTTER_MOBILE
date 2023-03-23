@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/description_job_entity.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/splash/splash_screen_view.dart';
-import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/welcome/welcome_view.dart';
+
+import '../../../domain/entities/home_job_entity.dart';
+import '../../views/job_details/job_details_view.dart';
 
 class AppRoutes {
   static const splash = "/";
@@ -23,8 +25,10 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case AppRoutes.jobDetail:
       return MaterialPageRoute(
         builder: (context) {
-          var listjobs = settings.arguments as JobEntity;
-          return JobDetailsView(listJobs: listjobs);
+          var id = settings.arguments as int;
+          return JobDetailsView(
+            id: id,
+          );
         },
       );
 

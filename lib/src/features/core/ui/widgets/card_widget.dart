@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
-
-import '../../../views/job_details/job_details_view.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 import '../../routes/app_routes.dart';
 
 class CardWidget extends StatelessWidget {
-  final JobEntity job;
+  final int id;
+  final HomeJobEntity homeJob;
   const CardWidget({
     Key? key,
-    required this.job,
+    required this.id,
+    required this.homeJob,
   }) : super(key: key);
 
   @override
@@ -19,7 +19,7 @@ class CardWidget extends StatelessWidget {
       onTap: () {
         Navigator.of(context).pushNamed(
           AppRoutes.jobDetail,
-          arguments: job,
+          arguments: id,
         );
       },
       child: SizedBox(
@@ -44,7 +44,7 @@ class CardWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6.0),
                   child: Image.network(
-                    job.imageUrl,
+                    homeJob.imageUrl,
                     height: 48,
                     width: 48,
                   ),
@@ -57,11 +57,11 @@ class CardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      job.oportunity,
+                      homeJob.oportunity,
                       style: context.textStyles.textTitleJobList,
                     ),
                     Text(
-                      job.company,
+                      homeJob.company,
                       style: context.textStyles.textCompanyJobList,
                     ),
                     Row(
@@ -77,7 +77,7 @@ class CardWidget extends StatelessWidget {
                               width: 4,
                             ),
                             Text(
-                              job.city,
+                              homeJob.city,
                               style: context.textStyles.textCityTypeJobList,
                             ),
                           ],
@@ -96,7 +96,7 @@ class CardWidget extends StatelessWidget {
                               width: 4,
                             ),
                             Text(
-                              job.type,
+                              homeJob.type,
                               style: context.textStyles.textCityTypeJobList,
                             ),
                           ],
