@@ -1,22 +1,24 @@
-class JobEntity {
+class DescriptionJobEntity {
+  int id;
   String oportunity;
   String company;
   String city;
   String type;
-  double value;
   String imageUrl;
+  double value;
   String modality;
   String seniority;
   String description;
   String aboutCompany;
 
-  JobEntity({
+  DescriptionJobEntity({
+    required this.id,
     required this.oportunity,
     required this.company,
     required this.city,
     required this.type,
-    required this.value,
     required this.imageUrl,
+    required this.value,
     required this.modality,
     required this.seniority,
     required this.description,
