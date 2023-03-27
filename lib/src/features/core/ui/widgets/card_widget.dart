@@ -21,6 +21,7 @@ class CardWidget extends StatelessWidget {
           AppRoutes.jobDetail,
           arguments: id,
         );
+        print(id);
       },
       child: SizedBox(
         width: double.infinity,

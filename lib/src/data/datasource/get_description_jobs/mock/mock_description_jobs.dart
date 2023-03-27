@@ -48,7 +48,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 40,
+    id: 4068735423,
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
