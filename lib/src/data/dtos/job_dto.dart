@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
 
 class JobDto extends JobEntity {

@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/mock/get_jobs/get_jobs_datasource_mock_imp.dart';
-import 'package:vagas_flutter_mobile/src/data/repositories/get_jobs_repository_imp.dart';
-import 'package:vagas_flutter_mobile/src/domain/usecases/get_jobs/get_jobs_usecase_imp.dart';
+import 'package:provider/provider.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
-import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
+import 'package:vagas_flutter_mobile/src/features/views/home/home_provider.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
-
 import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 
@@ -21,23 +18,20 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final HomeController _homeController = HomeController(
-    GetJobUseCaseImp(
-      GetJobsRepositoryImp(
-        GetJobsDataSourceMockImp(),
-      ),
-    ),
-  );
-
   @override
   void initState() {
     super.initState();
+    final _homeController = Provider.of<HomeProvider>(
+      context,
+      listen: false, // desativar a gerencia de estados
+    ).homeController;
     Future.delayed(Duration(seconds: 2))
         .then((value) => _homeController.getJobs());
   }
 
   @override
   Widget build(BuildContext context) {
+    final _homeController = Provider.of<HomeProvider>(context).homeController;
     return Scaffold(
         backgroundColor: AppColors.white,
         appBar: CustomAppBar(),

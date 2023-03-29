@@ -3,7 +3,7 @@ import 'package:vagas_flutter_mobile/src/domain/entities/job_entity.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_jobs/get_jobs_usecase.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
 
-class HomeController extends ValueNotifier<HomeState> {
+class HomeController extends ValueNotifier<HomeState>{
   final GetJobsUseCase _getJobsUseCase;
   HomeController(this._getJobsUseCase) : super(LoadingHomeState());
 
