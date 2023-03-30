@@ -1,7 +1,7 @@
 class HomeJobEntity {
   int id;
   String oportunity;
-  String company;
+  // String company;
   String city;
   String type;
   String imageUrl;
@@ -9,7 +9,7 @@ class HomeJobEntity {
   HomeJobEntity({
     required this.id,
     required this.oportunity,
-    required this.company,
+    // required this.company,
     required this.city,
     required this.type,
     required this.imageUrl,

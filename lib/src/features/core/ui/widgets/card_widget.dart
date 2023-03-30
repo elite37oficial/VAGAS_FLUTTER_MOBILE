@@ -62,7 +62,7 @@ class CardWidget extends StatelessWidget {
                       style: context.textStyles.textTitleJobList,
                     ),
                     Text(
-                      homeJob.company,
+                      homeJob.oportunity,
                       style: context.textStyles.textCompanyJobList,
                     ),
                     Row(

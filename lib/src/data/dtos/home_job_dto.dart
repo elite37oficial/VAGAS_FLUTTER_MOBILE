@@ -4,34 +4,34 @@ import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 
 class HomeJobDto extends HomeJobEntity {
   int id;
-  String oportunity;
-  String company;
+  String title;
+  // String company;
   String city;
-  String type;
+  String modality;
   String imageUrl;
   HomeJobDto({
     required this.id,
-    required this.oportunity,
-    required this.company,
+    required this.title,
+    // required this.company,
     required this.city,
-    required this.type,
+    required this.modality,
     required this.imageUrl,
   }) : super(
           id: id,
-          oportunity: oportunity,
-          company: company,
+          oportunity: title,
+          // company: company,
           city: city,
-          type: type,
+          type: modality,
           imageUrl: imageUrl,
         );
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
-      'oportunity': oportunity,
-      'company': company,
+      'title': title,
+      // 'company': company,
       'city': city,
-      'type': type,
+      'modality': modality,
       'imageUrl': imageUrl,
     };
   }
@@ -39,10 +39,10 @@ class HomeJobDto extends HomeJobEntity {
   factory HomeJobDto.fromMap(Map<String, dynamic> map) {
     return HomeJobDto(
       id: map['id'] as int,
-      oportunity: map['oportunity'] as String,
-      company: map['company'] as String,
+      title: map['title'] as String,
+      // company: map['company'] as String,
       city: map['city'] as String,
-      type: map['type'] as String,
+      modality: map['modality'] as String,
       imageUrl: map['imageUrl'] as String,
     );
   }
