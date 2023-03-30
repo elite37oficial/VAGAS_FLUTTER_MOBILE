@@ -14,7 +14,6 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
       List<HomeJobDto> jobs = await (response.data as List)
           .map((json) => HomeJobDto.fromMap(json))
           .toList();
-      print(jobs);
       return jobs;
     } catch (e, s) {
       print(e);
@@ -23,7 +22,3 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
     }
   }
 }
-
-// List<UserModel> users = (json.decode(response.body) as List)
-//       .map((data) => UserModel.fromJson(data))
-//       .toList();

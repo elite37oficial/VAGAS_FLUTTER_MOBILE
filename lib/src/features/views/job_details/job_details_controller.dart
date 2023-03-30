@@ -10,7 +10,7 @@ class JobDetailController extends ValueNotifier<JobDetailsState> {
     this._getDescriptionJobsUseCase,
   ) : super(LoadingJobdetailsSate());
 
-  Future<void> getDetails({required int id}) async {
+  Future<void> getDetails({required String id}) async {
     try {
       DescriptionJobEntity descriptionJobs =
           await _getDescriptionJobsUseCase(id: id);

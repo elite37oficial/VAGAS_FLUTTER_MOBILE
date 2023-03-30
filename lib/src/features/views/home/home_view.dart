@@ -7,7 +7,6 @@ import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dar
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
-import '../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
 import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 

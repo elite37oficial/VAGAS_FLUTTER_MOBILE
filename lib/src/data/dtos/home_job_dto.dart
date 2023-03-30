@@ -5,21 +5,21 @@ import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 class HomeJobDto extends HomeJobEntity {
   String id;
   String title;
-  // String company;
+  String companyName;
   String city;
   String modality;
   String photoUrl;
   HomeJobDto({
     required this.id,
     required this.title,
-    // required this.company,
+    required this.companyName,
     required this.city,
     required this.modality,
     required this.photoUrl,
   }) : super(
           id: id,
           oportunity: title,
-          // company: company,
+          company: companyName,
           city: city,
           type: modality,
           imageUrl: photoUrl,
@@ -29,7 +29,7 @@ class HomeJobDto extends HomeJobEntity {
     return <String, dynamic>{
       'id': id,
       'title': title,
-      // 'company': company,
+      'companyName': companyName,
       'city': city,
       'modality': modality,
       'imageUrl': imageUrl,
@@ -40,7 +40,7 @@ class HomeJobDto extends HomeJobEntity {
     return HomeJobDto(
       id: map['id'] as String,
       title: map['title'] as String,
-      // company: map['company'] as String,
+      companyName: map['companyName'] as String,
       city: map['city'] as String,
       modality: map['modality'] as String,
       photoUrl: map['photoUrl'] as String,
