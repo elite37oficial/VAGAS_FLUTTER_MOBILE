@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_jobs_usecase_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
@@ -23,7 +24,7 @@ class _HomeViewState extends State<HomeView> {
   final HomeController _homeController = HomeController(
     GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
-        GetHomeJobsDataSourceMockImp(),
+        GetHomeJobsDataSourceDioImp(),
       ),
     ),
   );

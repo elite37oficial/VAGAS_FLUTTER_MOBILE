@@ -5,7 +5,7 @@ import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 import '../../routes/app_routes.dart';
 
 class CardWidget extends StatelessWidget {
-  final int id;
+  final String id;
   final HomeJobEntity homeJob;
   const CardWidget({
     Key? key,

@@ -11,13 +11,10 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
     try {
       String urlJobs = "https://apivagasdev.elite37.com.br/jobs";
       final response = await dio.get(urlJobs);
-      // final dados = HomeJobDto.fromJson(response.data);
-      List<HomeJobDto> jobs = (json.decode(response.data) as List)
-          .map((data) => HomeJobDto.fromJson(data))
+      List<HomeJobDto> jobs = await (response.data as List)
+          .map((json) => HomeJobDto.fromMap(json))
           .toList();
-      // final String data = json.encode(response.data);
-      // var dados = HomeJobDto.fromJson(data);
-      print(response);
+      print(jobs);
       return jobs;
     } catch (e, s) {
       print(e);

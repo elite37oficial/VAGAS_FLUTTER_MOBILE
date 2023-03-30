@@ -1,5 +1,5 @@
 class HomeJobEntity {
-  int id;
+  String id;
   String oportunity;
   // String company;
   String city;
