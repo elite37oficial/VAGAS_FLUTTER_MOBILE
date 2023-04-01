@@ -5,6 +5,7 @@ import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
 import '../../core/ui/widgets/card_widget.dart';
@@ -31,13 +32,14 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2))
+    Future.delayed(Duration(seconds: 0))
         .then((value) => _homeController.getJobs());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      endDrawer: CustomDrawer(),
       backgroundColor: AppColors.white,
       appBar: CustomAppBar(),
       body: ValueListenableBuilder(
@@ -53,7 +55,8 @@ class _HomeViewState extends State<HomeView> {
             return CustomScrollView(
               slivers: [
                 SliverAppBar(
-                  automaticallyImplyLeading: !Navigator.canPop(context),
+                  actions: <Widget>[Container()],
+                  automaticallyImplyLeading: false,
                   backgroundColor: AppColors.appBar,
                   title: CustomSliverAppBar(),
                   flexibleSpace: FlexibleSpaceBar(
@@ -75,18 +78,24 @@ class _HomeViewState extends State<HomeView> {
                                   "Vagas",
                                   style: context.textStyles.textTitleCards,
                                 ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Filtros",
-                                      style: context.textStyles.textFilterCards,
-                                    ),
-                                    const SizedBox(width: 8),
-                                    Icon(
-                                      Icons.tune_rounded,
-                                      color: AppColors.cardFilter,
-                                    ),
-                                  ],
+                                InkWell(
+                                  onTap: () {
+                                    Scaffold.of(context).openEndDrawer();
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Filtros",
+                                        style:
+                                            context.textStyles.textFilterCards,
+                                      ),
+                                      const SizedBox(width: 8),
+                                      Icon(
+                                        Icons.tune_rounded,
+                                        color: AppColors.cardFilter,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),

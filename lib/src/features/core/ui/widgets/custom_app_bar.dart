@@ -15,6 +15,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       child: AppBar(
+        automaticallyImplyLeading: false,
+        actions: <Widget>[Container()],
         title: title == null
             ? SvgPicture.asset(
                 "assets/images/Logo_medium_2.svg",
