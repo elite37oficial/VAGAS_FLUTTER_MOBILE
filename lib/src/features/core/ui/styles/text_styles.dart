@@ -145,6 +145,10 @@ class TextStyles {
         color: AppColors.white,
         fontSize: 18,
       );
+  TextStyle get textCustomDrawer => textInterRegular.copyWith(
+        color: AppColors.greyTitle,
+        fontSize: 18,
+      );
 }
 
 extension TextStylesExtensions on BuildContext {
