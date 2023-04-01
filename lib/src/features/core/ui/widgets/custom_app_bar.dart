@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-
 import '../styles/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -15,6 +14,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return Container(
       child: AppBar(
+        actions: [
+          Container(),
+        ],
         title: title == null
             ? SvgPicture.asset(
                 "assets/images/Logo_medium_2.svg",

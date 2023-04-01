@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/description_job_entity.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/splash/splash_screen_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/welcome/welcome_view.dart';
-
-import '../../../domain/entities/home_job_entity.dart';
 import '../../views/job_details/job_details_view.dart';
 
 class AppRoutes {
@@ -12,6 +9,7 @@ class AppRoutes {
   static const welcome = "welcome";
   static const home = "/home";
   static const jobDetail = "/jobDetail";
+  static const filter = "/filter";
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {

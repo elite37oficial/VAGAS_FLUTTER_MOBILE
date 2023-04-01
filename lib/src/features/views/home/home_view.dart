@@ -4,6 +4,7 @@ import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
 import '../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
@@ -20,6 +21,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  final endDrawerIsOpen = false;
   final HomeController _homeController = HomeController(
     GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
@@ -39,6 +41,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
+      endDrawer: CustomDrawer(),
       appBar: CustomAppBar(),
       body: ValueListenableBuilder(
         valueListenable: _homeController,
@@ -53,7 +56,9 @@ class _HomeViewState extends State<HomeView> {
             return CustomScrollView(
               slivers: [
                 SliverAppBar(
-                  automaticallyImplyLeading: !Navigator.canPop(context),
+                  actions: [
+                    Container(),
+                  ],
                   backgroundColor: AppColors.appBar,
                   title: CustomSliverAppBar(),
                   flexibleSpace: FlexibleSpaceBar(
@@ -66,7 +71,11 @@ class _HomeViewState extends State<HomeView> {
                           Container(
                             color: Colors.white,
                             padding: const EdgeInsets.only(
-                                left: 22, right: 22, top: 24, bottom: 24),
+                              left: 22,
+                              right: 22,
+                              top: 24,
+                              bottom: 24,
+                            ),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,8 +91,11 @@ class _HomeViewState extends State<HomeView> {
                                       style: context.textStyles.textFilterCards,
                                     ),
                                     const SizedBox(width: 8),
-                                    Icon(
-                                      Icons.tune_rounded,
+                                    IconButton(
+                                      onPressed: () {
+                                        Scaffold.of(context).openEndDrawer();
+                                      },
+                                      icon: Icon(Icons.tune_rounded),
                                       color: AppColors.cardFilter,
                                     ),
                                   ],
@@ -101,14 +113,15 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 SliverList(
                   delegate: SliverChildBuilderDelegate(
-                      childCount: jobList.length,
-                      (context, index) => Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 22),
-                            child: CardWidget(
-                              homeJob: jobList[index],
-                              id: jobList[index].id,
-                            ),
-                          )),
+                    childCount: jobList.length,
+                    (context, index) => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 22),
+                      child: CardWidget(
+                        homeJob: jobList[index],
+                        id: jobList[index].id,
+                      ),
+                    ),
+                  ),
                 ),
               ],
             );

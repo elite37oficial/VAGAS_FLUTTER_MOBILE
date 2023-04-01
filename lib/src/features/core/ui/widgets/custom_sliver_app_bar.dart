@@ -35,8 +35,9 @@ class CustomSliverAppBar extends StatelessWidget {
                   color: AppColors.cardBorderLine,
                 ),
                 border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide.none),
+                  borderRadius: BorderRadius.circular(8),
+                  borderSide: BorderSide.none,
+                ),
                 filled: true,
                 fillColor: AppColors.greyBlue,
               ),
@@ -66,7 +67,7 @@ class CustomSliverAppBar extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

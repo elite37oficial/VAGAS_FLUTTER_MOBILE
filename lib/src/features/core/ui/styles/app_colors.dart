@@ -7,8 +7,10 @@ class AppColors {
   static AppColors get i => _instance ??= AppColors._();
   static Color get red => const Color(0XFFF40000);
   static Color get black => const Color(0XFF000000);
+  //iguais
   static Color get greyTitle => const Color(0XFF142B3A);
   static Color get cardJobTitle => const Color(0XFF142B3A);
+  //
   static Color get cardJobCompany => const Color(0XFF19384B);
   static Color get appBar => const Color(0xff387ca6);
   static Color get greyBlue => const Color(0XFF387CA6);
