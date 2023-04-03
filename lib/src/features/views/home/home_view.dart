@@ -70,12 +70,8 @@ class _HomeViewState extends State<HomeView> {
                           const SizedBox(),
                           Container(
                             color: Colors.white,
-                            padding: const EdgeInsets.only(
-                              left: 22,
-                              right: 22,
-                              top: 24,
-                              bottom: 24,
-                            ),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 22, vertical: 24),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.end,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -107,7 +103,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                   ),
-                  expandedHeight: 140,
+                  expandedHeight: 170,
                   floating: true,
                   pinned: false,
                 ),
