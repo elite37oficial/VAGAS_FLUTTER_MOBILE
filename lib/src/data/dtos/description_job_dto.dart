@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:vagas_flutter_mobile/src/domain/entities/description_job_entity.dart';
 
 class DescriptionJobDto extends DescriptionJobEntity {
-  int id;
+  String id;
   String oportunity;
   String company;
   String city;
@@ -58,7 +58,7 @@ class DescriptionJobDto extends DescriptionJobEntity {
 
   factory DescriptionJobDto.fromMap(Map<String, dynamic> map) {
     return DescriptionJobDto(
-      id: map['id'] as int,
+      id: map['id'] as String,
       oportunity: map['oportunity'] as String,
       company: map['company'] as String,
       city: map['city'] as String,

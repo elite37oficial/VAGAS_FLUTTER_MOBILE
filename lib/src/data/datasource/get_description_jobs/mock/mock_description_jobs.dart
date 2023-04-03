@@ -2,7 +2,7 @@ import 'package:vagas_flutter_mobile/src/data/dtos/description_job_dto.dart';
 
 final mockDescriptionJobs = [
   DescriptionJobDto(
-    id: 10,
+    id: "10",
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -17,7 +17,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 20,
+    id: "20",
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -33,7 +33,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 30,
+    id: "30",
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -48,7 +48,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 4068735423,
+    id: "40",
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -64,7 +64,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 50,
+    id: "50",
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -79,7 +79,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 60,
+    id: "60",
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -95,7 +95,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 70,
+    id: "70",
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -110,7 +110,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 80,
+    id: "80",
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -126,7 +126,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 90,
+    id: "90",
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -141,7 +141,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 100,
+    id: "100",
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -157,7 +157,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 110,
+    id: "110",
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -172,7 +172,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 120,
+    id: "120",
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -188,7 +188,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 130,
+    id: "130",
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -203,7 +203,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 140,
+    id: "140",
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -219,7 +219,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 150,
+    id: "150",
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -234,7 +234,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 160,
+    id: "160",
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",
@@ -250,7 +250,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 170,
+    id: "170",
     oportunity: "Flutter Developer Jr.",
     company: "Linkedin",
     city: "Singapore",
@@ -265,7 +265,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 180,
+    id: "180",
     oportunity: "Flutter Engineer",
     company: "Ifood",
     city: "Singapore",
@@ -281,7 +281,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 190,
+    id: "190",
     oportunity: "Flutter Engineer",
     company: "Discord",
     city: "Singapore",
@@ -296,7 +296,7 @@ final mockDescriptionJobs = [
     modality: "Remoto",
   ),
   DescriptionJobDto(
-    id: 200,
+    id: "200",
     oportunity: "Flutter Developer Jr.",
     company: "Coca Cola",
     city: "Singapore",

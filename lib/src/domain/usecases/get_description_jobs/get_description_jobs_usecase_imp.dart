@@ -9,7 +9,7 @@ class GetDescriptionJobsUseCaseImp implements GetDescriptionJobsUseCase {
     this._getDescriptionJobsRepository,
   );
   @override
-  Future<DescriptionJobEntity> call({required int id}) async {
+  Future<DescriptionJobEntity> call({required String id}) async {
     return await _getDescriptionJobsRepository(id);
   }
 }

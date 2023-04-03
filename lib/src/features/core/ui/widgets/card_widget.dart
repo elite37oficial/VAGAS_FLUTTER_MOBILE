@@ -5,7 +5,7 @@ import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
 import '../../routes/app_routes.dart';
 
 class CardWidget extends StatelessWidget {
-  final int id;
+  final String id;
   final HomeJobEntity homeJob;
   const CardWidget({
     Key? key,
@@ -45,7 +45,7 @@ class CardWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6.0),
                   child: Image.network(
-                    homeJob.imageUrl,
+                    homeJob.photoUrl,
                     height: 48,
                     width: 48,
                   ),
@@ -58,11 +58,11 @@ class CardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      homeJob.oportunity,
+                      homeJob.modality,
                       style: context.textStyles.textTitleJobList,
                     ),
                     Text(
-                      homeJob.company,
+                      homeJob.companyName,
                       style: context.textStyles.textCompanyJobList,
                     ),
                     Row(
@@ -97,7 +97,7 @@ class CardWidget extends StatelessWidget {
                               width: 4,
                             ),
                             Text(
-                              homeJob.type,
+                              homeJob.modality,
                               style: context.textStyles.textCityTypeJobList,
                             ),
                           ],
