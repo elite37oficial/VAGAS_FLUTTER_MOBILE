@@ -160,8 +160,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                     children: [
                       Divider(
                         height: 0,
-                        //E4EDF2
-                        color: AppColors.greyBackgroundProgress,
+                        color: AppColors.lightHover,
                         thickness: 1,
                       ),
                       Padding(

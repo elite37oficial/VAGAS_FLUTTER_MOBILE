@@ -64,7 +64,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     children: [
                       Text(
                         descriptionJob.oportunity,
-                        style: context.textStyles.textTitleDetails,
+                        style: context.textStyles.textLatoRegular.copyWith(
+                          color: AppColors.darker,
+                          fontSize: 28,
+                        ),
                       ),
                       customTextColumnInformation(
                         text: descriptionJob.company,
@@ -85,7 +88,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                               children: [
                                 Icon(
                                   Icons.location_on,
-                                  color: AppColors.greyBlue,
+                                  color: AppColors.primary,
                                 ),
                                 customTextColumnInformation(
                                   text: " ${descriptionJob.city} - ",
@@ -106,7 +109,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                               children: [
                                 Icon(
                                   Icons.business_center,
-                                  color: AppColors.greyBlue,
+                                  color: AppColors.primary,
                                 ),
                                 customTextColumnInformation(
                                   text: ' ${descriptionJob.type} - ',
@@ -222,7 +225,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                         Text(
                                           descriptionJob.company,
                                           style: context
-                                              .textStyles.textCompanyDetails,
+                                              .textStyles.textLatoRegular
+                                              .copyWith(
+                                            color: AppColors.darker,
+                                            fontSize: 24,
+                                          ),
                                         ),
                                       ],
                                     ),
@@ -250,7 +257,11 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                             onTap: () {},
                             child: Text(
                               'Denunciar essa vaga',
-                              style: context.textStyles.textDenounceDetails,
+                              style:
+                                  context.textStyles.textInterRegular.copyWith(
+                                color: AppColors.primary,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ),
@@ -283,10 +294,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
         height: 48,
         width: 48,
         decoration: BoxDecoration(
-          color: AppColors.greyLight,
+          color: AppColors.light,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: AppColors.greyBorderDetails,
+            color: AppColors.lightActive,
             width: 1,
           ),
         ),
