@@ -8,6 +8,7 @@ import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
 import '../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
+import '../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
 import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 
@@ -25,7 +26,7 @@ class _HomeViewState extends State<HomeView> {
   final HomeController _homeController = HomeController(
     GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
-        GetHomeJobsDataSourceDioImp(),
+        GetHomeJobsDataSourceMockImp(),
       ),
     ),
   );
@@ -59,7 +60,7 @@ class _HomeViewState extends State<HomeView> {
                   actions: [
                     Container(),
                   ],
-                  backgroundColor: AppColors.appBar,
+                  backgroundColor: AppColors.primary,
                   title: CustomSliverAppBar(),
                   flexibleSpace: FlexibleSpaceBar(
                     background: Align(
@@ -78,13 +79,21 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 Text(
                                   "Vagas",
-                                  style: context.textStyles.textTitleCards,
+                                  style: context.textStyles.textInterRegular
+                                      .copyWith(
+                                    color: AppColors.darker,
+                                    fontSize: 18,
+                                  ),
                                 ),
                                 Row(
                                   children: [
                                     Text(
                                       "Filtros",
-                                      style: context.textStyles.textFilterCards,
+                                      style: context.textStyles.textInterRegular
+                                          .copyWith(
+                                        color: AppColors.grey500,
+                                        fontSize: 14,
+                                      ),
                                     ),
                                     const SizedBox(width: 8),
                                     IconButton(
@@ -92,7 +101,7 @@ class _HomeViewState extends State<HomeView> {
                                         Scaffold.of(context).openEndDrawer();
                                       },
                                       icon: Icon(Icons.tune_rounded),
-                                      color: AppColors.cardFilter,
+                                      color: AppColors.grey500,
                                     ),
                                   ],
                                 ),

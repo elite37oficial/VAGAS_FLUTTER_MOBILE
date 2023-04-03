@@ -27,7 +27,7 @@ class WelcomeView extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: context.textStyles.textButtonWelcomePage.copyWith(
                   fontSize: 24,
-                  color: AppColors.greyBlue,
+                  color: AppColors.primary,
                 ),
               ),
               SvgPicture.asset(
@@ -40,7 +40,10 @@ class WelcomeView extends StatelessWidget {
                 children: [
                   RichText(
                     text: TextSpan(
-                      style: context.textStyles.textNameAppWelcomePage,
+                      style: context.textStyles.textInterRegular.copyWith(
+                        color: AppColors.primary,
+                        fontSize: 40,
+                      ),
                       children: <TextSpan>[
                         TextSpan(
                           text: 'Elite',
@@ -68,7 +71,7 @@ class WelcomeView extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     elevation: 0,
-                    backgroundColor: AppColors.greyBlue,
+                    backgroundColor: AppColors.primary,
                     fixedSize: const Size(300, 100),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),

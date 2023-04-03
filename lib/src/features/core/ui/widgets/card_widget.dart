@@ -30,7 +30,7 @@ class CardWidget extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
             side: BorderSide(
-              color: AppColors.cardBorderLine,
+              color: AppColors.lightActive,
             ),
           ),
           child: Row(
@@ -59,11 +59,17 @@ class CardWidget extends StatelessWidget {
                   children: [
                     Text(
                       homeJob.modality,
-                      style: context.textStyles.textTitleJobList,
+                      style: context.textStyles.textInterRegular.copyWith(
+                        color: AppColors.darker,
+                        fontSize: 16,
+                      ),
                     ),
                     Text(
                       homeJob.companyName,
-                      style: context.textStyles.textCompanyJobList,
+                      style: context.textStyles.textInterRegular.copyWith(
+                        color: AppColors.darkerActive,
+                        fontSize: 12,
+                      ),
                     ),
                     Row(
                       children: [
@@ -72,7 +78,7 @@ class CardWidget extends StatelessWidget {
                             Icon(
                               Icons.location_on_sharp,
                               size: 12,
-                              color: AppColors.cardDetail,
+                              color: AppColors.grey,
                             ),
                             SizedBox(
                               width: 4,
@@ -91,7 +97,7 @@ class CardWidget extends StatelessWidget {
                             Icon(
                               Icons.access_time_filled_outlined,
                               size: 12,
-                              color: AppColors.cardDetail,
+                              color: AppColors.grey,
                             ),
                             SizedBox(
                               width: 4,

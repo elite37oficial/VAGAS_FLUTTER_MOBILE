@@ -13,7 +13,7 @@ class CustomSliverAppBar extends StatelessWidget {
       height: 43,
       decoration: BoxDecoration(
         border: Border.all(
-          color: AppColors.cardBorderLine,
+          color: AppColors.lightActive,
           width: 1,
         ),
         borderRadius: BorderRadius.all(
@@ -32,14 +32,14 @@ class CustomSliverAppBar extends StatelessWidget {
                 hintStyle: context.textStyles.textFilter,
                 prefixIcon: Icon(
                   Icons.search,
-                  color: AppColors.cardBorderLine,
+                  color: AppColors.lightActive,
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
                 ),
                 filled: true,
-                fillColor: AppColors.greyBlue,
+                fillColor: AppColors.primary,
               ),
             ),
           ),
@@ -51,7 +51,7 @@ class CustomSliverAppBar extends StatelessWidget {
               decoration: BoxDecoration(
                 color: AppColors.white,
                 border: Border.all(
-                  color: AppColors.cardBorderLine,
+                  color: AppColors.lightActive,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.only(
@@ -63,7 +63,7 @@ class CustomSliverAppBar extends StatelessWidget {
                 child: Text(
                   "Pesquisar",
                   style: context.textStyles.textFilter
-                      .copyWith(color: AppColors.cardJobTitle),
+                      .copyWith(color: AppColors.darker),
                 ),
               ),
             ),

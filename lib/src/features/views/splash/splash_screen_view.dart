@@ -49,7 +49,10 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                   children: [
                     RichText(
                       text: TextSpan(
-                        style: context.textStyles.textNameAppSplash,
+                        style: context.textStyles.textInterLight.copyWith(
+                          color: AppColors.primary,
+                          fontSize: 36,
+                        ),
                         children: <TextSpan>[
                           TextSpan(
                             text: 'Elite',
@@ -71,8 +74,8 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                 Container(
                   width: context.percentWidth(0.6),
                   child: LinearProgressIndicator(
-                    color: AppColors.greyBlue,
-                    backgroundColor: AppColors.greyBackgroundProgress,
+                    color: AppColors.primary,
+                    backgroundColor: AppColors.lightHover,
                     //value: controller.value,
                   ),
                 ),
@@ -88,14 +91,14 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                           'Powered by',
                           style: TextStyle(
                             fontSize: 12,
-                            color: AppColors.greyBlue,
+                            color: AppColors.primary,
                           ),
                         ),
                         Text(
                           'Elite37',
                           style: TextStyle(
                             fontSize: 16,
-                            color: AppColors.greyBlue,
+                            color: AppColors.primary,
                           ),
                         ),
                       ],
