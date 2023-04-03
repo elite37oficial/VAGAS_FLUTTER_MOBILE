@@ -7,7 +7,7 @@ class GetDescriptionJobsRepositoryImp implements GetDescriptionJobsRepository {
 
   GetDescriptionJobsRepositoryImp(this._getDescriptionJobsDataSource);
   @override
-  Future<DescriptionJobEntity> call(int id) async {
+  Future<DescriptionJobEntity> call(String id) async {
     return await _getDescriptionJobsDataSource(id);
   }
 }

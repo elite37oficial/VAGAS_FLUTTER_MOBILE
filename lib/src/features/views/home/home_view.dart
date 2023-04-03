@@ -7,7 +7,7 @@ import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
-import '../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
+import '../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
 import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 
@@ -25,7 +25,7 @@ class _HomeViewState extends State<HomeView> {
   final HomeController _homeController = HomeController(
     GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
-        GetHomeJobsDataSourceMockImp(),
+        GetHomeJobsDataSourceDioImp(),
       ),
     ),
   );
@@ -33,7 +33,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2))
+    Future.delayed(Duration(seconds: 0))
         .then((value) => _homeController.getJobs());
   }
 

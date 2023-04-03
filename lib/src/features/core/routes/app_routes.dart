@@ -23,7 +23,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case AppRoutes.jobDetail:
       return MaterialPageRoute(
         builder: (context) {
-          var id = settings.arguments as int;
+          var id = settings.arguments as String;
           return JobDetailsView(
             id: id,
           );

@@ -11,7 +11,7 @@ import '../../../domain/usecases/get_description_jobs/get_description_jobs_useca
 import '../../core/ui/styles/app_colors.dart';
 
 class JobDetailsView extends StatefulWidget {
-  final int id;
+  final String id;
   const JobDetailsView({
     Key? key,
     required this.id,

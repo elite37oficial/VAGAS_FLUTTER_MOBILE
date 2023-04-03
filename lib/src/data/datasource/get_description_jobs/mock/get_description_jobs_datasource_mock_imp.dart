@@ -5,7 +5,7 @@ import 'mock_description_jobs.dart';
 class GetDescriptionJobsDataSourceMockImp
     implements GetDescriptionJobsDataSource {
   @override
-  Future<DescriptionJobDto> call(int id) async {
+  Future<DescriptionJobDto> call(String id) async {
     final listJobs = mockDescriptionJobs;
     final item = listJobs.where((job) => job.id == id).first;
     return item;
