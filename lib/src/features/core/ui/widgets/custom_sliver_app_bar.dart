@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 
+import '../../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
+import '../../../../data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
+import '../../../../domain/usecases/get_home_jobs/get_home_jobs_usecase_imp.dart';
+import '../../../views/home/home_controller.dart';
+
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
     super.key,
@@ -9,6 +14,13 @@ class CustomSliverAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final HomeController _homeController = HomeController(
+      GetHomeJobUseCaseImp(
+        GetHomeJobsRepositoryImp(
+          GetHomeJobsDataSourceDioImp(),
+        ),
+      ),
+    );
     return Container(
       height: 43,
       decoration: BoxDecoration(
@@ -44,7 +56,9 @@ class CustomSliverAppBar extends StatelessWidget {
             ),
           ),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              _homeController.getJobs();
+            },
             child: Container(
               height: 43,
               width: 94,
