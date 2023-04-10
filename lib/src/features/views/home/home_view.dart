@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_jobs_usecase_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
+import 'package:vagas_flutter_mobile/src/features/views/home/bloc/list_jobs_home_bloc.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
 import '../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
@@ -34,8 +36,9 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 0))
-        .then((value) => _homeController.getJobs());
+    context.read<ListJobsHomeBloc>().add(ListJobsHome());
+    // Future.delayed(Duration(seconds: 0))
+    //     .then((value) => _homeController.getJobs());
   }
 
   @override
@@ -44,15 +47,19 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: AppColors.white,
       endDrawer: CustomDrawer(),
       appBar: CustomAppBar(),
-      body: ValueListenableBuilder(
-        valueListenable: _homeController,
-        builder: (context, state, child) {
-          if (state is EmptyHomeState) {
+      body: BlocBuilder<ListJobsHomeBloc, ListJobsHomeState>(
+        builder: (context, state) {
+          if (state is ListJobsHomeEmpty) {
             return Center(
               child: Text("Você não tem vagas disponíveis..."),
             );
           }
-          if (state is ListJobsHomeState) {
+          if (state is ListJobsHomeInitial) {
+            return Center(
+              child: Text("Nenhuma vaga pesquisada"),
+            );
+          }
+          if (state is ListJobsHomeCompleted) {
             final jobList = state.listJobs;
             return CustomScrollView(
               slivers: [

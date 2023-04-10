@@ -58,7 +58,7 @@ class CardWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      homeJob.modality,
+                      homeJob.title,
                       style: context.textStyles.textInterRegular.copyWith(
                         color: AppColors.darker,
                         fontSize: 16,
