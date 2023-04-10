@@ -3,15 +3,15 @@ part of 'list_jobs_home_bloc.dart';
 @immutable
 abstract class ListJobsHomeState {}
 
-class ListJobsHomeInitial extends ListJobsHomeState {}
+class ListJobsHomeInitialState extends ListJobsHomeState {}
 
-class ListJobsHomeEmpty extends ListJobsHomeState {}
+class ListJobsHomeEmptyState extends ListJobsHomeState {}
 
-class ListJobsHomeError extends ListJobsHomeState {}
+class ListJobsHomeErrorState extends ListJobsHomeState {}
 
-class ListJobsHomeLoading implements ListJobsHomeState {}
+class ListJobsHomeLoadingState implements ListJobsHomeState {}
 
-class ListJobsHomeCompleted extends ListJobsHomeState {
+class ListJobsHomeCompletedState extends ListJobsHomeState {
   final List<HomeJobEntity> listJobs;
-  ListJobsHomeCompleted({required this.listJobs});
+  ListJobsHomeCompletedState({required this.listJobs});
 }
