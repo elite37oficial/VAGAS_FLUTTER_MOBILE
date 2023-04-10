@@ -10,11 +10,11 @@ part 'list_jobs_home_state.dart';
 
 class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
   ListJobsHomeBloc() : super(ListJobsHomeInitialState()) {
-    on<ListJobsHomeEvent>(_listVagas);
+    on<GetListJobsHomeEvent>(_listJobs);
   }
 
-  Future<void> _listVagas(
-      ListJobsHomeEvent event, Emitter<ListJobsHomeState> emit) async {
+  Future<void> _listJobs(
+      GetListJobsHomeEvent event, Emitter<ListJobsHomeState> emit) async {
     final GetHomeJobsUseCase _getHomeJobsUseCase = GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
         GetHomeJobsDataSourceDioImp(),
