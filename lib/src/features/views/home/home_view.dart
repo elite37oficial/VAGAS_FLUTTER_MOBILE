@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vagas_flutter_mobile/src/data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
-import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_jobs_usecase_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/bloc/list_jobs_home_bloc.dart';
-import 'package:vagas_flutter_mobile/src/features/views/home/home_controller.dart';
-import 'package:vagas_flutter_mobile/src/features/views/home/home_state.dart';
-import '../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
-import '../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
 import '../../core/ui/widgets/card_widget.dart';
 import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 
@@ -25,20 +19,11 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final endDrawerIsOpen = false;
-  final HomeController _homeController = HomeController(
-    GetHomeJobUseCaseImp(
-      GetHomeJobsRepositoryImp(
-        GetHomeJobsDataSourceMockImp(),
-      ),
-    ),
-  );
 
   @override
   void initState() {
     super.initState();
-    context.read<ListJobsHomeBloc>().add(ListJobsHome());
-    // Future.delayed(Duration(seconds: 0))
-    //     .then((value) => _homeController.getJobs());
+    context.read<ListJobsHomeBloc>().add(GetListJobsHomeEvent());
   }
 
   @override
@@ -49,17 +34,17 @@ class _HomeViewState extends State<HomeView> {
       appBar: CustomAppBar(),
       body: BlocBuilder<ListJobsHomeBloc, ListJobsHomeState>(
         builder: (context, state) {
-          if (state is ListJobsHomeEmpty) {
+          if (state is ListJobsHomeEmptyState) {
             return Center(
               child: Text("Você não tem vagas disponíveis..."),
             );
           }
-          if (state is ListJobsHomeInitial) {
+          if (state is ListJobsHomeInitialState) {
             return Center(
               child: Text("Nenhuma vaga pesquisada"),
             );
           }
-          if (state is ListJobsHomeCompleted) {
+          if (state is ListJobsHomeCompletedState) {
             final jobList = state.listJobs;
             return CustomScrollView(
               slivers: [
