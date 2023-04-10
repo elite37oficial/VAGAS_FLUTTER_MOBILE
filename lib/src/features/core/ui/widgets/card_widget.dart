@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/domain/entities/home_job_entity.dart';
@@ -26,6 +27,7 @@ class CardWidget extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: Card(
+          margin: EdgeInsets.only(bottom: 8),
           elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),
@@ -52,6 +54,7 @@ class CardWidget extends StatelessWidget {
                 ),
               ),
               SizedBox(
+                width: context.sWidth - 140,
                 height: 56,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,6 +66,8 @@ class CardWidget extends StatelessWidget {
                         color: AppColors.darker,
                         fontSize: 16,
                       ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
                     ),
                     Text(
                       homeJob.companyName,
