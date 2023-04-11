@@ -16,7 +16,7 @@ class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobsDataSource{
     } catch (e, s) {
       print(e);
       print(s);
-      return DescriptionJobDto(id: '', nameCompany: '', status: '', title: '', description: '', photoUrl: '', descriptionCompany: '', salary: 0.0, modality: '', city: '', state: '', link: '', whatsapp: '', email: '', createdBy: '');
+      return DescriptionJobDto(id: ' ', nameCompany: '', status: '', title: '', description: '', photoUrl: '', descriptionCompany: '', salary: 0.0, modality: '', city: '', state: '', link: '', whatsapp: '', email: '', createdBy: '');
     }
   }
 }
