@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vagas_flutter_mobile/src/features/core/constants/constant.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
@@ -47,9 +48,13 @@ class CardWidget extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(6.0),
                   child: Image.network(
-                    homeJob.photoUrl,
+                    "${Constant.baseUrlCompaniesImage}/id/${homeJob.companyId}",
                     height: 48,
                     width: 48,
+                    errorBuilder: (context, exception, stackTrace) {
+                      return Image.network(
+                          "https://m.media-amazon.com/images/I/516k62qkOIL.png");
+                    },
                   ),
                 ),
               ),

@@ -15,8 +15,7 @@ class GetHomeJobsDataSourceMockImp implements GetHomeJobsDataSource {
               job.title.toLowerCase().contains(filter.toLowerCase()) ||
               job.companyName.toLowerCase().contains(filter.toLowerCase()) ||
               job.city.toLowerCase().contains(filter.toLowerCase()) ||
-              job.modality.toLowerCase().contains(filter.toLowerCase()) ||
-              job.photoUrl.toLowerCase().contains(filter.toLowerCase()))
+              job.modality.toLowerCase().contains(filter.toLowerCase()))
           .toList();
       return filteredList;
     }
