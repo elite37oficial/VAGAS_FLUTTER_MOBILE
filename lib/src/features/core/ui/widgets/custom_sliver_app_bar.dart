@@ -11,6 +11,7 @@ class CustomSliverAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController textController = TextEditingController();
     return Container(
       height: 43,
       decoration: BoxDecoration(
@@ -25,7 +26,9 @@ class CustomSliverAppBar extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: TextField(
+            child: TextFormField(
+              // initialValue: initialValue,
+              controller: textController,
               style: context.textStyles.textFilter
                   .copyWith(color: AppColors.white),
               decoration: InputDecoration(
@@ -47,8 +50,10 @@ class CustomSliverAppBar extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              // _homeController.getJobs();
-              context.read<ListJobsHomeBloc>().add(GetListJobsHomeEvent());
+              final filter = textController.value.text;
+              context
+                  .read<ListJobsHomeBloc>()
+                  .add(GetListJobsHomeEvent(filter: filter));
             },
             child: Container(
               height: 43,

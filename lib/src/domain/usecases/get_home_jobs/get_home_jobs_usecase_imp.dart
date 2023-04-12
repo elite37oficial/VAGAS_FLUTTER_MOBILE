@@ -8,7 +8,7 @@ class GetHomeJobUseCaseImp implements GetHomeJobsUseCase {
     this._getHomeJobsRepository,
   );
   @override
-  Future<List<HomeJobEntity>> call() async {
-    return _getHomeJobsRepository();
+  Future<List<HomeJobEntity>> call({String? filter}) async {
+    return _getHomeJobsRepository(filter ?? null);
   }
 }

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/dio/get_description_job_datasource_dio_imp.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/get_description_jobs_datasource.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/mock/get_description_jobs_datasource_mock_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_description_jobs/get_description_jobs_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
@@ -25,7 +27,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   final JobDetailController _jobDetailController = JobDetailController(
     GetDescriptionJobsUseCaseImp(
       GetDescriptionJobsRepositoryImp(
-        GetDescriptionJobsDataSourceMockImp(),
+        GetDescriptionJobDataSourceDioImp(),
       ),
     ),
   );
@@ -63,14 +65,14 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        descriptionJob.oportunity,
+                        descriptionJob.description,
                         style: context.textStyles.textLatoRegular.copyWith(
                           color: AppColors.darker,
                           fontSize: 28,
                         ),
                       ),
                       customTextColumnInformation(
-                        text: descriptionJob.company,
+                        text: descriptionJob.nameCompany,
                         textStyle:
                             context.textStyles.textEmphasisDetails.copyWith(
                           color: AppColors.grey500,
@@ -112,12 +114,12 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                   color: AppColors.primary,
                                 ),
                                 customTextColumnInformation(
-                                  text: ' ${descriptionJob.type} - ',
+                                  text: ' ${descriptionJob.modality} - ',
                                   textStyle:
                                       context.textStyles.textEmphasisDetails,
                                 ),
                                 customTextColumnInformation(
-                                  text: descriptionJob.seniority,
+                                  text: descriptionJob.description,
                                   textStyle:
                                       context.textStyles.textEmphasisDetails,
                                 ),
@@ -213,7 +215,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                             child: Image.network(
-                                              descriptionJob.imageUrl,
+                                              descriptionJob.photoUrl,
                                               width: 40,
                                               height: 40,
                                             ),
@@ -223,7 +225,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                           width: 10,
                                         ),
                                         Text(
-                                          descriptionJob.company,
+                                          descriptionJob.nameCompany,
                                           style: context
                                               .textStyles.textLatoRegular
                                               .copyWith(
@@ -235,7 +237,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                     ),
                                   ),
                                   Text(
-                                    descriptionJob.aboutCompany,
+                                    descriptionJob.descriptionCompany,
                                     style: context.textStyles.textDetails,
                                     textAlign: TextAlign.justify,
                                     softWrap: true,
