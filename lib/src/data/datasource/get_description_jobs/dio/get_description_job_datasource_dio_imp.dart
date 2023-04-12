@@ -1,13 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/get_description_jobs_datasource.dart';
 import 'package:vagas_flutter_mobile/src/data/dtos/description_job_dto.dart';
+import 'package:vagas_flutter_mobile/src/features/core/constants/constant.dart';
 
 class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobsDataSource {
   @override
   Future<DescriptionJobDto> call(String id) async {
     Dio dio = Dio();
     try {
-      String urlJobs = "https://apivagasdev.elite37.com.br/jobs/id/$id";
+      String urlJobs = "${Constant.baseUrlJobs}/id/$id";
       final response = await dio.get(urlJobs);
       final data = response.data;
       print(data.runtimeType);
