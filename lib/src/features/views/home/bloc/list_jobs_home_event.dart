@@ -5,4 +5,9 @@ abstract class ListJobsHomeEvent {}
 
 class InitialJobsHomeEvent extends ListJobsHomeEvent {}
 
-class GetListJobsHomeEvent extends ListJobsHomeEvent {}
+class GetListJobsHomeEvent extends ListJobsHomeEvent {
+  final String? filter;
+  GetListJobsHomeEvent({
+    this.filter,
+  });
+}

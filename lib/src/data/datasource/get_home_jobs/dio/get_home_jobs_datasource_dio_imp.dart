@@ -4,8 +4,8 @@ import 'package:vagas_flutter_mobile/src/data/dtos/home_job_dto.dart';
 
 class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
   @override
-  Dio dio = Dio();
-  Future<List<HomeJobDto>> call() async {
+  Future<List<HomeJobDto>> call(String? filter) async {
+    Dio dio = Dio();
     try {
       String urlJobs = "https://apivagasdev.elite37.com.br/jobs";
       final response = await dio.get(urlJobs);

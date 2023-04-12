@@ -4,8 +4,21 @@ import 'mock_home_jobs.dart';
 
 class GetHomeJobsDataSourceMockImp implements GetHomeJobsDataSource {
   @override
-  Future<List<HomeJobDto>> call() async {
-    final listJobs = await mockHomeJobs;
-    return listJobs;
+  Future<List<HomeJobDto>> call(String? filter) async {
+    final listJobs = mockHomeJobs;
+    if (filter == null) {
+      return listJobs;
+    } else {
+      final filteredList = listJobs
+          .where((job) =>
+              job.id.toLowerCase().contains(filter.toLowerCase()) ||
+              job.title.toLowerCase().contains(filter.toLowerCase()) ||
+              job.companyName.toLowerCase().contains(filter.toLowerCase()) ||
+              job.city.toLowerCase().contains(filter.toLowerCase()) ||
+              job.modality.toLowerCase().contains(filter.toLowerCase()) ||
+              job.photoUrl.toLowerCase().contains(filter.toLowerCase()))
+          .toList();
+      return filteredList;
+    }
   }
 }
