@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/dio/get_description_job_datasource_dio_imp.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/get_description_jobs_datasource.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/mock/get_description_jobs_datasource_mock_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_description_jobs/get_description_jobs_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
@@ -10,6 +8,7 @@ import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';
 import '../../../domain/usecases/get_description_jobs/get_description_jobs_usecase_imp.dart';
+import '../../core/constants/constant.dart';
 import '../../core/ui/styles/app_colors.dart';
 
 class JobDetailsView extends StatefulWidget {
@@ -35,7 +34,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 2))
+    Future.delayed(Duration(seconds: 0))
         .then((value) => _jobDetailController.getDetails(id: widget.id));
   }
 
@@ -65,7 +64,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        descriptionJob.description,
+                        descriptionJob.title,
                         style: context.textStyles.textLatoRegular.copyWith(
                           color: AppColors.darker,
                           fontSize: 28,
@@ -93,12 +92,8 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                   color: AppColors.primary,
                                 ),
                                 customTextColumnInformation(
-                                  text: " ${descriptionJob.city} - ",
-                                  textStyle:
-                                      context.textStyles.textEmphasisDetails,
-                                ),
-                                customTextColumnInformation(
-                                  text: descriptionJob.modality,
+                                  text:
+                                      " ${descriptionJob.city} - ${descriptionJob.state}",
                                   textStyle:
                                       context.textStyles.textEmphasisDetails,
                                 ),
@@ -119,7 +114,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                       context.textStyles.textEmphasisDetails,
                                 ),
                                 customTextColumnInformation(
-                                  text: descriptionJob.description,
+                                  text: descriptionJob.seniority,
                                   textStyle:
                                       context.textStyles.textEmphasisDetails,
                                 ),
@@ -215,9 +210,15 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                             borderRadius:
                                                 BorderRadius.circular(4),
                                             child: Image.network(
-                                              descriptionJob.photoUrl,
-                                              width: 40,
-                                              height: 40,
+                                              "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
+                                              height: 48,
+                                              width: 48,
+                                              errorBuilder: (context, exception,
+                                                  stackTrace) {
+                                                return Image.asset(
+                                                  "assets/images/avatarDefault.png",
+                                                );
+                                              },
                                             ),
                                           ),
                                         ),
