@@ -106,20 +106,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             //! Tipo de Contrato
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 24.0,
-                                bottom: 16,
-                              ),
-                              child: Text(
-                                'Tipo de contrato',
-                                style: context.textStyles.textInterRegular
-                                    .copyWith(
-                                  fontSize: 16,
-                                  color: AppColors.darker,
-                                ),
-                              ),
-                            ),
+                            titleTypeFilterDrawer('Tipo de contrato'),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 12.0),
                               child: Row(
@@ -139,16 +126,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               thickness: 1,
                             ),
                             //! Modalidade
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 24.0,
-                                bottom: 16,
-                              ),
-                              child: Text(
-                                'Modalidade',
-                                style: context.textStyles.textFilter,
-                              ),
-                            ),
+                            titleTypeFilterDrawer('Modalidade'),
                             Padding(
                               padding: const EdgeInsets.only(bottom: 12.0),
                               child: Column(
@@ -173,24 +151,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                               thickness: 1,
                             ),
                             //! Localização
-                            Padding(
-                              padding: const EdgeInsets.only(
-                                top: 24.0,
-                                bottom: 16,
-                              ),
-                              child: Text(
-                                'Localização',
-                                style: context.textStyles.textFilter,
-                              ),
-                            ),
+                            titleTypeFilterDrawer('Localização'),
                             Padding(
                               padding: const EdgeInsets.only(
                                 top: 5,
                                 left: 20,
                                 right: 20,
                               ),
-                              // DropDownButton
-                              //lightActive
                               child: DropdownMenu(
                                 leadingIcon: Icon(
                                   Icons.location_city, // location_on
@@ -281,6 +248,22 @@ class _CustomDrawerState extends State<CustomDrawer> {
     );
   }
 
+  Widget titleTypeFilterDrawer(String text) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 24.0,
+        bottom: 16,
+      ),
+      child: Text(
+        text,
+        style: context.textStyles.textFilter.copyWith(
+          fontSize: 16,
+          color: AppColors.darker,
+        ),
+      ),
+    );
+  }
+
   Widget customCheckBoxButton(int index, String text) {
     return GestureDetector(
       onTap: () => _toggleSelection(index),
@@ -313,7 +296,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           Text(
             text,
-            style: context.textStyles.textFilter,
+            style: context.textStyles.textFilter.copyWith(
+              fontSize: 14,
+              color: AppColors.darker,
+            ),
           ),
         ],
       ),
