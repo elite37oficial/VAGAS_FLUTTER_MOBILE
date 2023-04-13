@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^2.0.2
   dio: ^5.1.1
+  
   flutter_bloc: ^8.1.2
 
 dev_dependencies:
@@ -64,6 +65,7 @@ flutter:
   assets:
     - assets/fonts/
     - assets/images/
+    - assets/images/IconCloseAppVagas.svg
     - assets/images/Logo_medium_2.svg
     - assets/images/logo_small.svg    
     - assets/images/avatarDefault.png
