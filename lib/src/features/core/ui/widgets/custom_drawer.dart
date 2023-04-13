@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-
 import 'custom_check_box_button.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -146,7 +146,7 @@ class CustomDrawer extends StatelessWidget {
                                       ),
                                       SizedBox(height: 16),
                                       CustomCheckBoxButton(
-                                          index: 4, text: 'Hibrido')
+                                          index: 0, text: 'Hibrido')
                                     ],
                                   ),
                                 ],

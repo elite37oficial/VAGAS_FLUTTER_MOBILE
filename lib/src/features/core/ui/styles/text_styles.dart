@@ -21,6 +21,11 @@ class TextStyles {
         fontFamily: fontInter,
       );
 
+  TextStyle get textInterBold => TextStyle(
+        fontWeight: FontWeight.bold,
+        fontFamily: fontInter,
+      );
+
   TextStyle get textLatoRegular => TextStyle(
         fontWeight: FontWeight.normal,
         fontFamily: fontLato,

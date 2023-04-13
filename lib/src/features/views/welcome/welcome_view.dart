@@ -59,9 +59,6 @@ class WelcomeView extends StatelessWidget {
                   ),
                 ],
               ),
-              /* SizedBox(
-                height: context.percentHeight(0.1),
-              ), */
               SizedBox(
                 width: context.percentWidth(.8),
                 height: context.percentHeight(.06),

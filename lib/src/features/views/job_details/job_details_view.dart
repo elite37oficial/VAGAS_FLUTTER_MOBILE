@@ -7,6 +7,7 @@ import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dar
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';
+import 'package:vagas_flutter_mobile/src/features/views/report_job/report_job_view.dart';
 import '../../../domain/usecases/get_description_jobs/get_description_jobs_usecase_imp.dart';
 import '../../core/constants/constant.dart';
 import '../../core/ui/styles/app_colors.dart';
@@ -257,7 +258,13 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                         child: Center(
                           child: InkWell(
                             splashColor: AppColors.white,
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (_) => ReportJobView(),
+                                ),
+                              );
+                            },
                             child: Text(
                               'Denunciar essa vaga',
                               style:
