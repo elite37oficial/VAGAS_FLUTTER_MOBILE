@@ -52,8 +52,9 @@ class CardWidget extends StatelessWidget {
                     height: 48,
                     width: 48,
                     errorBuilder: (context, exception, stackTrace) {
-                      return Image.network(
-                          "https://m.media-amazon.com/images/I/516k62qkOIL.png");
+                      return Image.asset(
+                        "assets/images/avatarDefault.png",
+                      );
                     },
                   ),
                 ),

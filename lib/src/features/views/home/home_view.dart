@@ -66,7 +66,7 @@ class _HomeViewState extends State<HomeView> {
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 22, vertical: 24),
                             child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.center,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
@@ -88,12 +88,16 @@ class _HomeViewState extends State<HomeView> {
                                       ),
                                     ),
                                     const SizedBox(width: 8),
-                                    IconButton(
-                                      onPressed: () {
-                                        Scaffold.of(context).openEndDrawer();
-                                      },
-                                      icon: Icon(Icons.tune_rounded),
-                                      color: AppColors.grey500,
+                                    SizedBox(
+                                      height: 24,
+                                      child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        onPressed: () {
+                                          Scaffold.of(context).openEndDrawer();
+                                        },
+                                        icon: Icon(Icons.tune_rounded),
+                                        color: AppColors.grey500,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -104,7 +108,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ),
                   ),
-                  expandedHeight: 170,
+                  expandedHeight: 150,
                   floating: true,
                   pinned: false,
                 ),
