@@ -1,11 +1,11 @@
 class DescriptionJobEntity {
-
   String id;
+  String companyId;
   String nameCompany;
   String status;
   String title;
+  String seniority;
   String description;
-  String photoUrl;
   String descriptionCompany;
   double salary;
   String modality;
@@ -18,11 +18,12 @@ class DescriptionJobEntity {
 
   DescriptionJobEntity({
     required this.id,
+    required this.companyId,
     required this.nameCompany,
     required this.status,
     required this.title,
+    required this.seniority,
     required this.description,
-    required this.photoUrl,
     required this.descriptionCompany,
     required this.salary,
     required this.modality,
@@ -31,9 +32,6 @@ class DescriptionJobEntity {
     required this.link,
     required this.whatsapp,
     required this.email,
-    required this.createdBy
+    required this.createdBy,
   });
 }
-
-
-
