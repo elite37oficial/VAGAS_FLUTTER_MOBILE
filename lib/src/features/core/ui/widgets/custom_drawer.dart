@@ -1,40 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 
-class CustomDrawer extends StatefulWidget {
+import 'custom_check_box_button.dart';
+
+class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
 
   @override
-  State<CustomDrawer> createState() => _CustomDrawerState();
-}
-
-class _CustomDrawerState extends State<CustomDrawer> {
-  List<bool> _isSelected = [false, false, false, false, false];
-  final List<String> cityNames = [
-    'Rio de Janeiro/RN - BR',
-    'São Paulo/SP - BR',
-    'Parnaíba/PI - BR',
-    'Garanhuns/PE - BR',
-    'Jacuturu/PR - BR'
-  ];
-
-  void _toggleSelection(int index) {
-    setState(() {
-      _isSelected[index] = !_isSelected[index]; // negação
-    });
-  }
-
-  void _clearSelection() {
-    setState(() {
-      _isSelected = List.generate(_isSelected.length, (index) => false);
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final List<String> cityNames = [
+      'Rio de Janeiro/RN - BR',
+      'São Paulo/SP - BR',
+      'Parnaíba/PI - BR',
+      'Garanhuns/PE - BR',
+      'Jacuturu/PR - BR'
+    ];
     final List<DropdownMenuEntry<String>> cityEntries =
         cityNames.map((String cityName) {
       return DropdownMenuEntry<String>(
@@ -53,11 +35,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Radius.circular(4),
               ),
             ),
-            // Aplicar de acordo com o context
             width: 300,
             height: 679,
-            // width: context.percentWidth(300 / 430),
-            // height: context.percentHeight(679 / 932),
             child: Drawer(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -68,7 +47,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       Padding(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 16.0,
-                          vertical: 17,
+                          vertical: 16,
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -96,92 +75,155 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         ),
                       ),
                       Divider(
-                        height: 0,
-                        color: AppColors.grey500,
-                        thickness: 1,
-                      ),
+                          height: 0, color: AppColors.lightHover, thickness: 1),
                       Padding(
                         padding: const EdgeInsets.only(left: 16.0),
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            //! Tipo de Contrato
-                            titleTypeFilterDrawer('Tipo de contrato'),
                             Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
-                              child: Row(
-                                children: [
-                                  customCheckBoxButton(0, 'CLT'),
-                                  SizedBox(
-                                    width: 24,
-                                  ),
-                                  customCheckBoxButton(
-                                      1, 'PJ (Pessoa Jurídica)'),
-                                ],
-                              ),
-                            ),
-                            Divider(
-                              height: 0,
-                              color: AppColors.grey500,
-                              thickness: 1,
-                            ),
-                            //! Modalidade
-                            titleTypeFilterDrawer('Modalidade'),
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 12.0),
+                              padding:
+                                  const EdgeInsets.only(top: 24, bottom: 12),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
+                                  Text(
+                                    "Tipo de Contrato",
+                                    style:
+                                        context.textStyles.textFilter.copyWith(
+                                      fontSize: 16,
+                                      color: AppColors.darker,
+                                    ),
+                                  ),
+                                  SizedBox(height: 16),
                                   Row(
                                     children: [
-                                      customCheckBoxButton(2, 'Remoto'),
+                                      CustomCheckBoxButton(
+                                          index: 0, text: 'CLT'),
                                       SizedBox(
                                         width: 24,
                                       ),
-                                      customCheckBoxButton(3, 'Presencial'),
+                                      CustomCheckBoxButton(
+                                        index: 1,
+                                        text: 'PJ (Pessoa Jurídica)',
+                                      ),
                                     ],
                                   ),
-                                  SizedBox(height: 16),
-                                  customCheckBoxButton(4, 'Hibrido')
                                 ],
                               ),
                             ),
                             Divider(
                               height: 0,
-                              color: AppColors.grey500,
+                              color: AppColors.lightHover,
                               thickness: 1,
                             ),
-                            //! Localização
-                            titleTypeFilterDrawer('Localização'),
                             Padding(
-                              padding: const EdgeInsets.only(
-                                top: 5,
-                                left: 20,
-                                right: 20,
+                              padding:
+                                  const EdgeInsets.only(top: 24, bottom: 12),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Modalidade",
+                                    style:
+                                        context.textStyles.textFilter.copyWith(
+                                      fontSize: 16,
+                                      color: AppColors.darker,
+                                    ),
+                                  ),
+                                  SizedBox(height: 16),
+                                  Column(
+                                    children: [
+                                      Row(
+                                        children: [
+                                          CustomCheckBoxButton(
+                                              index: 2, text: 'Remoto'),
+                                          SizedBox(
+                                            width: 24,
+                                          ),
+                                          CustomCheckBoxButton(
+                                              index: 3, text: 'Presencial'),
+                                        ],
+                                      ),
+                                      SizedBox(height: 16),
+                                      CustomCheckBoxButton(
+                                          index: 4, text: 'Hibrido')
+                                    ],
+                                  ),
+                                ],
                               ),
-                              child: DropdownMenu(
-                                leadingIcon: Icon(
-                                  Icons.location_city, // location_on
-                                  color: AppColors.primary,
-                                ),
-                                label: Text('Busque uma localidade',
-                                    style: context.textStyles.textInterRegular
-                                        .copyWith(
-                                      color: AppColors.lightPrimary,
-                                      fontSize: 12,
-                                    )),
-                                dropdownMenuEntries: cityEntries,
-                              ),
+                            ),
+                            Divider(
+                              height: 0,
+                              color: AppColors.lightHover,
+                              thickness: 1,
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                top: 12.0,
-                                //bottom: 16,
+                                  top: 24, bottom: 12, right: 16),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Localização",
+                                    style:
+                                        context.textStyles.textFilter.copyWith(
+                                      fontSize: 16,
+                                      color: AppColors.darker,
+                                    ),
+                                  ),
+                                  SizedBox(height: 16),
+                                  Container(
+                                    height: 32,
+                                    width: 268,
+                                    padding: EdgeInsets.all(8),
+                                    decoration: BoxDecoration(
+                                      color: AppColors.light,
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                    child: Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        SvgPicture.asset(
+                                          "assets/images/map-pin.svg",
+                                          height: 16,
+                                          width: 16,
+                                        ),
+                                        SizedBox(width: 8),
+                                        Container(
+                                          width: 200,
+                                          child: Center(
+                                            child: DropdownMenu(
+                                              trailingIcon: SizedBox.shrink(),
+                                              inputDecorationTheme:
+                                                  InputDecorationTheme(
+                                                alignLabelWithHint: true,
+                                                contentPadding:
+                                                    EdgeInsets.all(0),
+                                                border: InputBorder.none,
+                                              ),
+                                              hintText:
+                                                  "Busque uma localidade...",
+                                              textStyle: context
+                                                  .textStyles.textInterRegular
+                                                  .copyWith(
+                                                color: AppColors.lightPrimary,
+                                                fontSize: 12,
+                                              ),
+                                              dropdownMenuEntries: cityEntries,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
-                              child: Divider(
-                                height: 0,
-                                color: AppColors.grey500,
-                                thickness: 1,
-                              ),
+                            ),
+                            Divider(
+                              height: 0,
+                              color: AppColors.lightHover,
+                              thickness: 1,
                             ),
                           ],
                         ),
@@ -202,14 +244,14 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           children: [
                             TextButton(
                               onPressed: () {
-                                _clearSelection();
+                                // _clearSelection();
                               },
                               child: Text(
                                 'Redefinir',
                                 style: context.textStyles.textInterRegular
                                     .copyWith(
                                   fontSize: 15,
-                                  color: AppColors.primary,
+                                  color: AppColors.darker,
                                 ),
                               ),
                             ),
@@ -245,64 +287,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget titleTypeFilterDrawer(String text) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 24.0,
-        bottom: 16,
-      ),
-      child: Text(
-        text,
-        style: context.textStyles.textFilter.copyWith(
-          fontSize: 16,
-          color: AppColors.darker,
-        ),
-      ),
-    );
-  }
-
-  Widget customCheckBoxButton(int index, String text) {
-    return GestureDetector(
-      onTap: () => _toggleSelection(index),
-      child: Row(
-        children: [
-          Container(
-            height: 16,
-            width: 16,
-            decoration: BoxDecoration(
-              color: _isSelected[index] ? AppColors.active : null,
-              border: Border.all(
-                width: 1,
-                color: AppColors.darker,
-              ),
-              borderRadius: BorderRadius.all(
-                Radius.circular(4),
-              ),
-            ),
-            child: _isSelected[index]
-                ? Icon(
-                    Icons.check,
-                    weight: 8,
-                    size: 15,
-                    color: Colors.white,
-                  )
-                : null,
-          ),
-          SizedBox(
-            width: 8,
-          ),
-          Text(
-            text,
-            style: context.textStyles.textFilter.copyWith(
-              fontSize: 14,
-              color: AppColors.darker,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }
