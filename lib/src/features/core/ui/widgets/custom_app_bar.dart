@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import '../styles/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
+  final List<Widget>? actions;
   const CustomAppBar({
     Key? key,
     this.title,
+    this.actions,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: AppBar(
-        actions: [
-          Container(),
-        ],
+        // titleSpacing: 0,
+        // leadingWidth: 0,
+        actions: actions == null ? [SizedBox()] : actions,
         title: title == null
-            ? SvgPicture.asset(
-                "assets/images/Logo_medium_2.svg",
-                width: 250,
-                height: 50,
+            ? RichText(
+                text: TextSpan(
+                  style: context.textStyles.textLatoLigth.copyWith(
+                    color: AppColors.lightActive,
+                    fontSize: 20,
+                  ),
+                  children: <TextSpan>[
+                    TextSpan(text: "Elite "),
+                    TextSpan(
+                        text: "Vagas", style: context.textStyles.textLatoBold),
+                  ],
+                ),
               )
             : Text(
                 title!,
@@ -31,7 +40,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
         backgroundColor: AppColors.primary,
         elevation: 0,
-        centerTitle: true,
+        centerTitle: title == null ? false : true,
       ),
     );
   }

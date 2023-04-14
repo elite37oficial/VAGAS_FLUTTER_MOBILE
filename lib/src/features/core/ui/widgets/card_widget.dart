@@ -51,9 +51,13 @@ class CardWidget extends StatelessWidget {
                     "${Constant.baseUrlCompaniesImage}/id/${homeJob.companyId}",
                     height: 48,
                     width: 48,
+                    fit: BoxFit.cover,
                     errorBuilder: (context, exception, stackTrace) {
                       return Image.asset(
                         "assets/images/avatarDefault.png",
+                        height: 48,
+                        width: 48,
+                        fit: BoxFit.cover,
                       );
                     },
                   ),

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_drawer.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/bloc/list_jobs_home_bloc.dart';
 import '../../core/ui/widgets/card_widget.dart';
-import '../../core/ui/widgets/custom_sliver_app_bar.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
@@ -31,7 +31,22 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: AppColors.white,
       endDrawer: CustomDrawer(),
-      appBar: CustomAppBar(),
+      appBar: CustomAppBar(
+        actions: [
+          IconButton(
+            splashRadius: 20,
+            padding: EdgeInsets.zero,
+            onPressed: () {},
+            icon: SvgPicture.asset("assets/images/search.svg"),
+          ),
+          IconButton(
+            splashRadius: 20,
+            padding: EdgeInsets.zero,
+            onPressed: () {},
+            icon: SvgPicture.asset("assets/images/about.svg"),
+          )
+        ],
+      ),
       body: BlocBuilder<ListJobsHomeBloc, ListJobsHomeState>(
         builder: (context, state) {
           if (state is ListJobsHomeEmptyState) {
@@ -46,84 +61,62 @@ class _HomeViewState extends State<HomeView> {
           }
           if (state is ListJobsHomeCompletedState) {
             final jobList = state.listJobs;
-            return CustomScrollView(
-              slivers: [
-                SliverAppBar(
-                  actions: [
-                    Container(),
-                  ],
-                  backgroundColor: AppColors.primary,
-                  title: CustomSliverAppBar(),
-                  flexibleSpace: FlexibleSpaceBar(
-                    background: Align(
-                      alignment: Alignment.center,
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            return ListView(
+              children: [
+                const SizedBox(),
+                Container(
+                  color: Colors.white,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Vagas",
+                        style: context.textStyles.textInterRegular.copyWith(
+                          color: AppColors.darker,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Row(
                         children: [
-                          const SizedBox(),
-                          Container(
-                            color: Colors.white,
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 22, vertical: 24),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Vagas",
-                                  style: context.textStyles.textInterRegular
-                                      .copyWith(
-                                    color: AppColors.darker,
-                                    fontSize: 18,
-                                  ),
-                                ),
-                                Row(
-                                  children: [
-                                    Text(
-                                      "Filtros",
-                                      style: context.textStyles.textInterRegular
-                                          .copyWith(
-                                        color: AppColors.grey500,
-                                        fontSize: 14,
-                                      ),
-                                    ),
-                                    const SizedBox(width: 8),
-                                    SizedBox(
-                                      height: 24,
-                                      child: IconButton(
-                                        padding: EdgeInsets.zero,
-                                        onPressed: () {
-                                          Scaffold.of(context).openEndDrawer();
-                                        },
-                                        icon: Icon(Icons.tune_rounded),
-                                        color: AppColors.grey500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                          Text(
+                            "Filtros",
+                            style: context.textStyles.textInterRegular.copyWith(
+                              color: AppColors.grey500,
+                              fontSize: 14,
+                            ),
+                          ),
+                          const SizedBox(width: 8),
+                          SizedBox(
+                            height: 24,
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {
+                                Scaffold.of(context).openEndDrawer();
+                              },
+                              icon: Icon(Icons.tune_rounded),
+                              color: AppColors.grey500,
                             ),
                           ),
                         ],
                       ),
-                    ),
-                  ),
-                  expandedHeight: 150,
-                  floating: true,
-                  pinned: false,
-                ),
-                SliverList(
-                  delegate: SliverChildBuilderDelegate(
-                    childCount: jobList.length,
-                    (context, index) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 22),
-                      child: CardWidget(
-                        homeJob: jobList[index],
-                        id: jobList[index].id,
-                      ),
-                    ),
+                    ],
                   ),
                 ),
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: jobList.length,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    child: CardWidget(
+                      homeJob: jobList[index],
+                      id: jobList[index].id,
+                    ),
+                  ),
+                )
               ],
             );
           }
