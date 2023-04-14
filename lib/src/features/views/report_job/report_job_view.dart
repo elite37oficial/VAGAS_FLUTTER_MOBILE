@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 
 import '../../core/ui/widgets/custom_check_box_button.dart';
 
@@ -16,16 +17,8 @@ class _ReportJobViewState extends State<ReportJobView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Central de Ajuda',
-          style: context.textStyles.textInterRegular.copyWith(
-            fontSize: 18,
-            color: AppColors.white,
-          ),
-        ),
-        backgroundColor: AppColors.primary,
-        centerTitle: true,
+      appBar: CustomAppBar(
+        title: "Central de Ajuda",
       ),
       body: SafeArea(
         child: SingleChildScrollView(

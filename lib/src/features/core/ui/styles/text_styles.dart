@@ -25,9 +25,18 @@ class TextStyles {
         fontWeight: FontWeight.bold,
         fontFamily: fontInter,
       );
+  TextStyle get textLatoLigth => TextStyle(
+        fontWeight: FontWeight.w300,
+        fontFamily: fontLato,
+      );
 
   TextStyle get textLatoRegular => TextStyle(
         fontWeight: FontWeight.normal,
+        fontFamily: fontLato,
+      );
+
+  TextStyle get textLatoBold => TextStyle(
+        fontWeight: FontWeight.w700,
         fontFamily: fontLato,
       );
 

@@ -69,6 +69,10 @@ flutter:
     - assets/images/logo_small.svg    
     - assets/images/avatarDefault.png
     - assets/images/map-pin.svg
+    - assets/images/IconFilter.svg
+    - assets/images/search.svg
+    - assets/images/about.svg
+    - assets/images/share.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -94,6 +98,10 @@ flutter:
       fonts:
         - asset: assets/fonts/lato/Lato-Regular.ttf
           style: normal
+        - asset: assets/fonts/lato/Lato-Light.ttf
+          weight: 300
+        - asset: assets/fonts/lato/Lato-Bold.ttf
+          weight: 700
 
     - family: SourceSansPro
       fonts:

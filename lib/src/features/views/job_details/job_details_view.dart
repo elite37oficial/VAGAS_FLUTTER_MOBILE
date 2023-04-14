@@ -42,7 +42,17 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Detalhes da vaga"),
+      appBar: CustomAppBar(
+        title: "Detalhes da vaga",
+        actions: [
+          IconButton(
+            splashRadius: 20,
+            padding: EdgeInsets.zero,
+            onPressed: () {},
+            icon: SvgPicture.asset("assets/images/share.svg"),
+          ),
+        ],
+      ),
       body: ValueListenableBuilder(
         valueListenable: _jobDetailController,
         builder: (context, state, child) {
@@ -214,10 +224,14 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                               "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
                                               height: 48,
                                               width: 48,
+                                              fit: BoxFit.cover,
                                               errorBuilder: (context, exception,
                                                   stackTrace) {
                                                 return Image.asset(
                                                   "assets/images/avatarDefault.png",
+                                                  height: 48,
+                                                  width: 48,
+                                                  fit: BoxFit.cover,
                                                 );
                                               },
                                             ),
