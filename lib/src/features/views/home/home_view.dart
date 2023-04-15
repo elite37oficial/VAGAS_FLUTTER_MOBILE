@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,6 +22,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   final endDrawerIsOpen = false;
+  bool filterAppBar = false;
 
   @override
   void initState() {
@@ -34,11 +37,30 @@ class _HomeViewState extends State<HomeView> {
       backgroundColor: AppColors.white,
       endDrawer: CustomDrawer(),
       appBar: CustomAppBar(
+        filterAppBar: filterAppBar,
+        leading: IconButton(
+          splashRadius: 20,
+          padding: EdgeInsets.zero,
+          icon: Icon(
+            Platform.isAndroid
+                ? Icons.arrow_back
+                : Icons.arrow_back_ios_new_outlined,
+          ),
+          onPressed: () {
+            setState(() {
+              filterAppBar = false;
+            });
+          },
+        ),
         actions: [
           IconButton(
             splashRadius: 20,
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              setState(() {
+                filterAppBar = true;
+              });
+            },
             icon: SvgPicture.asset("assets/images/search.svg"),
           ),
           IconButton(
