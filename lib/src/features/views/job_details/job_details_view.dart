@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/dio/get_description_job_datasource_dio_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_description_jobs/get_description_jobs_repository_imp.dart';
+import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';
-import 'package:vagas_flutter_mobile/src/features/views/report_job/report_job_view.dart';
 import '../../../domain/usecases/get_description_jobs/get_description_jobs_usecase_imp.dart';
 import '../../core/constants/constant.dart';
 import '../../core/ui/styles/app_colors.dart';
@@ -222,8 +222,8 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                                 BorderRadius.circular(4),
                                             child: Image.network(
                                               "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
-                                              height: 48,
-                                              width: 48,
+                                              height: 40,
+                                              width: 40,
                                               fit: BoxFit.cover,
                                               errorBuilder: (context, exception,
                                                   stackTrace) {
@@ -273,11 +273,9 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           child: InkWell(
                             splashColor: AppColors.white,
                             onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (_) => ReportJobView(),
-                                ),
-                              );
+                              Navigator.of(context).pushNamed(
+                                  AppRoutes.reportJob,
+                                  arguments: descriptionJob);
                             },
                             child: Text(
                               'Denunciar essa vaga',

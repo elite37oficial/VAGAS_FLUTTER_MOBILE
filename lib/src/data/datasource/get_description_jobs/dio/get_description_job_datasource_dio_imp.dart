@@ -11,7 +11,6 @@ class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobsDataSource {
       String urlJobs = "${Constant.baseUrlJobs}/id/$id";
       final response = await dio.get(urlJobs);
       final data = response.data;
-      // print(data.runtimeType);
       DescriptionJobDto jobs = DescriptionJobDto.fromMap(data);
       return jobs;
     } catch (e, s) {
