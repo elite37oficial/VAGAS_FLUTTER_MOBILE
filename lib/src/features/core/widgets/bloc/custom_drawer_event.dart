@@ -4,8 +4,6 @@ part of 'custom_drawer_bloc.dart';
 @immutable
 abstract class CustomDrawerEvent {}
 
-class InitialCustomDrawerEvent extends CustomDrawerEvent {}
-
 class SelectedCustomDrawerEvent extends CustomDrawerEvent {
   final bool? isRegimeClt;
   final bool? isRegimePj;

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import '../../../views/home/bloc/list_jobs_home_bloc.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
+import '../../views/home/bloc/list_jobs_home_bloc.dart';
 
 class CustomSliverAppBar extends StatelessWidget {
   const CustomSliverAppBar({
