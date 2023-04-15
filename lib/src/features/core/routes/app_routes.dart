@@ -4,6 +4,7 @@ import 'package:vagas_flutter_mobile/src/features/views/home/home_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/report_job/report_job_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/splash/splash_screen_view.dart';
 import 'package:vagas_flutter_mobile/src/features/views/welcome/welcome_view.dart';
+import '../../views/about/about_view.dart';
 import '../../views/job_details/job_details_view.dart';
 
 class AppRoutes {
@@ -13,6 +14,7 @@ class AppRoutes {
   static const jobDetail = "/jobDetail";
   static const filter = "/filter";
   static const reportJob = "/reportJob";
+  static const about = "/about";
 }
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -25,6 +27,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => HomeView());
     case AppRoutes.home:
       return MaterialPageRoute(builder: (context) => HomeView());
+    case AppRoutes.about:
+      return MaterialPageRoute(builder: (context) => AboutView());
     case AppRoutes.reportJob:
       return MaterialPageRoute(builder: (context) {
         var descriptionJob = settings.arguments as DescriptionJobEntity;
