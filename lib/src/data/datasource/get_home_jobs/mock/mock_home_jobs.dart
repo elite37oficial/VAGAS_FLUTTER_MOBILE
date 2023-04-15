@@ -3,7 +3,7 @@ import 'package:vagas_flutter_mobile/src/data/dtos/home_job_dto.dart';
 final mockHomeJobs = [
   HomeJobDto(
     id: "10",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Linkedin",
     city: "Singapore",
@@ -12,7 +12,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "20",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Ifood",
     city: "Singapore",
@@ -22,7 +22,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "30",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Discord",
     city: "Singapore",
@@ -31,7 +31,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "40",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Coca Cola",
     city: "Singapore",
@@ -41,7 +41,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "50",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Linkedin",
     city: "Singapore",
@@ -50,7 +50,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "60",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Ifood",
     city: "Singapore",
@@ -60,7 +60,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "70",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Discord",
     city: "Singapore",
@@ -69,7 +69,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "80",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Coca Cola",
     city: "Singapore",
@@ -79,7 +79,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "90",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Linkedin",
     city: "Singapore",
@@ -88,7 +88,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "100",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Ifood",
     city: "Singapore",
@@ -98,7 +98,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "110",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Discord",
     city: "Singapore",
@@ -107,7 +107,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "120",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Coca Cola",
     city: "Singapore",
@@ -117,7 +117,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "130",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Linkedin",
     city: "Singapore",
@@ -126,7 +126,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "140",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Ifood",
     city: "Singapore",
@@ -136,7 +136,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "150",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Discord",
     city: "Singapore",
@@ -145,7 +145,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "160",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Coca Cola",
     city: "Singapore",
@@ -155,7 +155,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "170",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Linkedin",
     city: "Singapore",
@@ -164,7 +164,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "180",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Ifood",
     city: "Singapore",
@@ -174,7 +174,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "190",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Engineer",
     companyName: "Discord",
     city: "Singapore",
@@ -183,7 +183,7 @@ final mockHomeJobs = [
   ),
   HomeJobDto(
     id: "200",
-    companyId: "https://m.media-amazon.com/images/I/516k62qkOIL.png",
+    companyId: "",
     title: "Flutter Developer Jr.",
     companyName: "Coca Cola",
     city: "Singapore",

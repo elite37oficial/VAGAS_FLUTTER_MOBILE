@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/app_colors.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/bloc/custom_drawer_bloc.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
+import 'bloc/custom_drawer_bloc.dart';
 import 'custom_check_box_button.dart';
 
 class CustomDrawer extends StatefulWidget {

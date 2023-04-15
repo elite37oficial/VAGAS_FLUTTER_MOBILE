@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
+import 'package:vagas_flutter_mobile/src/features/core/helpers/size_extensions.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import '../../core/ui/styles/app_colors.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
+import '../../core/styles/app_colors.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});

@@ -3,14 +3,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/dio/get_description_job_datasource_dio_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_description_jobs/get_description_jobs_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/image_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/widgets/custom_app_bar.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/image_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';
+import '../../../data/datasource/get_description_jobs/mock/get_description_jobs_datasource_mock_imp.dart';
 import '../../../domain/usecases/get_description_jobs/get_description_jobs_usecase_imp.dart';
 import '../../core/constants/constant.dart';
-import '../../core/ui/styles/app_colors.dart';
+import '../../core/styles/app_colors.dart';
+import '../../core/widgets/custom_app_bar.dart';
 
 class JobDetailsView extends StatefulWidget {
   final String id;
@@ -27,7 +28,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   final JobDetailController _jobDetailController = JobDetailController(
     GetDescriptionJobsUseCaseImp(
       GetDescriptionJobsRepositoryImp(
-        GetDescriptionJobDataSourceDioImp(),
+        GetDescriptionJobDataSourceMockImp(),
       ),
     ),
   );

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/helpers/size_extensions.dart';
-import 'package:vagas_flutter_mobile/src/features/core/ui/styles/text_styles.dart';
-
+import 'package:vagas_flutter_mobile/src/features/core/helpers/size_extensions.dart';
+import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import '../styles/app_colors.dart';
 
 class CustomCheckBoxButton extends StatelessWidget {
