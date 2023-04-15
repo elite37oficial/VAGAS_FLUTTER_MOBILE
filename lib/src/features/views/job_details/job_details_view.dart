@@ -7,7 +7,6 @@ import 'package:vagas_flutter_mobile/src/features/core/styles/image_styles.dart'
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';
-import '../../../data/datasource/get_description_jobs/mock/get_description_jobs_datasource_mock_imp.dart';
 import '../../../domain/usecases/get_description_jobs/get_description_jobs_usecase_imp.dart';
 import '../../core/constants/constant.dart';
 import '../../core/styles/app_colors.dart';
@@ -28,7 +27,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   final JobDetailController _jobDetailController = JobDetailController(
     GetDescriptionJobsUseCaseImp(
       GetDescriptionJobsRepositoryImp(
-        GetDescriptionJobDataSourceMockImp(),
+        GetDescriptionJobDataSourceDioImp(),
       ),
     ),
   );

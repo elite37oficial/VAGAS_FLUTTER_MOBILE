@@ -14,18 +14,19 @@ class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
     on<GetListJobsHomeEvent>(_listJobs);
   }
 
+  List<HomeJobEntity> listJobs = [];
+
   Future<void> _listJobs(
       GetListJobsHomeEvent event, Emitter<ListJobsHomeState> emit) async {
     final GetHomeJobsUseCase _getHomeJobsUseCase = GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
-        GetHomeJobsDataSourceMockImp(),
+        GetHomeJobsDataSourceDioImp(),
       ),
     );
 
     emit(ListJobsHomeLoadingState());
     try {
-      final List<HomeJobEntity> listJobs =
-          await _getHomeJobsUseCase(filter: event.filter ?? null);
+      listJobs = await _getHomeJobsUseCase(filter: event.filter ?? null);
       emit(ListJobsHomeCompletedState(listJobs: listJobs));
     } catch (e) {
       emit(ListJobsHomeErrorState());

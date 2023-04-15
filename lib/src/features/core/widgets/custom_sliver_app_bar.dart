@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import '../../views/home/bloc/list_jobs_home_bloc.dart';
@@ -13,7 +14,7 @@ class CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final TextEditingController textController = TextEditingController();
     return Container(
-      height: 43,
+      height: 40,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.lightActive,
@@ -27,7 +28,6 @@ class CustomSliverAppBar extends StatelessWidget {
         children: [
           Expanded(
             child: TextFormField(
-              // initialValue: initialValue,
               controller: textController,
               style: context.textStyles.textFilter
                   .copyWith(color: AppColors.white),
@@ -35,10 +35,10 @@ class CustomSliverAppBar extends StatelessWidget {
                 hintText: "Busque pela vaga ideal...",
                 contentPadding: EdgeInsets.all(12),
                 hintStyle: context.textStyles.textFilter,
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: AppColors.lightActive,
-                ),
+                // prefixIcon: Icon(
+                //   Icons.search,
+                //   color: AppColors.lightActive,
+                // ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
@@ -56,8 +56,8 @@ class CustomSliverAppBar extends StatelessWidget {
                   .add(GetListJobsHomeEvent(filter: filter));
             },
             child: Container(
-              height: 43,
-              width: 94,
+              height: 40,
+              width: 50,
               decoration: BoxDecoration(
                 color: AppColors.white,
                 border: Border.all(
@@ -70,10 +70,9 @@ class CustomSliverAppBar extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text(
-                  "Pesquisar",
-                  style: context.textStyles.textFilter
-                      .copyWith(color: AppColors.darker),
+                child: SvgPicture.asset(
+                  "assets/images/search.svg",
+                  color: AppColors.darker,
                 ),
               ),
             ),
