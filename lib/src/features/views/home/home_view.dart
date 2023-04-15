@@ -29,6 +29,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawerScrimColor: Colors.transparent,
       backgroundColor: AppColors.white,
       endDrawer: CustomDrawer(),
       appBar: CustomAppBar(
@@ -80,23 +81,26 @@ class _HomeViewState extends State<HomeView> {
                         ),
                       ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           Text(
                             "Filtros",
                             style: context.textStyles.textInterRegular.copyWith(
-                              color: AppColors.grey500,
+                              color: AppColors.darker,
                               fontSize: 14,
                             ),
                           ),
                           const SizedBox(width: 8),
-                          SizedBox(
+                          Container(
+                            width: 24,
                             height: 24,
                             child: IconButton(
                               padding: EdgeInsets.zero,
                               onPressed: () {
                                 Scaffold.of(context).openEndDrawer();
                               },
-                              icon: Icon(Icons.tune_rounded),
+                              icon: SvgPicture.asset(
+                                  "assets/images/IconFilter.svg"),
                               color: AppColors.grey500,
                             ),
                           ),
