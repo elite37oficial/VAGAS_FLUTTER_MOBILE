@@ -21,8 +21,12 @@ class TextStyles {
         fontFamily: fontInter,
       );
 
+  TextStyle get textInterSemiBold => TextStyle(
+        fontWeight: FontWeight.w600,
+        fontFamily: fontInter,
+      );
   TextStyle get textInterBold => TextStyle(
-        fontWeight: FontWeight.bold,
+        fontWeight: FontWeight.w700,
         fontFamily: fontInter,
       );
   TextStyle get textLatoLigth => TextStyle(
