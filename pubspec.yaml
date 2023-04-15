@@ -62,17 +62,20 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/fonts/
-    - assets/images/
-    - assets/images/IconCloseAppVagas.svg
-    - assets/images/Logo_medium_2.svg
-    - assets/images/logo_small.svg    
-    - assets/images/avatarDefault.png
-    - assets/images/map-pin.svg
-    - assets/images/IconFilter.svg
-    - assets/images/search.svg
     - assets/images/about.svg
+    - assets/images/avatarDefault.png
+    - assets/images/email_contact.svg
+    - assets/images/gitHubIcon.svg
+    - assets/images/IconCloseAppVagas.svg
+    - assets/images/IconFilter.svg
+    - assets/images/link_contact.svg
+    - assets/images/linkedinIcon.svg
+    - assets/images/Logo_medium.svg
+    - assets/images/logo_small.svg
+    - assets/images/map-pin.svg
+    - assets/images/search.svg
     - assets/images/share.svg
+    - assets/images/whats_app_contact.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -93,6 +96,10 @@ flutter:
           weight: 300
         - asset: assets/fonts/inter/Inter-Regular.ttf
           style: normal
+        - asset: assets/fonts/inter/Inter-SemiBold.ttf
+          weight: 600
+        - asset: assets/fonts/inter/Inter-Bold.ttf
+          weight: 700
 
     - family: Lato
       fonts:

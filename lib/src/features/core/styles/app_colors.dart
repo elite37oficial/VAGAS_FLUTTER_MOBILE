@@ -14,7 +14,8 @@ class AppColors {
   static Color get active => const Color(0XFF2D6385);
   static Color get grey500 => const Color(0XffA0A0A0);
   static Color get grey => const Color(0Xff8C8C8C);
-  static Color get greyDark => const Color(0Xff787878);
+  static Color get greyLight => const Color(0Xff787878);
+  static Color get greyDark => const Color(0Xff383838);
   static Color get light => const Color(0XFFEBF2F6);
   static Color get lightPrimary => const Color(0XFF98A8B2);
   static Color get lightHover => const Color(0XFFE1EBF2);

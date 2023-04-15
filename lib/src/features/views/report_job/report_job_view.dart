@@ -82,7 +82,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                     'Use esse formulário para denunciar vagas que violem nossas Diretrizes do Elite Vagas. Ao dencuniar uma vaga, suas informações NÃO serão compartilhadas com a pessoa cuja a vaga está sendo denunciado.',
                     style: context.textStyles.textLatoRegular.copyWith(
                       fontSize: 14,
-                      color: AppColors.greyDark,
+                      color: AppColors.greyLight,
                       fontWeight: FontWeight.w500,
                     ),
                     maxLines: 4,
@@ -105,7 +105,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                     widget.descriptionJob.title,
                     style: context.textStyles.textInterRegular.copyWith(
                       fontSize: 16,
-                      color: AppColors.greyDark,
+                      color: AppColors.greyLight,
                     ),
                   ),
                   SizedBox(
@@ -127,7 +127,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       hintText: 'Email',
                       hintStyle: context.textStyles.textInterRegular.copyWith(
                         fontSize: 16,
-                        color: AppColors.greyDark,
+                        color: AppColors.greyLight,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
@@ -187,7 +187,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       hintText: 'Especifique aqui',
                       hintStyle: context.textStyles.textInterRegular.copyWith(
                         fontSize: 16,
-                        color: AppColors.greyDark,
+                        color: AppColors.greyLight,
                       ),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
