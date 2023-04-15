@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/bloc/list_jobs_home_bloc.dart';
@@ -66,7 +67,9 @@ class _HomeViewState extends State<HomeView> {
           IconButton(
             splashRadius: 20,
             padding: EdgeInsets.zero,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pushNamed(AppRoutes.about);
+            },
             icon: SvgPicture.asset("assets/images/about.svg"),
           )
         ],
