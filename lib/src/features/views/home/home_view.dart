@@ -65,20 +65,18 @@ class _HomeViewState extends State<HomeView> {
             icon: SvgPicture.asset("assets/images/search.svg"),
           ),
           PopupMenuButton(
+            onSelected: (_) {
+              Navigator.of(context).pushNamed(AppRoutes.about);
+            },
             padding: EdgeInsets.zero,
             icon: SvgPicture.asset("assets/images/about.svg"),
             itemBuilder: (_) => [
               PopupMenuItem(
-                child: GestureDetector(
-                  onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pushNamed(AppRoutes.about);
-                  },
-                  child: Center(
-                    child: Text(
-                      "Sobre o App",
-                      style: context.textStyles.textLatoBold,
-                    ),
+                value: 0,
+                child: Center(
+                  child: Text(
+                    "Sobre o App",
+                    style: context.textStyles.textLatoBold,
                   ),
                 ),
               )
