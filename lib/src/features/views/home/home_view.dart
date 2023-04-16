@@ -64,14 +64,34 @@ class _HomeViewState extends State<HomeView> {
             },
             icon: SvgPicture.asset("assets/images/search.svg"),
           ),
-          IconButton(
-            splashRadius: 20,
+          PopupMenuButton(
             padding: EdgeInsets.zero,
-            onPressed: () {
-              Navigator.of(context).pushNamed(AppRoutes.about);
-            },
             icon: SvgPicture.asset("assets/images/about.svg"),
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    Navigator.of(context).pushNamed(AppRoutes.about);
+                  },
+                  child: Center(
+                    child: Text(
+                      "Sobre o App",
+                      style: context.textStyles.textLatoBold,
+                    ),
+                  ),
+                ),
+              )
+            ],
           )
+          // IconButton(
+          //   splashRadius: 20,
+          //   padding: EdgeInsets.zero,
+          //   onPressed: () {
+          //     Navigator.of(context).pushNamed(AppRoutes.about);
+          //   },
+          //   icon: SvgPicture.asset("assets/images/about.svg"),
+          // )
         ],
       ),
       body: BlocBuilder<ListJobsHomeBloc, ListJobsHomeState>(

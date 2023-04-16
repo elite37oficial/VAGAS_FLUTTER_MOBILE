@@ -6,7 +6,6 @@ import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_app_bar.dart';
 import 'package:vagas_flutter_mobile/src/features/views/about/about_controller.dart';
 import 'package:vagas_flutter_mobile/src/features/views/about/about_state.dart';
-
 import '../../../data/datasource/get_developers/mock/get_developers_datasource_mock_imp.dart';
 import '../../../data/repositories/get_developers/get_developers_repository_imp.dart';
 import '../../core/widgets/custom_developers_topic.dart';
@@ -120,6 +119,13 @@ class _AboutViewState extends State<AboutView> {
                         CustomTopic(
                           title: "Creditos",
                           children: [
+                            CustomDevelopersTopic(
+                              title: "Manager",
+                              developList: developList
+                                  .where((list) =>
+                                      list.atuation.contains("Manager"))
+                                  .toList(),
+                            ),
                             CustomDevelopersTopic(
                               title: "Backend",
                               developList: developList
