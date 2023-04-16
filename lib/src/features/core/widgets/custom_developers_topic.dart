@@ -1,20 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/src/features/core/model/dev_model.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
+import 'package:vagas_flutter_mobile/src/features/views/about/about_controller.dart';
+
+import '../../../data/datasource/get_developers/mock/get_developers_datasource_mock_imp.dart';
+import '../../../data/repositories/get_developers/get_developers_repository_imp.dart';
+import '../../../domain/entities/develop_emtity.dart';
+import '../../../domain/usecases/get_developers/get_developers_usecase_imp.dart';
 
 class CustomDevelopersTopic extends StatelessWidget {
   final String title;
-  final List<DevelopModel> developList;
+  final List<DevelopEntity> developList;
+  final bool? openUrl;
   const CustomDevelopersTopic({
     Key? key,
     required this.title,
     required this.developList,
+    this.openUrl = true,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final AboutController _aboutController = AboutController(
+      GetDevelopersUseCaseImp(
+        GetDevelopersRepositoryImp(
+          GetDevelopersDataSourceMockImp(),
+        ),
+      ),
+    );
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -47,9 +61,23 @@ class CustomDevelopersTopic extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          SvgPicture.asset("assets/images/linkedinIcon.svg"),
+                          GestureDetector(
+                            onTap: openUrl != null
+                                ? () => _aboutController
+                                    .openLink(developList[index].linkedinUrl)
+                                : null,
+                            child: SvgPicture.asset(
+                                "assets/images/linkedinIcon.svg"),
+                          ),
                           SizedBox(width: 12),
-                          SvgPicture.asset("assets/images/gitHubIcon.svg")
+                          GestureDetector(
+                            onTap: openUrl != null
+                                ? () => _aboutController
+                                    .openLink(developList[index].gitHubUrl)
+                                : null,
+                            child: SvgPicture.asset(
+                                "assets/images/gitHubIcon.svg"),
+                          )
                         ],
                       )
                     ],

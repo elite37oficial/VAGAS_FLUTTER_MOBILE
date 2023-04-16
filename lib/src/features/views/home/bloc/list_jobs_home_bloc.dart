@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_jobs_usecase.dart';
 import '../../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
-import '../../../../data/datasource/get_home_jobs/mock/get_home_jobs_datasource_mock_imp.dart';
 import '../../../../data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
 import '../../../../domain/entities/home_job_entity.dart';
 import '../../../../domain/usecases/get_home_jobs/get_home_jobs_usecase_imp.dart';

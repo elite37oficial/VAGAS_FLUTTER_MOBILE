@@ -17,7 +17,6 @@ class _SplashScreenViewState extends State<SplashScreenView> {
   @override
   void initState() {
     super.initState();
-    Future<Object> duration;
   }
 
   @override

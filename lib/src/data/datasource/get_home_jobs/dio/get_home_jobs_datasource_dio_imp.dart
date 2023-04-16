@@ -10,7 +10,7 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
     try {
       String urlJobs = Constant.baseUrlJobs;
       final response = await dio.get(urlJobs);
-      List<HomeJobDto> jobs = await (response.data as List)
+      List<HomeJobDto> jobs = (response.data as List)
           .map((json) => HomeJobDto.fromMap(json))
           .toList();
       return jobs;
