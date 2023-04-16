@@ -1,10 +1,10 @@
-class DevelopModel {
+class DevelopEntity {
   final String name;
   final String atuation;
   final String linkedinUrl;
   final String gitHubUrl;
 
-  DevelopModel({
+  DevelopEntity({
     required this.name,
     required this.atuation,
     required this.linkedinUrl,
