@@ -181,7 +181,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       ),
                     ),
                     Hero(
-                      tag: descriptionJob.id,
+                      tag: widget.id,
                       child: Card(
                         shape: RoundedRectangleBorder(
                           side: const BorderSide(

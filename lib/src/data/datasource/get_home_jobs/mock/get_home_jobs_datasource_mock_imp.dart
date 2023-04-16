@@ -11,7 +11,6 @@ class GetHomeJobsDataSourceMockImp implements GetHomeJobsDataSource {
     } else {
       final filteredList = listJobs
           .where((job) =>
-              job.id.toLowerCase().contains(filter.toLowerCase()) ||
               job.title.toLowerCase().contains(filter.toLowerCase()) ||
               job.companyName.toLowerCase().contains(filter.toLowerCase()) ||
               job.city.toLowerCase().contains(filter.toLowerCase()) ||

@@ -75,7 +75,6 @@ flutter:
     - assets/images/logo_small.svg
     - assets/images/map-pin.svg
     - assets/images/search.svg
-    - assets/images/share.svg
     - assets/images/whats_app_contact.svg
     - assets/images/fitment-loader.gif
     - assets/images/cupertino_activity_indicator.gif
