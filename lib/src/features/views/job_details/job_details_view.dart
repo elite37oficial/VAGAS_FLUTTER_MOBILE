@@ -44,14 +44,6 @@ class _JobDetailsViewState extends State<JobDetailsView> {
     return Scaffold(
       appBar: CustomAppBar(
         title: "Detalhes da vaga",
-        actions: [
-          IconButton(
-            splashRadius: 20,
-            padding: EdgeInsets.zero,
-            onPressed: () {},
-            icon: SvgPicture.asset("assets/images/share.svg"),
-          ),
-        ],
       ),
       body: ValueListenableBuilder(
         valueListenable: _jobDetailController,

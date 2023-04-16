@@ -50,4 +50,10 @@ final List<DevelopDto> mockDevelopList = [
     linkedinUrl: "https://www.linkedin.com/in/cisco-cruz-227a02217/",
     gitHubUrl: "https://github.com/francisco-cruz",
   ),
+  DevelopDto(
+    name: "Valdir Giorgi",
+    atuation: "Manager",
+    linkedinUrl: "https://www.linkedin.com/in/valdir-dev-369a44247/",
+    gitHubUrl: "https://github.com/ValdirGiorgi",
+  ),
 ];
