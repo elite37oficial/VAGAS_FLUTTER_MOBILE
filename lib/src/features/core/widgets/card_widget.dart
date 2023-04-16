@@ -25,110 +25,127 @@ class CardWidget extends StatelessWidget {
         );
         print(id);
       },
-      child: SizedBox(
-        width: double.infinity,
-        child: Card(
-          margin: EdgeInsets.only(bottom: 8),
-          elevation: 0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side: BorderSide(
-              color: AppColors.lightActive,
+      child: Hero(
+        tag: homeJob.id,
+        child: SizedBox(
+          width: double.infinity,
+          child: Card(
+            margin: EdgeInsets.only(bottom: 8),
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(
+                color: AppColors.lightActive,
+              ),
             ),
-          ),
-          child: Row(
-            children: [
-              Container(
-                margin: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                height: 48,
-                width: 48,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(6.0),
-                  child: Image.network(
-                    "${Constant.baseUrlCompaniesImage}/id/${homeJob.companyId}",
-                    height: 48,
-                    width: 48,
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, exception, stackTrace) {
-                      return Image.asset(
-                        "assets/images/avatarDefault.png",
-                        height: 48,
-                        width: 48,
-                        fit: BoxFit.cover,
-                      );
-                    },
+            child: Row(
+              children: [
+                Container(
+                  margin: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                  height: 48,
+                  width: 48,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(6.0),
+                    child: FadeInImage.assetNetwork(
+                      placeholder:
+                          "assets/images/cupertino_activity_indicator.gif",
+                      image:
+                          "${Constant.baseUrlCompaniesImage}/id/${homeJob.companyId}",
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return Image.asset(
+                          "assets/images/avatarDefault.png",
+                          height: 48,
+                          width: 48,
+                          fit: BoxFit.cover,
+                        );
+                      },
+                    ),
+                    // child: Image.network(
+                    //   "${Constant.baseUrlCompaniesImage}/id/${homeJob.companyId}",
+                    //   height: 48,
+                    //   width: 48,
+                    //   fit: BoxFit.cover,
+                    //   errorBuilder: (context, exception, stackTrace) {
+                    //     return Image.asset(
+                    //       "assets/images/avatarDefault.png",
+                    //       height: 48,
+                    //       width: 48,
+                    //       fit: BoxFit.cover,
+                    //     );
+                    //   },
+                    // ),
                   ),
                 ),
-              ),
-              SizedBox(
-                width: context.sWidth - 140,
-                height: 56,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      homeJob.title,
-                      style: context.textStyles.textInterRegular.copyWith(
-                        color: AppColors.darker,
-                        fontSize: 16,
+                SizedBox(
+                  width: context.sWidth - 140,
+                  height: 56,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        homeJob.title,
+                        style: context.textStyles.textInterRegular.copyWith(
+                          color: AppColors.darker,
+                          fontSize: 16,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                    Text(
-                      homeJob.companyName,
-                      style: context.textStyles.textInterRegular.copyWith(
-                        color: AppColors.darkerActive,
-                        fontSize: 12,
+                      Text(
+                        homeJob.companyName,
+                        style: context.textStyles.textInterRegular.copyWith(
+                          color: AppColors.darkerActive,
+                          fontSize: 12,
+                        ),
                       ),
-                    ),
-                    Row(
-                      children: [
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.location_on_sharp,
-                              size: 12,
-                              color: AppColors.grey,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              homeJob.city,
-                              style: context.textStyles.textCityTypeJobList,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 16,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.access_time_filled_outlined,
-                              size: 12,
-                              color: AppColors.grey,
-                            ),
-                            SizedBox(
-                              width: 4,
-                            ),
-                            Text(
-                              homeJob.modality,
-                              style: context.textStyles.textCityTypeJobList,
-                            ),
-                          ],
-                        ),
-                      ],
-                    )
-                  ],
-                ),
-              )
-            ],
+                      Row(
+                        children: [
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.location_on_sharp,
+                                size: 12,
+                                color: AppColors.grey,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                homeJob.city,
+                                style: context.textStyles.textCityTypeJobList,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            width: 16,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.access_time_filled_outlined,
+                                size: 12,
+                                color: AppColors.grey,
+                              ),
+                              SizedBox(
+                                width: 4,
+                              ),
+                              Text(
+                                homeJob.modality,
+                                style: context.textStyles.textCityTypeJobList,
+                              ),
+                            ],
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

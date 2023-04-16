@@ -63,133 +63,134 @@ class _JobDetailsViewState extends State<JobDetailsView> {
           }
           if (state is DescriptionjobDetailsState) {
             final descriptionJob = state.descriptionJob;
-            return SafeArea(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    top: 25,
-                    right: 24.0,
-                    left: 24.0,
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        descriptionJob.title,
-                        style: context.textStyles.textLatoRegular.copyWith(
-                          color: AppColors.darker,
-                          fontSize: 28,
-                        ),
+            return SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: 25,
+                  right: 24.0,
+                  left: 24.0,
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      descriptionJob.title,
+                      style: context.textStyles.textLatoRegular.copyWith(
+                        color: AppColors.darker,
+                        fontSize: 28,
                       ),
-                      customTextColumnInformation(
-                        text: descriptionJob.nameCompany,
-                        textStyle:
-                            context.textStyles.textEmphasisDetails.copyWith(
-                          color: AppColors.grey500,
-                        ),
+                    ),
+                    customTextColumnInformation(
+                      text: descriptionJob.nameCompany,
+                      textStyle:
+                          context.textStyles.textEmphasisDetails.copyWith(
+                        color: AppColors.grey500,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 24.0,
-                          bottom: 32.0,
-                        ),
-                        child: Column(
-                          children: [
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  Icons.location_on,
-                                  color: AppColors.primary,
-                                ),
-                                customTextColumnInformation(
-                                  text:
-                                      " ${descriptionJob.city} - ${descriptionJob.state}",
-                                  textStyle:
-                                      context.textStyles.textEmphasisDetails,
-                                ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 16,
-                            ),
-                            Row(
-                              children: [
-                                Icon(
-                                  Icons.business_center,
-                                  color: AppColors.primary,
-                                ),
-                                customTextColumnInformation(
-                                  text: ' ${descriptionJob.modality} - ',
-                                  textStyle:
-                                      context.textStyles.textEmphasisDetails,
-                                ),
-                                customTextColumnInformation(
-                                  text: descriptionJob.seniority,
-                                  textStyle:
-                                      context.textStyles.textEmphasisDetails,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 24.0,
+                        bottom: 32.0,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(
-                              top: 3,
-                              bottom: 20,
-                            ),
-                            child: Text(
-                              'Entre em contato:',
-                              style: context.textStyles.textSubTitleDetails,
-                            ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.location_on,
+                                color: AppColors.primary,
+                              ),
+                              customTextColumnInformation(
+                                text:
+                                    " ${descriptionJob.city} - ${descriptionJob.state}",
+                                textStyle:
+                                    context.textStyles.textEmphasisDetails,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 16,
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              contactButton(
-                                context: context,
-                                svgAsset: context.image.linkContact,
+                              Icon(
+                                Icons.business_center,
+                                color: AppColors.primary,
                               ),
-                              contactButton(
-                                isWhatsApp: true,
-                                context: context,
-                                svgAsset: context.image.whatsAppContact,
+                              customTextColumnInformation(
+                                text: ' ${descriptionJob.modality} - ',
+                                textStyle:
+                                    context.textStyles.textEmphasisDetails,
                               ),
-                              contactButton(
-                                context: context,
-                                svgAsset: context.image.emailContact,
+                              customTextColumnInformation(
+                                text: descriptionJob.seniority,
+                                textStyle:
+                                    context.textStyles.textEmphasisDetails,
                               ),
                             ],
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 35,
-                          bottom: 16,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: 3,
+                            bottom: 20,
+                          ),
+                          child: Text(
+                            'Entre em contato:',
+                            style: context.textStyles.textSubTitleDetails,
+                          ),
                         ),
-                        child: Text(
-                          'Sobre a vaga',
-                          style: context.textStyles.textSubTitleDetails,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            contactButton(
+                              context: context,
+                              svgAsset: context.image.linkContact,
+                            ),
+                            contactButton(
+                              isWhatsApp: true,
+                              context: context,
+                              svgAsset: context.image.whatsAppContact,
+                            ),
+                            contactButton(
+                              context: context,
+                              svgAsset: context.image.emailContact,
+                            ),
+                          ],
                         ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 35,
+                        bottom: 16,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 5,
-                          bottom: 25,
-                        ),
-                        child: Text(
-                          descriptionJob.description,
-                          style: context.textStyles.textDetails,
-                          textAlign: TextAlign.justify,
-                          softWrap: true,
-                        ),
+                      child: Text(
+                        'Sobre a vaga',
+                        style: context.textStyles.textSubTitleDetails,
                       ),
-                      Card(
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 5,
+                        bottom: 25,
+                      ),
+                      child: Text(
+                        descriptionJob.description,
+                        style: context.textStyles.textDetails,
+                        textAlign: TextAlign.justify,
+                        softWrap: true,
+                      ),
+                    ),
+                    Hero(
+                      tag: descriptionJob.id,
+                      child: Card(
                         shape: RoundedRectangleBorder(
                           side: const BorderSide(
                             color: Colors.grey,
@@ -220,21 +221,39 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                           child: ClipRRect(
                                             borderRadius:
                                                 BorderRadius.circular(4),
-                                            child: Image.network(
-                                              "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
+                                            child: FadeInImage.assetNetwork(
+                                              placeholder:
+                                                  "assets/images/cupertino_activity_indicator.gif",
+                                              image:
+                                                  "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
                                               height: 40,
                                               width: 40,
                                               fit: BoxFit.cover,
-                                              errorBuilder: (context, exception,
-                                                  stackTrace) {
+                                              imageErrorBuilder:
+                                                  (context, error, stackTrace) {
                                                 return Image.asset(
                                                   "assets/images/avatarDefault.png",
-                                                  height: 48,
-                                                  width: 48,
+                                                  height: 40,
+                                                  width: 40,
                                                   fit: BoxFit.cover,
                                                 );
                                               },
                                             ),
+                                            // child: Image.network(
+                                            //   "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
+                                            //   height: 40,
+                                            //   width: 40,
+                                            //   fit: BoxFit.cover,
+                                            //   errorBuilder: (context, exception,
+                                            //       stackTrace) {
+                                            //     return Image.asset(
+                                            //       "assets/images/avatarDefault.png",
+                                            //       height: 40,
+                                            //       width: 40,
+                                            //       fit: BoxFit.cover,
+                                            //     );
+                                            //   },
+                                            // ),
                                           ),
                                         ),
                                         const SizedBox(
@@ -264,32 +283,30 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 40,
-                          bottom: 25,
-                        ),
-                        child: Center(
-                          child: InkWell(
-                            splashColor: AppColors.white,
-                            onTap: () {
-                              Navigator.of(context).pushNamed(
-                                  AppRoutes.reportJob,
-                                  arguments: descriptionJob);
-                            },
-                            child: Text(
-                              'Denunciar essa vaga',
-                              style:
-                                  context.textStyles.textInterRegular.copyWith(
-                                color: AppColors.primary,
-                                fontSize: 16,
-                              ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 40,
+                        bottom: 25,
+                      ),
+                      child: Center(
+                        child: InkWell(
+                          splashColor: AppColors.white,
+                          onTap: () {
+                            Navigator.of(context).pushNamed(AppRoutes.reportJob,
+                                arguments: descriptionJob);
+                          },
+                          child: Text(
+                            'Denunciar essa vaga',
+                            style: context.textStyles.textInterRegular.copyWith(
+                              color: AppColors.primary,
+                              fontSize: 16,
                             ),
                           ),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             );
