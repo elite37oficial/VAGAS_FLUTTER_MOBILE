@@ -77,6 +77,8 @@ flutter:
     - assets/images/search.svg
     - assets/images/share.svg
     - assets/images/whats_app_contact.svg
+    - assets/images/fitment-loader.gif
+    - assets/images/cupertino_activity_indicator.gif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
