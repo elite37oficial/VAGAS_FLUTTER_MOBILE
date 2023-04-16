@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vagas_flutter_mobile/src/data/dtos/description_job_dto.dart';
 import 'package:vagas_flutter_mobile/src/domain/entities/description_job_entity.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_description_jobs/get_description_jobs_usecase.dart';
 import 'package:vagas_flutter_mobile/src/features/views/job_details/job_details_state.dart';

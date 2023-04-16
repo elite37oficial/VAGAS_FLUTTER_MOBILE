@@ -1,9 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_sliver_app_bar.dart';
-import 'package:vagas_flutter_mobile/src/features/views/home/home_view.dart';
 import '../styles/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {

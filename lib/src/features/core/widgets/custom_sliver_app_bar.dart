@@ -35,10 +35,6 @@ class CustomSliverAppBar extends StatelessWidget {
                 hintText: "Busque pela vaga ideal...",
                 contentPadding: EdgeInsets.all(12),
                 hintStyle: context.textStyles.textFilter,
-                // prefixIcon: Icon(
-                //   Icons.search,
-                //   color: AppColors.lightActive,
-                // ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
                   borderSide: BorderSide.none,
