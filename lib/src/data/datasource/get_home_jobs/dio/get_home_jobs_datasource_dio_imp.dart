@@ -66,7 +66,7 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
             .map((json) => HomeJobDto.fromMap(json))
             .toList();
 
-        Set<HomeJobDto> jobs = Set<HomeJobDto>();
+        Set<HomeJobDto> jobs = <HomeJobDto>{};
 
         jobs.addAll(jobsTitle);
         jobs.addAll(jobsCompanyName);
@@ -76,9 +76,7 @@ class GetHomeJobsDataSourceDioImp implements GetHomeJobsDataSource {
         final finalListJobs = jobs.toList();
         return finalListJobs;
       }
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return [];
     }
   }

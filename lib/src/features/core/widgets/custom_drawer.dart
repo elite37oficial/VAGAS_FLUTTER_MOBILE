@@ -68,19 +68,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
       ),
     ];
 
-    _modalityFilter(
-        {required String modalityFilter,
-        required bool isModalityRemote,
-        required bool isModalityPresential,
-        required bool isModalityHibrid}) {
-      if (isModalityRemote == true &&
-          isModalityPresential == true &&
-          isModalityHibrid == true) {
-        return "";
-      }
-      // else if(){}
-    }
-
     final List<DropdownMenuEntry<String>> cityEntries =
         cityNames.map((String cityName) {
       return DropdownMenuEntry<String>(
@@ -263,6 +250,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                   children: [
                                     TextButton(
                                       onPressed: () {
+                                        for (var i = 0;
+                                            i < listFilter.length;
+                                            i++) {
+                                          listFilter[i].isSelected = false;
+                                        }
                                         context.read<CustomDrawerBloc>().add(
                                               SelectedCustomDrawerEvent(
                                                 isRegimeClt: false,

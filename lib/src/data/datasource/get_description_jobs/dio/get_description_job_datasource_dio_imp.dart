@@ -13,9 +13,7 @@ class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobsDataSource {
       final data = response.data;
       DescriptionJobDto jobs = DescriptionJobDto.fromMap(data);
       return jobs;
-    } catch (e, s) {
-      print(e);
-      print(s);
+    } catch (e) {
       return DescriptionJobDto(
           id: ' ',
           companyId: ' ',

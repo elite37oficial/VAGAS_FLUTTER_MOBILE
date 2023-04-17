@@ -75,7 +75,6 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                   child: LinearProgressIndicator(
                     color: AppColors.primary,
                     backgroundColor: AppColors.lightHover,
-                    //value: controller.value,
                   ),
                 ),
                 Spacer(

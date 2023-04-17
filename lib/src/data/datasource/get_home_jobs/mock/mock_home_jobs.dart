@@ -8,7 +8,6 @@ final mockHomeJobs = [
     companyName: "Linkedin",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
   ),
   HomeJobDto(
     id: "20",
@@ -17,8 +16,6 @@ final mockHomeJobs = [
     companyName: "Ifood",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl:
-    // "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
   ),
   HomeJobDto(
     id: "30",
@@ -27,7 +24,6 @@ final mockHomeJobs = [
     companyName: "Discord",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
   ),
   HomeJobDto(
     id: "40",
@@ -36,8 +32,6 @@ final mockHomeJobs = [
     companyName: "Coca Cola",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl:
-    // "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
   ),
   HomeJobDto(
     id: "50",
@@ -46,7 +40,6 @@ final mockHomeJobs = [
     companyName: "Linkedin",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
   ),
   HomeJobDto(
     id: "60",
@@ -55,8 +48,6 @@ final mockHomeJobs = [
     companyName: "Ifood",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
   ),
   HomeJobDto(
     id: "70",
@@ -65,7 +56,6 @@ final mockHomeJobs = [
     companyName: "Discord",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
   ),
   HomeJobDto(
     id: "80",
@@ -74,8 +64,6 @@ final mockHomeJobs = [
     companyName: "Coca Cola",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
   ),
   HomeJobDto(
     id: "90",
@@ -84,7 +72,6 @@ final mockHomeJobs = [
     companyName: "Linkedin",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
   ),
   HomeJobDto(
     id: "100",
@@ -93,8 +80,6 @@ final mockHomeJobs = [
     companyName: "Ifood",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
   ),
   HomeJobDto(
     id: "110",
@@ -103,7 +88,6 @@ final mockHomeJobs = [
     companyName: "Discord",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
   ),
   HomeJobDto(
     id: "120",
@@ -112,8 +96,6 @@ final mockHomeJobs = [
     companyName: "Coca Cola",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
   ),
   HomeJobDto(
     id: "130",
@@ -122,7 +104,6 @@ final mockHomeJobs = [
     companyName: "Linkedin",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
   ),
   HomeJobDto(
     id: "140",
@@ -131,8 +112,6 @@ final mockHomeJobs = [
     companyName: "Ifood",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
   ),
   HomeJobDto(
     id: "150",
@@ -141,7 +120,6 @@ final mockHomeJobs = [
     companyName: "Discord",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
   ),
   HomeJobDto(
     id: "160",
@@ -150,8 +128,6 @@ final mockHomeJobs = [
     companyName: "Coca Cola",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
   ),
   HomeJobDto(
     id: "170",
@@ -160,7 +136,6 @@ final mockHomeJobs = [
     companyName: "Linkedin",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
   ),
   HomeJobDto(
     id: "180",
@@ -169,8 +144,6 @@ final mockHomeJobs = [
     companyName: "Ifood",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://static-images.ifood.com.br/image/upload/t_high/logosgde/15def965-6971-41c7-9aa1-25f71d40f45f_CAFET_SASCO.png",
   ),
   HomeJobDto(
     id: "190",
@@ -179,7 +152,6 @@ final mockHomeJobs = [
     companyName: "Discord",
     city: "Singapore",
     modality: "FullTime",
-    // photoUrl: "https://cdn-icons-png.flaticon.com/512/2111/2111370.png",
   ),
   HomeJobDto(
     id: "200",
@@ -188,7 +160,5 @@ final mockHomeJobs = [
     companyName: "Coca Cola",
     city: "Singapore",
     modality: "FullTime",
-    // // photoUrl:
-    //     "https://seeklogo.com/images/C/Coca-Cola-logo-D3CE7D7110-seeklogo.com.png",
   ),
 ];

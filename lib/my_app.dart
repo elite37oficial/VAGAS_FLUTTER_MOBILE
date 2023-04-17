@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => CustomDrawerBloc()),
         BlocProvider(create: (context) => ReportJobBloc()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Elite-37',
         onGenerateRoute: generateRoute,

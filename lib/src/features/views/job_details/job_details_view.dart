@@ -231,21 +231,6 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                                 );
                                               },
                                             ),
-                                            // child: Image.network(
-                                            //   "${Constant.baseUrlCompaniesImage}/id/${descriptionJob.companyId}",
-                                            //   height: 40,
-                                            //   width: 40,
-                                            //   fit: BoxFit.cover,
-                                            //   errorBuilder: (context, exception,
-                                            //       stackTrace) {
-                                            //     return Image.asset(
-                                            //       "assets/images/avatarDefault.png",
-                                            //       height: 40,
-                                            //       width: 40,
-                                            //       fit: BoxFit.cover,
-                                            //     );
-                                            //   },
-                                            // ),
                                           ),
                                         ),
                                         const SizedBox(
