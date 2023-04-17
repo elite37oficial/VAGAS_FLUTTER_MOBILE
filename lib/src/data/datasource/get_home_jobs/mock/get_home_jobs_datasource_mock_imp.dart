@@ -4,7 +4,12 @@ import 'mock_home_jobs.dart';
 
 class GetHomeJobsDataSourceMockImp implements GetHomeJobsDataSource {
   @override
-  Future<List<HomeJobDto>> call(String? filter) async {
+  Future<List<HomeJobDto>> call({
+    String? filter,
+    String? cityFilter,
+    String? modalityFilter,
+    String? regimeFilter,
+  }) async {
     final listJobs = mockHomeJobs;
     if (filter == null) {
       return listJobs;

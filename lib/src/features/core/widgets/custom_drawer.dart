@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
+import '../../views/home/bloc/list_jobs_home_bloc.dart';
 import 'bloc/custom_drawer_bloc.dart';
 import 'custom_check_box_button.dart';
 
@@ -38,7 +39,32 @@ class _CustomDrawerState extends State<CustomDrawer> {
       'Jacuturu/PR - BR'
     ];
 
-    // final List<String> listTypeJobs = ["CLT", "PJ (Pessoa Jurídica)"];
+    _regimeFilter({
+      required String regimeFilter,
+      required bool isRegimeClt,
+      required bool isRegimePj,
+    }) {
+      if ((isRegimeClt == true && isRegimePj == true) ||
+          (isRegimeClt == false && isRegimePj == false)) {
+        return regimeFilter = "";
+      } else {
+        return regimeFilter = isRegimeClt == true ? "clt" : "pj";
+      }
+    }
+
+    _modalityFilter(
+        {required String modalityFilter,
+        required bool isModalityRemote,
+        required bool isModalityPresential,
+        required bool isModalityHibrid}) {
+      if (isModalityRemote == true &&
+          isModalityPresential == true &&
+          isModalityHibrid == true) {
+        return "";
+      }
+      // else if(){}
+    }
+
     final List<DropdownMenuEntry<String>> cityEntries =
         cityNames.map((String cityName) {
       return DropdownMenuEntry<String>(
@@ -405,7 +431,19 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                               BorderRadius.circular(4),
                                         ),
                                       ),
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        String regimeFilter = "";
+
+                                        context.read<ListJobsHomeBloc>().add(
+                                              GetListJobsHomeEvent(
+                                                regimeFilter: _regimeFilter(
+                                                  regimeFilter: regimeFilter,
+                                                  isRegimeClt: isRegimeClt,
+                                                  isRegimePj: isRegimePj,
+                                                ),
+                                              ),
+                                            );
+                                      },
                                       child: Text(
                                         'Aplicar',
                                         style: context

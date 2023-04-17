@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-
 part 'custom_drawer_event.dart';
 part 'custom_drawer_state.dart';
 
