@@ -127,14 +127,6 @@ class _HomeViewState extends State<HomeView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Text(
-                            "Filtros",
-                            style: context.textStyles.textInterRegular.copyWith(
-                              color: AppColors.darker,
-                              fontSize: 14,
-                            ),
-                          ),
-                          const SizedBox(width: 8),
                           Container(
                             width: 24,
                             height: 24,

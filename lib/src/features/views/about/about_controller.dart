@@ -25,12 +25,9 @@ class AboutController extends ValueNotifier<AboutState> {
   }
 
   Future<void> openLink(String url) async {
-    final stringUrl = url;
-    final uri = Uri.parse(stringUrl);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    } else {
-      throw "Não foi possivel acessar a url $stringUrl";
+    final uri = Uri.parse(url);
+    if (!await launchUrl(uri)) {
+      throw Exception('Could not launch $url');
     }
   }
 }

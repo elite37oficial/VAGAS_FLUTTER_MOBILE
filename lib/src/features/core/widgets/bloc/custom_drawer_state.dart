@@ -13,13 +13,13 @@ class SelectCustomDrawerState extends CustomDrawerState {
   final bool isRegimeClt;
   final bool isRegimePj;
   final bool isModalityRemote;
-  final bool isModalityPresencial;
+  final bool isModalityPresential;
   final bool isModalityHibrid;
   SelectCustomDrawerState({
     required this.isRegimeClt,
     required this.isRegimePj,
     required this.isModalityRemote,
-    required this.isModalityPresencial,
+    required this.isModalityPresential,
     required this.isModalityHibrid,
   });
 }

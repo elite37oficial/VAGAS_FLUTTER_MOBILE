@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/features/core/model/filter_options.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import '../../views/home/bloc/list_jobs_home_bloc.dart';
 import 'bloc/custom_drawer_bloc.dart';
-import 'custom_check_box_button.dart';
+import 'custom_topic_drawe_filter.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -23,7 +24,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             isRegimeClt: CustomDrawerBloc.isRegimeClt,
             isRegimePj: CustomDrawerBloc.isRegimePj,
             isModalityRemote: CustomDrawerBloc.isModalityRemote,
-            isModalityPresencial: CustomDrawerBloc.isModalityPresencial,
+            isModalityPresential: CustomDrawerBloc.isModalityPresential,
             isModalityHibrid: CustomDrawerBloc.isModalityHibrid,
           ),
         );
@@ -39,18 +40,33 @@ class _CustomDrawerState extends State<CustomDrawer> {
       'Jacuturu/PR - BR'
     ];
 
-    _regimeFilter({
-      required String regimeFilter,
-      required bool isRegimeClt,
-      required bool isRegimePj,
-    }) {
-      if ((isRegimeClt == true && isRegimePj == true) ||
-          (isRegimeClt == false && isRegimePj == false)) {
-        return regimeFilter = "";
-      } else {
-        return regimeFilter = isRegimeClt == true ? "clt" : "pj";
-      }
-    }
+    List<FilterOptions> listFilter = [
+      FilterOptions(
+        title: "CLT",
+        type: "regime",
+        isSelected: CustomDrawerBloc.isRegimeClt,
+      ),
+      FilterOptions(
+        title: "PJ",
+        type: "regime",
+        isSelected: CustomDrawerBloc.isRegimePj,
+      ),
+      FilterOptions(
+        title: "Remoto",
+        type: "modality",
+        isSelected: CustomDrawerBloc.isModalityRemote,
+      ),
+      FilterOptions(
+        title: "Presencial",
+        type: "modality",
+        isSelected: CustomDrawerBloc.isModalityPresential,
+      ),
+      FilterOptions(
+        title: "Híbrido",
+        type: "modality",
+        isSelected: CustomDrawerBloc.isModalityHibrid,
+      ),
+    ];
 
     _modalityFilter(
         {required String modalityFilter,
@@ -95,7 +111,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       bool isRegimeClt = state.isRegimeClt;
                       bool isRegimePj = state.isRegimePj;
                       bool isModalityRemote = state.isModalityRemote;
-                      bool isModalityPresencial = state.isModalityPresencial;
+                      bool isModalityPresential = state.isModalityPresential;
                       bool isModalityHibrid = state.isModalityHibrid;
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -142,167 +158,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                 padding: const EdgeInsets.only(left: 16.0),
                                 child: Column(
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 24, bottom: 12),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Tipo de Contrato",
-                                            style: context.textStyles.textFilter
-                                                .copyWith(
-                                              fontSize: 16,
-                                              color: AppColors.darker,
-                                            ),
-                                          ),
-                                          SizedBox(height: 16),
-                                          Row(
-                                            children: [
-                                              InkWell(
-                                                onTap: () {
-                                                  isRegimeClt = !isRegimeClt;
-                                                  context
-                                                      .read<CustomDrawerBloc>()
-                                                      .add(
-                                                        SelectedCustomDrawerEvent(
-                                                          isRegimeClt:
-                                                              isRegimeClt,
-                                                        ),
-                                                      );
-                                                },
-                                                child: CustomCheckBoxButton(
-                                                  text: 'CLT',
-                                                  isSelect: isRegimeClt,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 24,
-                                              ),
-                                              InkWell(
-                                                onTap: () {
-                                                  isRegimePj = !isRegimePj;
-                                                  context
-                                                      .read<CustomDrawerBloc>()
-                                                      .add(
-                                                        SelectedCustomDrawerEvent(
-                                                          isRegimePj:
-                                                              isRegimePj,
-                                                        ),
-                                                      );
-                                                },
-                                                child: CustomCheckBoxButton(
-                                                  text: 'PJ (Pessoa Jurídica)',
-                                                  isSelect: isRegimePj,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ),
+                                    CustomTopicDrawerFilter(
+                                      title: "Tipo de contrato",
+                                      type: "regime",
+                                      listFilter: listFilter,
                                     ),
-                                    Divider(
-                                      height: 0,
-                                      color: AppColors.lightHover,
-                                      thickness: 1,
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 24, bottom: 12),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Modalidade",
-                                            style: context.textStyles.textFilter
-                                                .copyWith(
-                                              fontSize: 16,
-                                              color: AppColors.darker,
-                                            ),
-                                          ),
-                                          SizedBox(height: 16),
-                                          Column(
-                                            children: [
-                                              Row(
-                                                children: [
-                                                  InkWell(
-                                                    onTap: () {
-                                                      isModalityRemote =
-                                                          !isModalityRemote;
-                                                      context
-                                                          .read<
-                                                              CustomDrawerBloc>()
-                                                          .add(
-                                                            SelectedCustomDrawerEvent(
-                                                              isModalityRemote:
-                                                                  isModalityRemote,
-                                                            ),
-                                                          );
-                                                    },
-                                                    child: CustomCheckBoxButton(
-                                                      // index: 2,
-                                                      text: 'Remoto',
-                                                      isSelect:
-                                                          isModalityRemote,
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: 24,
-                                                  ),
-                                                  InkWell(
-                                                    onTap: () {
-                                                      isModalityPresencial =
-                                                          !isModalityPresencial;
-                                                      context
-                                                          .read<
-                                                              CustomDrawerBloc>()
-                                                          .add(
-                                                            SelectedCustomDrawerEvent(
-                                                              isModalityPresencial:
-                                                                  isModalityPresencial,
-                                                            ),
-                                                          );
-                                                    },
-                                                    child: CustomCheckBoxButton(
-                                                      // index: 3,
-                                                      text: 'Presencial',
-                                                      isSelect:
-                                                          isModalityPresencial,
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              SizedBox(height: 16),
-                                              InkWell(
-                                                onTap: () {
-                                                  isModalityHibrid =
-                                                      !isModalityHibrid;
-                                                  context
-                                                      .read<CustomDrawerBloc>()
-                                                      .add(
-                                                        SelectedCustomDrawerEvent(
-                                                          isModalityHibrid:
-                                                              isModalityHibrid,
-                                                        ),
-                                                      );
-                                                },
-                                                child: CustomCheckBoxButton(
-                                                  // index: 4,
-                                                  text: 'Hibrido',
-                                                  isSelect: isModalityHibrid,
-                                                ),
-                                              )
-                                            ],
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Divider(
-                                      height: 0,
-                                      color: AppColors.lightHover,
-                                      thickness: 1,
+                                    CustomTopicDrawerFilter(
+                                      title: "Modalidade",
+                                      type: "modality",
+                                      listFilter: listFilter,
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(
@@ -404,7 +268,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 isRegimeClt: false,
                                                 isRegimePj: false,
                                                 isModalityRemote: false,
-                                                isModalityPresencial: false,
+                                                isModalityPresential: false,
                                                 isModalityHibrid: false,
                                               ),
                                             );
@@ -433,13 +297,27 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                       ),
                                       onPressed: () {
                                         String regimeFilter = "";
-
+                                        String modalityFilter = "";
+                                        String cityFilter = "";
                                         context.read<ListJobsHomeBloc>().add(
                                               GetListJobsHomeEvent(
-                                                regimeFilter: _regimeFilter(
+                                                regimeFilter: CustomDrawerBloc()
+                                                    .regimeFilter(
                                                   regimeFilter: regimeFilter,
                                                   isRegimeClt: isRegimeClt,
                                                   isRegimePj: isRegimePj,
+                                                ),
+                                                modalityFilter:
+                                                    CustomDrawerBloc()
+                                                        .modalityFilter(
+                                                  modalityFilter:
+                                                      modalityFilter,
+                                                  isModalityRemote:
+                                                      isModalityRemote,
+                                                  isModalityPresential:
+                                                      isModalityPresential,
+                                                  isModalityHibrid:
+                                                      isModalityHibrid,
                                                 ),
                                               ),
                                             );
