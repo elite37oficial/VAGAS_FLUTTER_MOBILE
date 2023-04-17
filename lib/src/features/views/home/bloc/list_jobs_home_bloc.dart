@@ -31,7 +31,11 @@ class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
         modalityFilter: event.modalityFilter ?? null,
         regimeFilter: event.regimeFilter ?? null,
       );
-      emit(ListJobsHomeCompletedState(listJobs: listJobs));
+      if (listJobs.isEmpty) {
+        emit(ListJobsHomeIsEmptyState());
+      } else {
+        emit(ListJobsHomeCompletedState(listJobs: listJobs));
+      }
     } catch (e) {
       emit(ListJobsHomeErrorState());
     }

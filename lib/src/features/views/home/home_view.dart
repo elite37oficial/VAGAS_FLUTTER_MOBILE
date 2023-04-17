@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,7 +6,6 @@ import 'package:vagas_flutter_mobile/src/features/core/routes/app_routes.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/views/home/bloc/list_jobs_home_bloc.dart';
-
 import '../../core/widgets/card_widget.dart';
 import '../../core/widgets/custom_app_bar.dart';
 import '../../core/widgets/custom_drawer.dart';
@@ -82,25 +80,57 @@ class _HomeViewState extends State<HomeView> {
               )
             ],
           )
-          // IconButton(
-          //   splashRadius: 20,
-          //   padding: EdgeInsets.zero,
-          //   onPressed: () {
-          //     Navigator.of(context).pushNamed(AppRoutes.about);
-          //   },
-          //   icon: SvgPicture.asset("assets/images/about.svg"),
-          // )
         ],
       ),
       body: BlocBuilder<ListJobsHomeBloc, ListJobsHomeState>(
         builder: (context, state) {
-          if (state is ListJobsHomeEmptyState) {
-            return Center(
-              child: Text("Você não tem vagas disponíveis..."),
+          if (state is ListJobsHomeIsEmptyState) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  color: Colors.white,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 22, vertical: 24),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Vagas",
+                        style: context.textStyles.textInterRegular.copyWith(
+                          color: AppColors.darker,
+                          fontSize: 18,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          SizedBox(
+                            width: 24,
+                            height: 24,
+                            child: IconButton(
+                              padding: EdgeInsets.zero,
+                              onPressed: () {
+                                Scaffold.of(context).openEndDrawer();
+                              },
+                              icon: SvgPicture.asset(
+                                  "assets/images/IconFilter.svg"),
+                              color: AppColors.grey500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Text("Sem vagas disponíveis..."),
+                SizedBox.shrink(),
+              ],
             );
           }
           if (state is ListJobsHomeInitialState) {
-            return Center(
+            return const Center(
               child: Text("Nenhuma vaga pesquisada"),
             );
           }
@@ -127,7 +157,7 @@ class _HomeViewState extends State<HomeView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
+                          SizedBox(
                             width: 24,
                             height: 24,
                             child: IconButton(

@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'list_jobs_home_bloc.dart';
 
 @immutable
@@ -6,7 +5,7 @@ abstract class ListJobsHomeState {}
 
 class ListJobsHomeInitialState extends ListJobsHomeState {}
 
-class ListJobsHomeEmptyState extends ListJobsHomeState {}
+class ListJobsHomeIsEmptyState extends ListJobsHomeState {}
 
 class ListJobsHomeErrorState extends ListJobsHomeState {}
 

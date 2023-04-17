@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-
 import '../model/filter_options.dart';
 import '../styles/app_colors.dart';
 import 'bloc/custom_drawer_bloc.dart';
@@ -10,13 +8,11 @@ import 'custom_check_box_button.dart';
 
 class CustomTopicDrawerFilter extends StatelessWidget {
   final String title;
-  // final String text;
   final String type;
   final List<FilterOptions> listFilter;
   const CustomTopicDrawerFilter({
     Key? key,
     required this.title,
-    // required this.text,
     required this.type,
     required this.listFilter,
   }) : super(key: key);
