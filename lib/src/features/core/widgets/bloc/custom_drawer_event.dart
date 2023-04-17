@@ -8,13 +8,13 @@ class SelectedCustomDrawerEvent extends CustomDrawerEvent {
   final bool? isRegimeClt;
   final bool? isRegimePj;
   final bool? isModalityRemote;
-  final bool? isModalityPresencial;
+  final bool? isModalityPresential;
   final bool? isModalityHibrid;
   SelectedCustomDrawerEvent({
     this.isRegimeClt,
     this.isRegimePj,
     this.isModalityRemote,
-    this.isModalityPresencial,
+    this.isModalityPresential,
     this.isModalityHibrid,
   });
 }

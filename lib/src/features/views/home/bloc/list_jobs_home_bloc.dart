@@ -25,7 +25,12 @@ class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
 
     emit(ListJobsHomeLoadingState());
     try {
-      listJobs = await _getHomeJobsUseCase(filter: event.filter ?? null);
+      listJobs = await _getHomeJobsUseCase(
+        filter: event.filter ?? null,
+        cityFilter: event.cityFilter ?? null,
+        modalityFilter: event.modalityFilter ?? null,
+        regimeFilter: event.regimeFilter ?? null,
+      );
       emit(ListJobsHomeCompletedState(listJobs: listJobs));
     } catch (e) {
       emit(ListJobsHomeErrorState());

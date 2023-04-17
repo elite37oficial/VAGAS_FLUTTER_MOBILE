@@ -7,7 +7,17 @@ class GetHomeJobsRepositoryImp implements GetHomeJobsRepository {
 
   GetHomeJobsRepositoryImp(this._getHomeJobsDataSource);
   @override
-  Future<List<HomeJobEntity>> call(String? filter) async {
-    return _getHomeJobsDataSource(filter ?? null);
+  Future<List<HomeJobEntity>> call({
+    String? filter,
+    String? cityFilter,
+    String? modalityFilter,
+    String? regimeFilter,
+  }) async {
+    return _getHomeJobsDataSource(
+      filter: filter ?? null,
+      cityFilter: cityFilter ?? null,
+      modalityFilter: modalityFilter ?? null,
+      regimeFilter: regimeFilter ?? null,
+    );
   }
 }
