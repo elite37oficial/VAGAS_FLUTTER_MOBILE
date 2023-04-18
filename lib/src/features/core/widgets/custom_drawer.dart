@@ -34,22 +34,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     final List<String> cityNames = [
-      'Rio de Janeiro/RN - BR',
-      'São Paulo/SP - BR',
-      'Parnaíba/PI - BR',
-      'Garanhuns/PE - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
+      'Ilha Bela',
+      'Belo Horizonte',
+      'Rio de Janeiro',
+      'Santos',
+      'Ubatuba',
+      'Sao Sebastião',
+      'Sao José dos Campos',
+      'Sao José do Rio Preto',
+      'Sao Paulo',
+      'Curitiba',
+      'Campinas',
     ];
 
     List<FilterOptions> listFilter = [
@@ -79,6 +74,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         isSelected: CustomDrawerBloc.isModalityHibrid,
       ),
     ];
+    final TextEditingController textController = TextEditingController();
 
     final List<DropdownMenuEntry<String>> cityEntries =
         cityNames.map((String cityName) {
@@ -112,6 +108,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       bool isModalityRemote = state.isModalityRemote;
                       bool isModalityPresential = state.isModalityPresential;
                       bool isModalityHibrid = state.isModalityHibrid;
+                      String cityFilter = state.cityFilter;
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -187,6 +184,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                             ),
                                             SizedBox(height: 16),
                                             DropdownMenu(
+                                              controller: textController,
+                                              onSelected: (_) {
+                                                cityFilter =
+                                                    textController.value.text;
+                                                print(cityFilter);
+                                              },
                                               menuHeight: 3 * 48,
                                               enableFilter: true,
                                               leadingIcon: Container(
@@ -293,6 +296,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 isModalityRemote: false,
                                                 isModalityPresential: false,
                                                 isModalityHibrid: false,
+                                                cityFilter: "",
                                               ),
                                             );
                                       },
@@ -321,28 +325,30 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                       onPressed: () {
                                         String regimeFilter = "";
                                         String modalityFilter = "";
-                                        String cityFilter = "";
+
                                         context.read<ListJobsHomeBloc>().add(
                                               GetListJobsHomeEvent(
-                                                regimeFilter: CustomDrawerBloc()
-                                                    .regimeFilter(
-                                                  regimeFilter: regimeFilter,
-                                                  isRegimeClt: isRegimeClt,
-                                                  isRegimePj: isRegimePj,
-                                                ),
-                                                modalityFilter:
-                                                    CustomDrawerBloc()
-                                                        .modalityFilter(
+                                                  regimeFilter:
+                                                      CustomDrawerBloc()
+                                                          .regimeFilter(
+                                                    regimeFilter: regimeFilter,
+                                                    isRegimeClt: isRegimeClt,
+                                                    isRegimePj: isRegimePj,
+                                                  ),
                                                   modalityFilter:
-                                                      modalityFilter,
-                                                  isModalityRemote:
-                                                      isModalityRemote,
-                                                  isModalityPresential:
-                                                      isModalityPresential,
-                                                  isModalityHibrid:
-                                                      isModalityHibrid,
-                                                ),
-                                              ),
+                                                      CustomDrawerBloc()
+                                                          .modalityFilter(
+                                                    modalityFilter:
+                                                        modalityFilter,
+                                                    isModalityRemote:
+                                                        isModalityRemote,
+                                                    isModalityPresential:
+                                                        isModalityPresential,
+                                                    isModalityHibrid:
+                                                        isModalityHibrid,
+                                                  ),
+                                                  cityFilter: textController
+                                                      .value.text),
                                             );
                                         Navigator.of(context).pop();
                                       },
