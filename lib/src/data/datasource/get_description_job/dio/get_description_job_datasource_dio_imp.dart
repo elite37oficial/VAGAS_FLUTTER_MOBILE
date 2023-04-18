@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/get_description_jobs/get_description_jobs_datasource.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/get_description_job/get_description_job_datasource.dart';
 import 'package:vagas_flutter_mobile/src/data/dtos/description_job_dto.dart';
 import 'package:vagas_flutter_mobile/src/features/core/constants/constant.dart';
 
-class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobsDataSource {
+class GetDescriptionJobDataSourceDioImp extends GetDescriptionJobDataSource {
   @override
   Future<DescriptionJobDto> call(String id) async {
     Dio dio = Dio();

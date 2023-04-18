@@ -157,7 +157,9 @@ class _ReportJobViewState extends State<ReportJobView> {
                     itemCount: reportsListText.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(top: 16),
-                      child: InkWell(
+                      child: CustomCheckBoxButton(
+                        text: reportsListText[index],
+                        isSelect: reportsListSelect[index],
                         onTap: () {
                           reportsListSelect[index] = !reportsListSelect[index];
                           context.read<ReportJobBloc>().add(
@@ -172,11 +174,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                                 ),
                               );
                         },
-                        child: CustomCheckBoxButton(
-                          text: reportsListText[index],
-                          isSelect: reportsListSelect[index],
-                          wrapText: true,
-                        ),
+                        wrapText: true,
                       ),
                     ),
                   ),
