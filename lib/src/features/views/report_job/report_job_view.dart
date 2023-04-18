@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/description_job_entity.dart';
-import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/views/report_job/bloc/report_job_bloc.dart';
+
+import '../../../domain/entities/description_job_entity.dart';
+import '../../core/model/report_options.dart';
+import '../../core/routes/app_routes.dart';
+import '../../core/styles/app_colors.dart';
 import '../../core/widgets/custom_app_bar.dart';
 import '../../core/widgets/custom_check_box_button.dart';
+import 'bloc/report_job_bloc.dart';
 
 class ReportJobView extends StatefulWidget {
   final DescriptionJobEntity descriptionJob;
@@ -24,21 +27,50 @@ class _ReportJobViewState extends State<ReportJobView> {
   void initState() {
     super.initState();
     context.read<ReportJobBloc>().add(
-          SelectedReportJobEvent(),
+          SelectedReportJobEvent(
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+          ),
         );
+  }
+
+  bool allPermission(
+      {required bool isPermission, required String textController}) {
+    if (isPermission == true &&
+        textController.isNotEmpty &&
+        textController != "") {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final List<String> reportsListText = [
-      "A vaga não corresponde à descrição",
-      "A vaga é enganosa ou fraudulenta",
-      "A empresa tem práticas discriminatórias",
-      "O salário oferecido é muito baixo ou injusto",
-      "A vaga está sendo divulgada por uma empresa suspeita ou não confiável",
-      "A vaga contém erros ou informações confusas",
-      "Outro (por favor, especifique)",
+    TextEditingController textController = TextEditingController();
+    final List<ReportModel> reportsListText = [
+      ReportModel(title: "A vaga não corresponde à descrição", isSelect: false),
+      ReportModel(title: "A vaga é enganosa ou fraudulenta", isSelect: false),
+      ReportModel(
+          title: "A empresa tem práticas discriminatórias", isSelect: false),
+      ReportModel(
+          title: "O salário oferecido é muito baixo ou injusto",
+          isSelect: false),
+      ReportModel(
+          title:
+              "A vaga está sendo divulgada por uma empresa suspeita ou não confiável",
+          isSelect: false),
+      ReportModel(
+          title: "A vaga contém erros ou informações confusas",
+          isSelect: false),
+      ReportModel(title: "Outro (por favor, especifique)", isSelect: false),
     ];
+
     return Scaffold(
       appBar: CustomAppBar(
         title: "Central de Ajuda",
@@ -51,15 +83,6 @@ class _ReportJobViewState extends State<ReportJobView> {
             );
           }
           if (state is SelectedReportJobState) {
-            List<bool> reportsListSelect = [
-              state.isReportDescription,
-              state.isReportFraud,
-              state.isReportDescrimination,
-              state.isReportUnfairSalary,
-              state.isReportUnrealiableCompany,
-              state.isReportError,
-              state.isReportOther
-            ];
             return Padding(
               padding: const EdgeInsets.only(
                 right: 23,
@@ -112,39 +135,6 @@ class _ReportJobViewState extends State<ReportJobView> {
                     height: 24,
                   ),
                   Text(
-                    'Seu endereço de e-mail (opcional)',
-                    style: context.textStyles.textInterRegular.copyWith(
-                      fontSize: 14,
-                      color: AppColors.darker,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 8,
-                  ),
-                  TextField(
-                    cursorColor: AppColors.darker,
-                    decoration: InputDecoration(
-                      hintText: 'Email',
-                      hintStyle: context.textStyles.textInterRegular.copyWith(
-                        fontSize: 16,
-                        color: AppColors.greyLight,
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: AppColors.primary,
-                          width: 1,
-                        ),
-                      ),
-                    ),
-                    keyboardType: TextInputType.emailAddress,
-                  ),
-                  SizedBox(
-                    height: 24,
-                  ),
-                  Text(
                     'Motivo(s) da denúncia',
                     style: context.textStyles.textInterRegular.copyWith(
                       fontSize: 14,
@@ -157,31 +147,37 @@ class _ReportJobViewState extends State<ReportJobView> {
                     itemCount: reportsListText.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(top: 16),
-                      child: InkWell(
+                      child: CustomCheckBoxButton(
+                        text: reportsListText[index].title,
+                        isSelect: reportsListText[index].isSelect,
                         onTap: () {
-                          reportsListSelect[index] = !reportsListSelect[index];
+                          reportsListText[index].isSelect =
+                              !reportsListText[index].isSelect;
                           context.read<ReportJobBloc>().add(
                                 SelectedReportJobEvent(
-                                  reportsListSelect[0],
-                                  reportsListSelect[1],
-                                  reportsListSelect[2],
-                                  reportsListSelect[3],
-                                  reportsListSelect[4],
-                                  reportsListSelect[5],
-                                  reportsListSelect[6],
+                                  reportsListText[0].isSelect,
+                                  reportsListText[1].isSelect,
+                                  reportsListText[2].isSelect,
+                                  reportsListText[3].isSelect,
+                                  reportsListText[4].isSelect,
+                                  reportsListText[5].isSelect,
+                                  reportsListText[6].isSelect,
                                 ),
                               );
                         },
-                        child: CustomCheckBoxButton(
-                          text: reportsListText[index],
-                          isSelect: reportsListSelect[index],
-                          wrapText: true,
-                        ),
+                        wrapText: true,
                       ),
                     ),
                   ),
                   SizedBox(height: 16),
                   TextField(
+                    onChanged: (_) {
+                      context.read<ReportJobBloc>().add(
+                            SelectedReportJobEvent(),
+                          );
+                    },
+                    enabled: reportsListText[6].isSelect ? true : false,
+                    controller: textController,
                     cursorColor: AppColors.darker,
                     decoration: InputDecoration(
                       hintText: 'Especifique aqui',
@@ -207,20 +203,76 @@ class _ReportJobViewState extends State<ReportJobView> {
                   SizedBox(
                     height: 54,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: allPermission(
+                                isPermission: ReportJobBloc.isPermission,
+                                textController: textController.value.text,
+                              ) ==
+                              true
+                          ? () {
+                              ReportJobBloc().postReport(
+                                  jobId: widget.descriptionJob.id,
+                                  description: "Testando pelo app EliteVagas");
+
+                              ReportJobBloc().textReportJob(
+                                reportsListText: reportsListText,
+                                otherReportText: textController.value.text,
+                              );
+
+                              Navigator.of(context)
+                                  .pushReplacementNamed(AppRoutes.home);
+                            }
+                          : () {
+                              ScaffoldMessenger.of(context)
+                                  .hideCurrentSnackBar();
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: AppColors.primary,
+                                  content: Text(
+                                    reportsListText[6].isSelect
+                                        ? "Preencha o campo em branco"
+                                        : "Escolha uma opção.",
+                                    style: context.textStyles.textInterRegular
+                                        .copyWith(
+                                            fontSize: 18,
+                                            color: AppColors.white),
+                                  ),
+                                ),
+                              );
+                            },
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: AppColors.primary,
+                        backgroundColor: allPermission(
+                                  isPermission: ReportJobBloc.isPermission,
+                                  textController: textController.value.text,
+                                ) ==
+                                true
+                            ? AppColors.primary
+                            : AppColors.light,
                         fixedSize: Size(300, 100),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(
+                                color: allPermission(
+                                          isPermission:
+                                              ReportJobBloc.isPermission,
+                                          textController:
+                                              textController.value.text,
+                                        ) ==
+                                        true
+                                    ? AppColors.light
+                                    : AppColors.primary)),
                       ),
                       child: Text(
                         'Enviar Denúncia',
                         style: context.textStyles.textInterRegular.copyWith(
                           fontSize: 18,
-                          color: AppColors.white,
+                          color: allPermission(
+                                    isPermission: ReportJobBloc.isPermission,
+                                    textController: textController.value.text,
+                                  ) ==
+                                  true
+                              ? AppColors.white
+                              : AppColors.darker,
                         ),
                       ),
                     ),
