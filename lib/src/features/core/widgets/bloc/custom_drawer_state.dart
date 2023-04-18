@@ -15,11 +15,13 @@ class SelectCustomDrawerState extends CustomDrawerState {
   final bool isModalityRemote;
   final bool isModalityPresential;
   final bool isModalityHibrid;
+  final String cityFilter;
   SelectCustomDrawerState({
     required this.isRegimeClt,
     required this.isRegimePj,
     required this.isModalityRemote,
     required this.isModalityPresential,
     required this.isModalityHibrid,
+    required this.cityFilter,
   });
 }

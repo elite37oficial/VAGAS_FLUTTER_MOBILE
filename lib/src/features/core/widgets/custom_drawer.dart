@@ -34,22 +34,17 @@ class _CustomDrawerState extends State<CustomDrawer> {
   @override
   Widget build(BuildContext context) {
     final List<String> cityNames = [
-      'Rio de Janeiro/RN - BR',
-      'São Paulo/SP - BR',
-      'Parnaíba/PI - BR',
-      'Garanhuns/PE - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
-      'Jacuturu/PR - BR',
+      'Ilha Bela - BR',
+      'Belo Horizonte - BR',
+      'Rio de Janeiro - BR',
+      'Santos - BR',
+      'Ubatuba - BR',
+      'Sao Sebastião - BR',
+      'Sao José dos Campos - BR',
+      'Sao José do Rio Preto',
+      'Sao Paulo - BR',
+      'Curitiba - BR',
+      'Campinas - BR',
     ];
 
     List<FilterOptions> listFilter = [
@@ -79,6 +74,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
         isSelected: CustomDrawerBloc.isModalityHibrid,
       ),
     ];
+    final TextEditingController textController = TextEditingController();
 
     final List<DropdownMenuEntry<String>> cityEntries =
         cityNames.map((String cityName) {
@@ -112,6 +108,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       bool isModalityRemote = state.isModalityRemote;
                       bool isModalityPresential = state.isModalityPresential;
                       bool isModalityHibrid = state.isModalityHibrid;
+                      String cityFilter = state.cityFilter;
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -187,6 +184,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                             ),
                                             SizedBox(height: 16),
                                             DropdownMenu(
+                                              controller: textController,
+                                              onSelected: (_) {
+                                                cityFilter =
+                                                    textController.value.text;
+                                              },
                                               menuHeight: 3 * 48,
                                               enableFilter: true,
                                               leadingIcon: Container(
@@ -293,6 +295,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 isModalityRemote: false,
                                                 isModalityPresential: false,
                                                 isModalityHibrid: false,
+                                                cityFilter: "",
                                               ),
                                             );
                                       },
@@ -341,6 +344,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                       isModalityPresential,
                                                   isModalityHibrid:
                                                       isModalityHibrid,
+                                                  cityFilter: cityFilter,
                                                 ),
                                               ),
                                             );

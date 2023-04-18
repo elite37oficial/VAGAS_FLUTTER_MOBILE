@@ -9,11 +9,13 @@ class SelectedCustomDrawerEvent extends CustomDrawerEvent {
   final bool? isModalityRemote;
   final bool? isModalityPresential;
   final bool? isModalityHibrid;
+  final String? cityFilter;
   SelectedCustomDrawerEvent({
     this.isRegimeClt,
     this.isRegimePj,
     this.isModalityRemote,
     this.isModalityPresential,
     this.isModalityHibrid,
+    this.cityFilter,
   });
 }
