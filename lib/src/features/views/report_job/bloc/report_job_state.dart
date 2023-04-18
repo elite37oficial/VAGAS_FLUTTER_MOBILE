@@ -17,6 +17,7 @@ class SelectedReportJobState extends ReportJobState {
   final bool isReportUnrealiableCompany;
   final bool isReportError;
   final bool isReportOther;
+
   SelectedReportJobState({
     required this.isReportDescription,
     required this.isReportFraud,

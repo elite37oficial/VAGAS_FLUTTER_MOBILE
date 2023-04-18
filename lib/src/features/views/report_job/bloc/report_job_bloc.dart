@@ -12,8 +12,22 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
   ReportJobBloc() : super(InitialReportJobState()) {
     on<SelectedReportJobEvent>(_selectedReport);
   }
+
+  static var isPermission = false;
+
   Future<void> _selectedReport(
       SelectedReportJobEvent event, Emitter<ReportJobState> emit) async {
+    if (event.isReportDescription == false &&
+        event.isReportFraud == false &&
+        event.isReportDescrimination == false &&
+        event.isReportUnfairSalary == false &&
+        event.isReportUnrealiableCompany == false &&
+        event.isReportError == false &&
+        event.isReportOther == false) {
+      isPermission = false;
+    } else {
+      isPermission = true;
+    }
     emit(
       SelectedReportJobState(
         isReportDescription: event.isReportDescription ?? false,
@@ -34,5 +48,7 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
         PostReportJobDataSourceDioImp(),
       ),
     );
+
+    _postReportJobUseCase(jobId: jobId, description: description);
   }
 }
