@@ -30,7 +30,6 @@ class CustomDrawerBloc extends Bloc<CustomDrawerEvent, CustomDrawerState> {
     required bool isModalityRemote,
     required bool isModalityPresential,
     required bool isModalityHibrid,
-    required String cityFilter,
   }) {
     if (isModalityRemote) {
       modalityFilter += "remoto,";

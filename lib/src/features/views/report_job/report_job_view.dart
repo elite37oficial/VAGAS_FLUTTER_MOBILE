@@ -211,7 +211,10 @@ class _ReportJobViewState extends State<ReportJobView> {
                           ? () {
                               ReportJobBloc().postReport(
                                   jobId: widget.descriptionJob.id,
-                                  description: "Testando pelo app EliteVagas");
+                                  description: ReportJobBloc().textReportJob(
+                                    reportsListText: reportsListText,
+                                    otherReportText: textController.value.text,
+                                  ));
 
                               ReportJobBloc().textReportJob(
                                 reportsListText: reportsListText,
