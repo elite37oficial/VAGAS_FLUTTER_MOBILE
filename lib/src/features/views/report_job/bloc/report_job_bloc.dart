@@ -4,6 +4,7 @@ import 'package:vagas_flutter_mobile/src/data/datasource/post_report_job/dio/pos
 import 'package:vagas_flutter_mobile/src/data/repositories/post_report_job/post_report_job_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/post_report_job/post_report_job_usecase.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/post_report_job/post_report_jobs_usecase_imp.dart';
+import 'package:vagas_flutter_mobile/src/features/core/model/report_options.dart';
 
 part 'report_job_event.dart';
 part 'report_job_state.dart';
@@ -39,6 +40,24 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
         isReportOther: event.isReportOther ?? false,
       ),
     );
+  }
+
+  String textReportJob(
+      {required List<ReportModel> reportsListText,
+      required String otherReportText}) {
+    String textReport = "";
+    for (var i = 0; i < reportsListText.length - 1; i++) {
+      if (reportsListText[i].isSelect == true) {
+        textReport += "${reportsListText[i].title}, ";
+      }
+    }
+    if (reportsListText[6].isSelect == true) {
+      textReport += "${otherReportText} ";
+    }
+    if (textReport.endsWith(" ")) {
+      textReport = textReport.substring(0, textReport.length - 1);
+    }
+    return textReport;
   }
 
   Future<void> postReport(
