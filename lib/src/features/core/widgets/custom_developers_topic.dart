@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/views/about/about_controller.dart';
-
 import '../../../data/datasource/get_developers/mock/get_developers_datasource_mock_imp.dart';
 import '../../../data/repositories/get_developers/get_developers_repository_imp.dart';
 import '../../../domain/entities/develop_emtity.dart';

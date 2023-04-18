@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:vagas_flutter_mobile/src/features/core/helpers/size_extensions.dart';
 import 'package:vagas_flutter_mobile/src/features/core/model/filter_options.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
@@ -37,7 +38,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
       'São Paulo/SP - BR',
       'Parnaíba/PI - BR',
       'Garanhuns/PE - BR',
-      'Jacuturu/PR - BR'
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
+      'Jacuturu/PR - BR',
     ];
 
     List<FilterOptions> listFilter = [
@@ -158,72 +170,91 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                     Padding(
                                       padding: const EdgeInsets.only(
                                           top: 24, bottom: 12, right: 16),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Localização",
-                                            style: context.textStyles.textFilter
-                                                .copyWith(
-                                              fontSize: 16,
-                                              color: AppColors.darker,
+                                      child: SizedBox(
+                                        width: double.infinity,
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Localização",
+                                              style: context
+                                                  .textStyles.textFilter
+                                                  .copyWith(
+                                                fontSize: 16,
+                                                color: AppColors.darker,
+                                              ),
                                             ),
-                                          ),
-                                          SizedBox(height: 16),
-                                          Container(
-                                            height: 32,
-                                            width: 268,
-                                            padding: EdgeInsets.all(8),
-                                            decoration: BoxDecoration(
-                                              color: AppColors.light,
-                                              borderRadius:
-                                                  BorderRadius.circular(4),
-                                            ),
-                                            child: Row(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
-                                              children: [
-                                                SvgPicture.asset(
+                                            SizedBox(height: 16),
+                                            DropdownMenu(
+                                              menuHeight: 3 * 48,
+                                              enableFilter: true,
+                                              leadingIcon: Container(
+                                                padding: EdgeInsets.symmetric(
+                                                    vertical: 14),
+                                                child: SvgPicture.asset(
                                                   "assets/images/map-pin.svg",
-                                                  height: 16,
-                                                  width: 16,
                                                 ),
-                                                SizedBox(width: 8),
-                                                Container(
-                                                  width: 200,
-                                                  child: Center(
-                                                    child: DropdownMenu(
-                                                      trailingIcon:
-                                                          SizedBox.shrink(),
-                                                      inputDecorationTheme:
-                                                          InputDecorationTheme(
-                                                        alignLabelWithHint:
-                                                            true,
-                                                        contentPadding:
-                                                            EdgeInsets.all(0),
-                                                        border:
-                                                            InputBorder.none,
-                                                      ),
-                                                      hintText:
-                                                          "Busque uma localidade...",
-                                                      textStyle: context
-                                                          .textStyles
-                                                          .textInterRegular
-                                                          .copyWith(
-                                                        color: AppColors
-                                                            .lightPrimary,
-                                                        fontSize: 12,
-                                                      ),
-                                                      dropdownMenuEntries:
-                                                          cityEntries,
-                                                    ),
+                                              ),
+                                              label: Text(
+                                                "Busque uma localidade...",
+                                                style: context
+                                                    .textStyles.textInterRegular
+                                                    .copyWith(
+                                                  color: AppColors.lightPrimary,
+                                                  fontSize: 12,
+                                                ),
+                                              ),
+                                              trailingIcon: SizedBox.shrink(),
+                                              inputDecorationTheme:
+                                                  InputDecorationTheme(
+                                                filled: true,
+                                                fillColor: AppColors.light,
+                                                floatingLabelBehavior:
+                                                    FloatingLabelBehavior.never,
+                                                contentPadding: EdgeInsets.zero,
+                                                activeIndicatorBorder:
+                                                    BorderSide.none,
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(4),
+                                                  borderSide: BorderSide.none,
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: AppColors.primary,
                                                   ),
                                                 ),
-                                              ],
+                                              ),
+                                              menuStyle: MenuStyle(
+                                                padding:
+                                                    MaterialStatePropertyAll(
+                                                        EdgeInsets.zero),
+                                                shape: MaterialStatePropertyAll(
+                                                  RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            4),
+                                                    side: BorderSide(
+                                                        color:
+                                                            AppColors.grey500),
+                                                  ),
+                                                ),
+                                                elevation:
+                                                    MaterialStatePropertyAll(0),
+                                              ),
+                                              textStyle: context
+                                                  .textStyles.textInterRegular
+                                                  .copyWith(
+                                                color: AppColors.darker,
+                                                fontSize: 12,
+                                              ),
+                                              dropdownMenuEntries: cityEntries,
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                     ),
                                     Divider(
@@ -313,6 +344,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 ),
                                               ),
                                             );
+                                        Navigator.of(context).pop();
                                       },
                                       child: Text(
                                         'Aplicar',
