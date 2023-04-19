@@ -172,7 +172,9 @@ class _AboutViewState extends State<AboutView> {
             );
           }
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+            ),
           );
         },
       ),

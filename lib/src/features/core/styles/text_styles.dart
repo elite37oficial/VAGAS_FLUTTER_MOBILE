@@ -21,6 +21,10 @@ class TextStyles {
         fontFamily: fontInter,
       );
 
+  TextStyle get textInterMedium => TextStyle(
+        fontWeight: FontWeight.w500,
+        fontFamily: fontInter,
+      );
   TextStyle get textInterSemiBold => TextStyle(
         fontWeight: FontWeight.w600,
         fontFamily: fontInter,

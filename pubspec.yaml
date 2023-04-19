@@ -78,6 +78,8 @@ flutter:
     - assets/images/whats_app_contact.svg
     - assets/images/fitment-loader.gif
     - assets/images/cupertino_activity_indicator.gif
+    - assets/images/sucessReport.svg
+    - assets/images/failReport.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -98,6 +100,8 @@ flutter:
           weight: 300
         - asset: assets/fonts/inter/Inter-Regular.ttf
           style: normal
+        - asset: assets/fonts/inter/Inter-Medium.ttf
+          weight: 500
         - asset: assets/fonts/inter/Inter-SemiBold.ttf
           weight: 600
         - asset: assets/fonts/inter/Inter-Bold.ttf

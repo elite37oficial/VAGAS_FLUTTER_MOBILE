@@ -289,7 +289,9 @@ class _JobDetailsViewState extends State<JobDetailsView> {
             );
           }
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+            ),
           );
         },
       ),

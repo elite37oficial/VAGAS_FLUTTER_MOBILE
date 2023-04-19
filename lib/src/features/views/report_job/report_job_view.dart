@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-
+import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_dialog_buttom.dart';
 import '../../../domain/entities/description_job_entity.dart';
 import '../../core/model/report_options.dart';
-import '../../core/routes/app_routes.dart';
 import '../../core/styles/app_colors.dart';
 import '../../core/widgets/custom_app_bar.dart';
 import '../../core/widgets/custom_check_box_button.dart';
@@ -40,10 +39,13 @@ class _ReportJobViewState extends State<ReportJobView> {
   }
 
   bool allPermission(
-      {required bool isPermission, required String textController}) {
-    if (isPermission == true &&
-        textController.isNotEmpty &&
-        textController != "") {
+      {required bool isPermission,
+      required String textController,
+      required List<ReportModel> reportsListText}) {
+    if (isPermission == true) {
+      if (reportsListText[6].isSelect == true && textController == "") {
+        return false;
+      }
       return true;
     } else {
       return false;
@@ -170,7 +172,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                     ),
                   ),
                   SizedBox(height: 16),
-                  TextField(
+                  TextFormField(
                     onChanged: (_) {
                       context.read<ReportJobBloc>().add(
                             SelectedReportJobEvent(),
@@ -196,6 +198,13 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                     ),
                     keyboardType: TextInputType.text,
+                    validator: (_text) {
+                      final text = _text ?? "";
+                      if (text.trim().isEmpty) {
+                        return "Preencher o campo de report";
+                      }
+                      return null;
+                    },
                   ),
                   SizedBox(
                     height: 40,
@@ -203,80 +212,36 @@ class _ReportJobViewState extends State<ReportJobView> {
                   SizedBox(
                     height: 54,
                     child: ElevatedButton(
-                      onPressed: allPermission(
-                                isPermission: ReportJobBloc.isPermission,
-                                textController: textController.value.text,
-                              ) ==
-                              true
-                          ? () {
-                              ReportJobBloc().postReport(
-                                  jobId: widget.descriptionJob.id,
-                                  description: ReportJobBloc().textReportJob(
-                                    reportsListText: reportsListText,
-                                    otherReportText: textController.value.text,
-                                  ));
-
-                              ReportJobBloc().textReportJob(
-                                reportsListText: reportsListText,
-                                otherReportText: textController.value.text,
-                              );
-
-                              Navigator.of(context)
-                                  .pushReplacementNamed(AppRoutes.home);
-                            }
-                          : () {
-                              ScaffoldMessenger.of(context)
-                                  .hideCurrentSnackBar();
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  backgroundColor: AppColors.primary,
-                                  content: Text(
-                                    reportsListText[6].isSelect
-                                        ? "Preencha o campo em branco"
-                                        : "Escolha uma opção.",
-                                    style: context.textStyles.textInterRegular
-                                        .copyWith(
-                                            fontSize: 18,
-                                            color: AppColors.white),
-                                  ),
-                                ),
-                              );
-                            },
+                      // onPressed: () => showDialog(
+                      //     context: context,
+                      //     builder: (BuildContext context) => CustomDialogButton(
+                      //           isSucess: true,
+                      //         )),
+                      onPressed: () => ReportJobBloc().submit(
+                        textController: textController.value.text,
+                        reportsListText: reportsListText,
+                        jobId: widget.descriptionJob.id,
+                        context: context,
+                      ),
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: allPermission(
                                   isPermission: ReportJobBloc.isPermission,
                                   textController: textController.value.text,
+                                  reportsListText: reportsListText,
                                 ) ==
                                 true
                             ? AppColors.primary
-                            : AppColors.light,
+                            : AppColors.grey500,
                         fixedSize: Size(300, 100),
                         shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8),
-                            side: BorderSide(
-                                color: allPermission(
-                                          isPermission:
-                                              ReportJobBloc.isPermission,
-                                          textController:
-                                              textController.value.text,
-                                        ) ==
-                                        true
-                                    ? AppColors.light
-                                    : AppColors.primary)),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                       ),
                       child: Text(
                         'Enviar Denúncia',
-                        style: context.textStyles.textInterRegular.copyWith(
-                          fontSize: 18,
-                          color: allPermission(
-                                    isPermission: ReportJobBloc.isPermission,
-                                    textController: textController.value.text,
-                                  ) ==
-                                  true
-                              ? AppColors.white
-                              : AppColors.darker,
-                        ),
+                        style: context.textStyles.textInterRegular
+                            .copyWith(fontSize: 18, color: AppColors.white),
                       ),
                     ),
                   ),
@@ -286,7 +251,9 @@ class _ReportJobViewState extends State<ReportJobView> {
             );
           }
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+            ),
           );
         },
       ),

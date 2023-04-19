@@ -106,17 +106,20 @@ class _HomeViewState extends State<HomeView> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          SizedBox(
-                            width: 24,
-                            height: 24,
-                            child: IconButton(
-                              padding: EdgeInsets.zero,
-                              onPressed: () {
-                                Scaffold.of(context).openEndDrawer();
-                              },
-                              icon: SvgPicture.asset(
-                                  "assets/images/IconFilter.svg"),
-                              color: AppColors.grey500,
+                          Semantics(
+                            hint: "Filtros",
+                            child: SizedBox(
+                              width: 24,
+                              height: 24,
+                              child: IconButton(
+                                padding: EdgeInsets.zero,
+                                onPressed: () {
+                                  Scaffold.of(context).openEndDrawer();
+                                },
+                                icon: SvgPicture.asset(
+                                    "assets/images/IconFilter.svg"),
+                                color: AppColors.grey500,
+                              ),
                             ),
                           ),
                         ],
@@ -191,7 +194,9 @@ class _HomeViewState extends State<HomeView> {
             );
           }
           return Center(
-            child: CircularProgressIndicator(),
+            child: CircularProgressIndicator(
+              valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
+            ),
           );
         },
       ),

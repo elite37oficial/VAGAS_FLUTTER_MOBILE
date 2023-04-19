@@ -371,7 +371,10 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     }
                     return Center(
-                      child: CircularProgressIndicator(),
+                      child: CircularProgressIndicator(
+                        valueColor:
+                            AlwaysStoppedAnimation<Color>(AppColors.primary),
+                      ),
                     );
                   },
                 )),
