@@ -113,58 +113,17 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          backgroundColor: AppColors.primary,
+          backgroundColor: AppColors.greyDark,
           content: Text(
             reportsListText[6].isSelect
                 ? "Preencha o campo em branco"
-                : "Escolha uma opção.",
+                : "Escolha pelo menos um item.",
             style: context.textStyles.textInterRegular
-                .copyWith(fontSize: 18, color: AppColors.white),
+                .copyWith(fontSize: 15, color: AppColors.white),
           ),
         ),
       );
     }
-
-    // allPermission(
-    //                             isPermission: ReportJobBloc.isPermission,
-    //                             textController: textController.value.text,
-    //                             reportsListText: reportsListText,
-    //                           ) ==
-    //                           true
-    //                       ? () {
-    //                           ReportJobBloc().postReport(
-    //                               jobId: widget.descriptionJob.id,
-    //                               description: ReportJobBloc().textReportJob(
-    //                                 reportsListText: reportsListText,
-    //                                 otherReportText: textController.value.text,
-    //                               ));
-
-    //                           ReportJobBloc().textReportJob(
-    //                             reportsListText: reportsListText,
-    //                             otherReportText: textController.value.text,
-    //                           );
-
-    //                           Navigator.of(context)
-    //                               .pushReplacementNamed(AppRoutes.home);
-    //                         }
-    //                       : () {
-    //                           ScaffoldMessenger.of(context)
-    //                               .hideCurrentSnackBar();
-    //                           ScaffoldMessenger.of(context).showSnackBar(
-    //                             SnackBar(
-    //                               backgroundColor: AppColors.primary,
-    //                               content: Text(
-    //                                 reportsListText[6].isSelect
-    //                                     ? "Preencha o campo em branco"
-    //                                     : "Escolha uma opção.",
-    //                                 style: context.textStyles.textInterRegular
-    //                                     .copyWith(
-    //                                         fontSize: 18,
-    //                                         color: AppColors.white),
-    //                               ),
-    //                             ),
-    //                           );
-    //                         },
   }
 
   Future<int> postReport(

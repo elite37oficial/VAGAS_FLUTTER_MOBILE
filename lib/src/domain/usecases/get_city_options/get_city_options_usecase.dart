@@ -1,5 +1,5 @@
-import 'package:vagas_flutter_mobile/src/domain/entities/states_entity.dart';
+import 'package:vagas_flutter_mobile/src/domain/entities/city_entity.dart';
 
 abstract class GetCityOptionsUseCase {
-  Future<List<StateEntity>> call({required String filter});
+  Future<List<CityEntity>> call({String? cityFilter});
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_dialog_buttom.dart';
 import '../../../domain/entities/description_job_entity.dart';
 import '../../core/model/report_options.dart';
 import '../../core/styles/app_colors.dart';
@@ -36,20 +35,6 @@ class _ReportJobViewState extends State<ReportJobView> {
             false,
           ),
         );
-  }
-
-  bool allPermission(
-      {required bool isPermission,
-      required String textController,
-      required List<ReportModel> reportsListText}) {
-    if (isPermission == true) {
-      if (reportsListText[6].isSelect == true && textController == "") {
-        return false;
-      }
-      return true;
-    } else {
-      return false;
-    }
   }
 
   @override
@@ -212,11 +197,6 @@ class _ReportJobViewState extends State<ReportJobView> {
                   SizedBox(
                     height: 54,
                     child: ElevatedButton(
-                      // onPressed: () => showDialog(
-                      //     context: context,
-                      //     builder: (BuildContext context) => CustomDialogButton(
-                      //           isSucess: true,
-                      //         )),
                       onPressed: () => ReportJobBloc().submit(
                         textController: textController.value.text,
                         reportsListText: reportsListText,
@@ -225,14 +205,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: allPermission(
-                                  isPermission: ReportJobBloc.isPermission,
-                                  textController: textController.value.text,
-                                  reportsListText: reportsListText,
-                                ) ==
-                                true
-                            ? AppColors.primary
-                            : AppColors.grey500,
+                        backgroundColor: AppColors.primary,
                         fixedSize: Size(300, 100),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
