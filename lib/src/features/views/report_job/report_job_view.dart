@@ -38,20 +38,6 @@ class _ReportJobViewState extends State<ReportJobView> {
         );
   }
 
-  bool allPermission(
-      {required bool isPermission,
-      required String textController,
-      required List<ReportModel> reportsListText}) {
-    if (isPermission == true) {
-      if (reportsListText[6].isSelect == true && textController == "") {
-        return false;
-      }
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     TextEditingController textController = TextEditingController();
@@ -212,11 +198,6 @@ class _ReportJobViewState extends State<ReportJobView> {
                   SizedBox(
                     height: 54,
                     child: ElevatedButton(
-                      // onPressed: () => showDialog(
-                      //     context: context,
-                      //     builder: (BuildContext context) => CustomDialogButton(
-                      //           isSucess: true,
-                      //         )),
                       onPressed: () => ReportJobBloc().submit(
                         textController: textController.value.text,
                         reportsListText: reportsListText,
@@ -225,14 +206,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
-                        backgroundColor: allPermission(
-                                  isPermission: ReportJobBloc.isPermission,
-                                  textController: textController.value.text,
-                                  reportsListText: reportsListText,
-                                ) ==
-                                true
-                            ? AppColors.primary
-                            : AppColors.grey500,
+                        backgroundColor: AppColors.primary,
                         fixedSize: Size(300, 100),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),

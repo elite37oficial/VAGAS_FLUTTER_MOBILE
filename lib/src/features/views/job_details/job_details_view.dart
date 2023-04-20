@@ -183,6 +183,7 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                     Hero(
                       tag: widget.id,
                       child: Card(
+                        margin: EdgeInsets.zero,
                         shape: RoundedRectangleBorder(
                           side: const BorderSide(
                             color: Colors.grey,
@@ -267,17 +268,21 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                         bottom: 25,
                       ),
                       child: Center(
-                        child: InkWell(
-                          splashColor: AppColors.white,
+                        child: GestureDetector(
+                          // splashColor: AppColors.white,
                           onTap: () {
                             Navigator.of(context).pushNamed(AppRoutes.reportJob,
                                 arguments: descriptionJob);
                           },
-                          child: Text(
-                            'Denunciar essa vaga',
-                            style: context.textStyles.textInterRegular.copyWith(
-                              color: AppColors.primary,
-                              fontSize: 16,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              'Denunciar essa vaga',
+                              style:
+                                  context.textStyles.textInterRegular.copyWith(
+                                color: AppColors.primary,
+                                fontSize: 16,
+                              ),
                             ),
                           ),
                         ),

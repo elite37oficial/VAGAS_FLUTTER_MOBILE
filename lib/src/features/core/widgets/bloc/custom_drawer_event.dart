@@ -3,6 +3,13 @@ part of 'custom_drawer_bloc.dart';
 @immutable
 abstract class CustomDrawerEvent {}
 
+class ChangeCityNameDrawerEvent extends CustomDrawerEvent {
+  List<String> cityNamesList;
+  ChangeCityNameDrawerEvent({
+    required this.cityNamesList,
+  });
+}
+
 class SelectedCustomDrawerEvent extends CustomDrawerEvent {
   final bool? isRegimeClt;
   final bool? isRegimePj;

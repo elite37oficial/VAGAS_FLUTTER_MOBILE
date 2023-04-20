@@ -1,44 +1,35 @@
 import 'dart:convert';
 
-import '../../domain/entities/states_entity.dart';
+import '../../domain/entities/city_entity.dart';
 
-class StateDto extends StateEntity {
-  String sigla;
-  String nome;
-  List<String> cidades;
-
-  StateDto({
-    required this.sigla,
-    required this.nome,
-    required this.cidades,
-  }) : super(
-          abbreviation: sigla,
-          name: nome,
-          city: cidades,
-        );
+class CityDto extends CityEntity {
+  int state_id;
+  int id;
+  String name;
+  CityDto({
+    required this.state_id,
+    required this.id,
+    required this.name,
+  }) : super(stateId: state_id, cityId: id, cityName: name);
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'sigla': sigla,
-      'nome': nome,
-      'cidades': cidades,
+      'state_id': state_id,
+      'id': id,
+      'name': name,
     };
   }
 
-  static StateDto fromMap(Map<String, dynamic> map) {
-    return StateDto(
-      sigla: map['sigla'],
-      nome: map['nome'],
-      cidades: List<String>.from(map['cidades']),
+  factory CityDto.fromMap(Map<String, dynamic> map) {
+    return CityDto(
+      state_id: map['state_id'] as int,
+      id: map['id'] as int,
+      name: map['name'] as String,
     );
   }
 
-  String toJson() {
-    return json.encode(toMap());
-  }
+  String toJson() => json.encode(toMap());
 
-  static StateDto fromJson(String jsonString) {
-    Map<String, dynamic> map = json.decode(jsonString);
-    return StateDto.fromMap(map);
-  }
+  factory CityDto.fromJson(String source) =>
+      CityDto.fromMap(json.decode(source) as Map<String, dynamic>);
 }
