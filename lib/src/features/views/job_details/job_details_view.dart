@@ -269,7 +269,6 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                       ),
                       child: Center(
                         child: GestureDetector(
-                          // splashColor: AppColors.white,
                           onTap: () {
                             Navigator.of(context).pushNamed(AppRoutes.reportJob,
                                 arguments: descriptionJob);

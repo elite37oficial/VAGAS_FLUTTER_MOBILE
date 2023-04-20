@@ -113,7 +113,10 @@ class _AboutViewState extends State<AboutView> {
                           title: "Privacidade",
                           children: [
                             CustomRichText(
-                                url: "Politica de privacidade e termos de uso")
+                              url: "Politica de privacidade e termos de uso",
+                              onTap: () => _aboutController.openLink(
+                                  "https://vagas.elite37.com.br/diretrizes.php"),
+                            ),
                           ],
                         ),
                         CustomTopic(

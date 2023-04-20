@@ -9,23 +9,20 @@ class GetCityOptionsDataSourceMockImp implements GetCityOptionsDataSource {
     Dio dio = Dio();
 
     List<CityDto> listCity = [];
-    if (cityFilter == null || cityFilter == "") {
+
+    try {
+      String urlCitys =
+          "https://gist.githubusercontent.com/letanure/3012978/raw/6938daa8ba69bcafa89a8c719690225641e39586/estados-cidades2.json";
+      final response = await dio.get(urlCitys);
+
+      List<dynamic> jsonData = json.decode(response.data)["cities"] as List;
+
+      listCity = jsonData.map((json) => CityDto.fromMap(json)).toList();
+
       return listCity;
-    } else {
-      try {
-        String urlCitys =
-            "https://gist.githubusercontent.com/letanure/3012978/raw/6938daa8ba69bcafa89a8c719690225641e39586/estados-cidades2.json";
-        final response = await dio.get(urlCitys);
-
-        List<dynamic> jsonData = json.decode(response.data)["cities"] as List;
-
-        listCity = jsonData.map((json) => CityDto.fromMap(json)).toList();
-
-        return listCity;
-      } catch (e) {
-        print(e);
-        return [];
-      }
+    } catch (e) {
+      print(e);
+      return [];
     }
   }
 }

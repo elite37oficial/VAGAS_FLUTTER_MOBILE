@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of 'custom_drawer_bloc.dart';
 
 @immutable
@@ -24,7 +23,7 @@ class SelectCustomDrawerState extends CustomDrawerState {
   final bool isModalityPresential;
   final bool isModalityHibrid;
   final String cityFilter;
-  final List<CityEntity> cityList;
+  final List<String> cityList;
   SelectCustomDrawerState({
     required this.isRegimeClt,
     required this.isRegimePj,

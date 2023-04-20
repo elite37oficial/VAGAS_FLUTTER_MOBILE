@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_dialog_buttom.dart';
 import '../../../domain/entities/description_job_entity.dart';
 import '../../core/model/report_options.dart';
 import '../../core/styles/app_colors.dart';

@@ -56,10 +56,13 @@ class CustomDrawerBloc extends Bloc<CustomDrawerEvent, CustomDrawerState> {
     );
 
     final List<CityEntity> response = await _getCityOptionsUseCase();
+
     return response;
   }
 
-  static List<CityEntity> cityList = [];
+  static List<String> cityList = [];
+  static List<CityEntity> response = [];
+  static List<String> responseList = [];
   static bool isRegimeClt = false;
   static bool isRegimePj = false;
   static bool isModalityRemote = false;
@@ -67,12 +70,27 @@ class CustomDrawerBloc extends Bloc<CustomDrawerEvent, CustomDrawerState> {
   static bool isModalityHibrid = false;
   static String cityFilter = "";
 
+  List<String> filterCityname({required String textController}) {
+    final cityNamesList = responseList
+        .where(
+            (city) => city.toLowerCase().contains(textController.toLowerCase()))
+        .toList();
+    return cityNamesList;
+  }
+
   Future<void> _selectedFilters(
       SelectedCustomDrawerEvent event, Emitter<CustomDrawerState> emit) async {
     emit(LoadingCustomDrawerState());
 
     try {
-      cityList = await getCityOptions();
+      if (event.isRealod == true) {
+        response = await getCityOptions();
+      }
+      responseList = event.cityList == null
+          ? []
+          : response.map((city) => city.cityName).toList();
+
+      cityList = event.cityList ?? responseList;
       isRegimeClt = event.isRegimeClt ?? isRegimeClt;
       isRegimePj = event.isRegimePj ?? isRegimePj;
       isModalityRemote = event.isModalityRemote ?? isModalityRemote;

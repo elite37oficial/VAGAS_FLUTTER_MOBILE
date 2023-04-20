@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:vagas_flutter_mobile/src/domain/entities/city_entity.dart';
 import 'package:vagas_flutter_mobile/src/features/core/model/filter_options.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
@@ -34,8 +33,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    // final List<String> cityNames = CustomDrawerBloc().getCityOptions();
-
     List<FilterOptions> listFilter = [
       FilterOptions(
         title: "CLT",
@@ -63,15 +60,9 @@ class _CustomDrawerState extends State<CustomDrawer> {
         isSelected: CustomDrawerBloc.isModalityHibrid,
       ),
     ];
-    TextEditingController textController = TextEditingController();
 
-    // final List<DropdownMenuEntry<String>> cityEntries =
-    //     cityNames.map((String cityName) {
-    //   return DropdownMenuEntry<String>(
-    //     value: cityName,
-    //     label: cityName,
-    //   );
-    // }).toList();
+    TextEditingController textController =
+        TextEditingController(text: CustomDrawerBloc.cityFilter);
     return Stack(
       children: <Widget>[
         Positioned(
@@ -92,31 +83,13 @@ class _CustomDrawerState extends State<CustomDrawer> {
                       );
                     }
                     if (state is SelectCustomDrawerState) {
-                      final List<String> cityNames =
-                          state.cityList.map((city) => city.cityName).toList();
                       bool isRegimeClt = state.isRegimeClt;
                       bool isRegimePj = state.isRegimePj;
                       bool isModalityRemote = state.isModalityRemote;
                       bool isModalityPresential = state.isModalityPresential;
                       bool isModalityHibrid = state.isModalityHibrid;
-                      String cityFilter = state.cityFilter;
-                      List<String> list = [
-                        "Guarabira",
-                        "João Pessoa",
-                        "Araçagi",
-                        "Cuité",
-                        "mulungu",
-                      ];
 
-                      // final List<DropdownMenuEntry<String>> cityEntries =
-                      //     cityNames
-                      //         .map((city) => city.cityName)
-                      //         .map((String cityName) {
-                      //   return DropdownMenuEntry<String>(
-                      //     value: cityName,
-                      //     label: cityName,
-                      //   );
-                      // }).toList();
+                      List<String> cityNames = state.cityList;
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -193,88 +166,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                             SizedBox(height: 16),
                                             CustomDropDownMenu(
                                               textController: textController,
-                                              cityNames: list,
-                                              onTap: () {
-                                                // list = list
-                                                //     .where((city) => city
-                                                //         .contains(textController
-                                                //             .value.text))
-                                                //     .toList();
-                                              },
+                                              cityNames: cityNames,
                                             )
-                                            // DropdownMenu(
-                                            //   controller: textController,
-                                            //   onSelected: (_) {
-                                            //     cityFilter =
-                                            //         textController.value.text;
-                                            //     print(cityFilter);
-                                            //   },
-                                            //   menuHeight: 3 * 48,
-                                            //   enableFilter: true,
-                                            //   leadingIcon: Container(
-                                            //     padding: EdgeInsets.symmetric(
-                                            //         vertical: 14),
-                                            //     child: SvgPicture.asset(
-                                            //       "assets/images/map-pin.svg",
-                                            //     ),
-                                            //   ),
-                                            //   label: Text(
-                                            //     "Busque uma localidade...",
-                                            //     style: context
-                                            //         .textStyles.textInterRegular
-                                            //         .copyWith(
-                                            //       color: AppColors.lightPrimary,
-                                            //       fontSize: 12,
-                                            //     ),
-                                            //   ),
-                                            //   trailingIcon: SizedBox.shrink(),
-                                            //   inputDecorationTheme:
-                                            //       InputDecorationTheme(
-                                            //     filled: true,
-                                            //     fillColor: AppColors.light,
-                                            //     floatingLabelBehavior:
-                                            //         FloatingLabelBehavior.never,
-                                            //     contentPadding: EdgeInsets.zero,
-                                            //     activeIndicatorBorder:
-                                            //         BorderSide.none,
-                                            //     enabledBorder:
-                                            //         OutlineInputBorder(
-                                            //       borderRadius:
-                                            //           BorderRadius.circular(4),
-                                            //       borderSide: BorderSide.none,
-                                            //     ),
-                                            //     focusedBorder:
-                                            //         OutlineInputBorder(
-                                            //       borderSide: BorderSide(
-                                            //         color: AppColors.primary,
-                                            //       ),
-                                            //     ),
-                                            //   ),
-                                            //   menuStyle: MenuStyle(
-                                            //     padding:
-                                            //         MaterialStatePropertyAll(
-                                            //             EdgeInsets.zero),
-                                            //     shape: MaterialStatePropertyAll(
-                                            //       RoundedRectangleBorder(
-                                            //         borderRadius:
-                                            //             BorderRadius.circular(
-                                            //                 4),
-                                            //         side: BorderSide(
-                                            //             color:
-                                            //                 AppColors.grey500),
-                                            //       ),
-                                            //     ),
-                                            //     elevation:
-                                            //         MaterialStatePropertyAll(0),
-                                            //   ),
-                                            //   textStyle: context
-                                            //       .textStyles.textInterRegular
-                                            //       .copyWith(
-                                            //     color: AppColors.darker,
-                                            //     fontSize: 12,
-                                            //   ),
-                                            //   dropdownMenuEntries: cityEntries,
-                                            // ),
                                           ],
                                         ),
                                       ),
@@ -316,8 +209,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 isModalityPresential: false,
                                                 isModalityHibrid: false,
                                                 cityFilter: "",
+                                                isRealod: false,
                                               ),
                                             );
+                                        setState(() {
+                                          CustomDrawerBloc.cityFilter = "";
+                                        });
                                       },
                                       child: Text(
                                         'Redefinir',

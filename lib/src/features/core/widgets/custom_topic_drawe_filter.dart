@@ -68,6 +68,7 @@ class CustomTopicDrawerFilter extends StatelessWidget {
                         isModalityHibrid: listType[index].title == "Híbrido"
                             ? listType[index].isSelected
                             : null,
+                        isRealod: false,
                       ),
                     );
               },

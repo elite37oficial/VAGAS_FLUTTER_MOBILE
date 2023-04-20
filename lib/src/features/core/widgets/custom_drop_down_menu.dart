@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
-
+import 'package:vagas_flutter_mobile/src/features/core/widgets/bloc/custom_drawer_bloc.dart';
 import '../styles/app_colors.dart';
 
 class CustomDropDownMenu extends StatefulWidget {
   final List<String> cityNames;
   final TextEditingController textController;
-  final Function onTap;
+
   const CustomDropDownMenu({
     Key? key,
     required this.cityNames,
     required this.textController,
-    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -21,10 +20,10 @@ class CustomDropDownMenu extends StatefulWidget {
 }
 
 class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
-  // List<String> get cityNamesList => [...cityNames];
   @override
+  List<String> get cityNames => [...widget.cityNames];
   Widget build(BuildContext context) {
-    List<String> cityNamesList = widget.cityNames;
+    List<String> cityNamesList = cityNames;
     final int listLenght = cityNamesList.length < 4 ? cityNamesList.length : 4;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
@@ -51,16 +50,15 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                 child: TextField(
                   controller: widget.textController,
                   onChanged: (_) {
-                    widget.onTap();
-                    setState(() {
-                      cityNamesList = cityNamesList
-                          .where((city) => city.toLowerCase().contains(
-                              widget.textController.value.text.toLowerCase()))
-                          .toList();
-                    });
-                    print(cityNamesList);
-                    // print(list);
-                    // cityNamesList = cityNamesList.contains(textController.value.text);
+                    final changeName = CustomDrawerBloc().filterCityname(
+                        textController: widget.textController.value.text);
+                    context
+                        .read<CustomDrawerBloc>()
+                        .add(SelectedCustomDrawerEvent(
+                          cityList: changeName,
+                          cityFilter: widget.textController.value.text,
+                          isRealod: false,
+                        ));
                   },
                   style: context.textStyles.textInterRegular.copyWith(
                     color: AppColors.darker,
@@ -69,9 +67,6 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                   decoration: InputDecoration(
                       floatingLabelBehavior: FloatingLabelBehavior.never,
                       contentPadding: EdgeInsets.zero,
-                      // icon: SvgPicture.asset(
-                      //   "assets/images/map-pin.svg",
-                      // ),
                       hintText: "Busque uma localidade...",
                       hintStyle: context.textStyles.textInterRegular.copyWith(
                         color: AppColors.lightPrimary,
@@ -79,72 +74,70 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
-                      )
-                      // border:
-                      //     OutlineInputBorder(
-                      //   borderRadius:
-                      //       BorderRadius
-                      //           .circular(4),
-                      //   borderSide:
-                      //       BorderSide.none,
-                      // ),
-                      // filled: true,
-                      // fillColor: AppColors.light,
-                      // label: Text(
-                      //   "Busque uma localidade...",
-                      //   style: context.textStyles
-                      //       .textInterRegular
-                      //       .copyWith(
-                      //     color:
-                      //         AppColors.lightPrimary,
-                      //     fontSize: 12,
-                      //   ),
-                      // ),
-                      ),
+                      )),
                 ),
               ),
             ],
           ),
         ),
         if (cityNamesList.length > 0)
-          ListView.builder(
-            padding: EdgeInsets.zero,
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: listLenght,
-            itemBuilder: (context, index) {
-              return InkWell(
-                onTap: () {
-                  widget.textController.text = cityNamesList[index];
-                  // cityNamesList = cityNamesList[index];
-                },
-                borderRadius: BorderRadius.only(
-                  bottomLeft: Radius.circular(listLenght - 1 == index ? 4 : 0),
-                  bottomRight: Radius.circular(listLenght - 1 == index ? 4 : 0),
-                ),
-                splashColor: AppColors.primary,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+          BlocBuilder<CustomDrawerBloc, CustomDrawerState>(
+            builder: (context, state) {
+              if (state is SelectCustomDrawerState) {
+                return ListView.builder(
+                  padding: EdgeInsets.zero,
+                  physics: NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: listLenght,
+                  itemBuilder: (context, index) {
+                    return InkWell(
+                      onTap: () {
+                        widget.textController.text = cityNamesList[index];
 
-                  decoration: BoxDecoration(
-                    border: Border.fromBorderSide(
-                        BorderSide(width: 1, color: AppColors.grey500)),
-                    borderRadius: BorderRadius.only(
-                      bottomLeft:
-                          Radius.circular(listLenght - 1 == index ? 4 : 0),
-                      bottomRight:
-                          Radius.circular(listLenght - 1 == index ? 4 : 0),
-                    ),
-                  ),
-                  // height: 35,
-                  child: Text(
-                    cityNamesList[index],
-                    style: context.textStyles.textInterRegular.copyWith(
-                      fontSize: 16,
-                      color: AppColors.darker,
-                    ),
-                  ),
-                ),
+                        final changeName = CustomDrawerBloc().filterCityname(
+                            textController: widget.textController.value.text);
+                        context
+                            .read<CustomDrawerBloc>()
+                            .add(SelectedCustomDrawerEvent(
+                              cityList: changeName,
+                              cityFilter: widget.textController.value.text,
+                              isRealod: false,
+                            ));
+                      },
+                      borderRadius: BorderRadius.only(
+                        bottomLeft:
+                            Radius.circular(listLenght - 1 == index ? 4 : 0),
+                        bottomRight:
+                            Radius.circular(listLenght - 1 == index ? 4 : 0),
+                      ),
+                      splashColor: AppColors.primary,
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                        decoration: BoxDecoration(
+                          border: Border.fromBorderSide(
+                              BorderSide(width: 1, color: AppColors.grey500)),
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(
+                                listLenght - 1 == index ? 4 : 0),
+                            bottomRight: Radius.circular(
+                                listLenght - 1 == index ? 4 : 0),
+                          ),
+                        ),
+                        child: Text(
+                          cityNamesList[index],
+                          style: context.textStyles.textInterRegular.copyWith(
+                            fontSize: 16,
+                            color: AppColors.darker,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              }
+              return Center(
+                child: CircularProgressIndicator(),
               );
             },
           ),
