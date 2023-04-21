@@ -36,22 +36,22 @@ class _AboutViewState extends State<AboutView> {
 
   @override
   Widget build(BuildContext context) {
-    final String version = "0.0.1";
+    const String version = "0.0.1";
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "Sobre",
       ),
       body: ValueListenableBuilder(
         valueListenable: _aboutController,
         builder: (context, state, child) {
           if (state is EmptyDevelopersState) {
-            return Center(
+            return const Center(
               child: Text("Sem informações sobre p aplicativo"),
             );
           }
           if (state is GetDevelopersState) {
             final developList = state.listDevelopers;
-            return Container(
+            return SizedBox(
               height: double.infinity,
               width: double.infinity,
               child: ListView(
@@ -76,7 +76,7 @@ class _AboutViewState extends State<AboutView> {
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.symmetric(horizontal: 24),
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
                     width: double.infinity,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -85,11 +85,11 @@ class _AboutViewState extends State<AboutView> {
                         CustomTopic(
                           title: "Contato",
                           children: [
-                            CustomRichText(
+                            const CustomRichText(
                               text: "Email:",
                               url: "suporte@elite37.com.br",
                             ),
-                            SizedBox(height: 12),
+                            const SizedBox(height: 12),
                             CustomRichText(
                               text: "Site",
                               url: "www.elite37.com.br",
@@ -159,7 +159,7 @@ class _AboutViewState extends State<AboutView> {
                             ),
                           ],
                         ),
-                        CustomTopic(
+                        const CustomTopic(
                           title: "Versão",
                           children: [
                             CustomRichText(

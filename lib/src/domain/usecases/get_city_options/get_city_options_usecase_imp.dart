@@ -9,6 +9,6 @@ class GetCityOptionsUseCaseImp implements GetCityOptionsUseCase {
   );
   @override
   Future<List<CityEntity>> call({String? cityFilter}) async {
-    return _getCityOptionsRepository(cityFilter: cityFilter ?? null);
+    return _getCityOptionsRepository(cityFilter: cityFilter);
   }
 }

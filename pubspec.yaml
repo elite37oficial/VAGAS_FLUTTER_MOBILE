@@ -80,6 +80,7 @@ flutter:
     - assets/images/cupertino_activity_indicator.gif
     - assets/images/sucessReport.svg
     - assets/images/failReport.svg
+    - assets/json/estados-cidades2.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

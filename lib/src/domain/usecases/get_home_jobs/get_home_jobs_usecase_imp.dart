@@ -15,10 +15,10 @@ class GetHomeJobUseCaseImp implements GetHomeJobsUseCase {
     String? regimeFilter,
   }) async {
     return _getHomeJobsRepository(
-      filter: filter ?? null,
-      cityFilter: cityFilter ?? null,
-      modalityFilter: modalityFilter ?? null,
-      regimeFilter: regimeFilter ?? null,
+      filter: filter,
+      cityFilter: cityFilter,
+      modalityFilter: modalityFilter,
+      regimeFilter: regimeFilter,
     );
   }
 }

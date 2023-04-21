@@ -23,14 +23,13 @@ class CardWidget extends StatelessWidget {
           AppRoutes.jobDetail,
           arguments: id,
         );
-        print(id);
       },
       child: Hero(
         tag: homeJob.id,
         child: SizedBox(
           width: double.infinity,
           child: Card(
-            margin: EdgeInsets.only(bottom: 8),
+            margin: const EdgeInsets.only(bottom: 8),
             elevation: 0,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
@@ -97,7 +96,7 @@ class CardWidget extends StatelessWidget {
                                 size: 12,
                                 color: AppColors.grey,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 4,
                               ),
                               Text(
@@ -116,7 +115,7 @@ class CardWidget extends StatelessWidget {
                                 size: 12,
                                 color: AppColors.grey,
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 4,
                               ),
                               Text(

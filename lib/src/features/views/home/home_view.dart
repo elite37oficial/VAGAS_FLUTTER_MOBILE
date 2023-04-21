@@ -34,7 +34,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       drawerScrimColor: Colors.transparent,
       backgroundColor: AppColors.white,
-      endDrawer: CustomDrawer(),
+      endDrawer: const CustomDrawer(),
       appBar: CustomAppBar(
         filterAppBar: filterAppBar,
         leading: IconButton(
@@ -127,8 +127,8 @@ class _HomeViewState extends State<HomeView> {
                     ],
                   ),
                 ),
-                Text("Sem vagas disponíveis..."),
-                SizedBox.shrink(),
+                const Text("Sem vagas disponíveis..."),
+                const SizedBox.shrink(),
               ],
             );
           }
@@ -180,7 +180,7 @@ class _HomeViewState extends State<HomeView> {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemCount: jobList.length,
                   itemBuilder: (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 22),

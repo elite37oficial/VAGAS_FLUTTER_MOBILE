@@ -16,13 +16,13 @@ class CustomDialogButton extends StatelessWidget {
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         height: isSucess ? 250 : 289,
         width: 334,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 24),
+            const SizedBox(height: 24),
             SvgPicture.asset(
               isSucess == true
                   ? "assets/images/sucessReport.svg"
@@ -30,7 +30,7 @@ class CustomDialogButton extends StatelessWidget {
               height: 64,
               width: 64,
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             Text(
               isSucess == true
                   ? "Denúncia enviada com sucesso!"
@@ -40,7 +40,7 @@ class CustomDialogButton extends StatelessWidget {
               ),
               textAlign: TextAlign.center,
             ),
-            if (isSucess == false) SizedBox(height: 24),
+            if (isSucess == false) const SizedBox(height: 24),
             if (isSucess == false)
               Text(
                 "Falha ao enviar denúncia, por favor tente novamente.",
@@ -50,7 +50,7 @@ class CustomDialogButton extends StatelessWidget {
                 ),
                 textAlign: TextAlign.center,
               ),
-            SizedBox(height: 32),
+            const SizedBox(height: 32),
             Container(
               height: 51,
               width: 302,

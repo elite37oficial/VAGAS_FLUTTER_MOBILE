@@ -9,6 +9,6 @@ class GetCityOptionsRepositoryImp implements GetCityOptionsRepository {
   );
   @override
   Future<List<CityEntity>> call({String? cityFilter}) async {
-    return _getCityOptionsDataSource(cityFilter: cityFilter ?? null);
+    return _getCityOptionsDataSource(cityFilter: cityFilter);
   }
 }

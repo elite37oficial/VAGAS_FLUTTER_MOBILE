@@ -1,6 +1,5 @@
 part of 'custom_drawer_bloc.dart';
 
-@immutable
 abstract class CustomDrawerEvent {}
 
 class ChangeCityNameDrawerEvent extends CustomDrawerEvent {

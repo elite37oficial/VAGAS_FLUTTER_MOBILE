@@ -26,7 +26,7 @@ class CustomTopicDrawerFilter extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 24),
+        const SizedBox(height: 24),
         Text(
           title,
           style: context.textStyles.textFilter.copyWith(
@@ -34,17 +34,17 @@ class CustomTopicDrawerFilter extends StatelessWidget {
             color: AppColors.darker,
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         GridView.builder(
           padding: EdgeInsets.zero,
           shrinkWrap: true,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisExtent: 28,
           ),
           itemCount: listType.length,
           itemBuilder: (context, index) => Container(
-            margin: EdgeInsets.only(bottom: 12),
+            margin: const EdgeInsets.only(bottom: 12),
             child: CustomCheckBoxButton(
               text: listType[index].title,
               isSelect: listType[index].isSelected,

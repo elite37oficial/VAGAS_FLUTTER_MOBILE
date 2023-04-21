@@ -21,7 +21,7 @@ class CustomDevelopersTopic extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AboutController _aboutController = AboutController(
+    final AboutController aboutController = AboutController(
       GetDevelopersUseCaseImp(
         GetDevelopersRepositoryImp(
           GetDevelopersDataSourceMockImp(),
@@ -31,16 +31,16 @@ class CustomDevelopersTopic extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         Text(
           title,
           style: context.textStyles.textInterRegular
               .copyWith(fontSize: 16, color: AppColors.darker),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         ListView.builder(
           shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: developList.length,
           itemBuilder: (context, index) {
             return Column(
@@ -62,16 +62,16 @@ class CustomDevelopersTopic extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: openUrl != null
-                                ? () => _aboutController
+                                ? () => aboutController
                                     .openLink(developList[index].linkedinUrl)
                                 : null,
                             child: SvgPicture.asset(
                                 "assets/images/linkedinIcon.svg"),
                           ),
-                          SizedBox(width: 12),
+                          const SizedBox(width: 12),
                           GestureDetector(
                             onTap: openUrl != null
-                                ? () => _aboutController
+                                ? () => aboutController
                                     .openLink(developList[index].gitHubUrl)
                                 : null,
                             child: SvgPicture.asset(
@@ -82,7 +82,7 @@ class CustomDevelopersTopic extends StatelessWidget {
                     ],
                   ),
                 ),
-                Divider(height: 1),
+                const Divider(height: 1),
               ],
             );
           },

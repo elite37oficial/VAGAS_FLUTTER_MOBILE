@@ -78,7 +78,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 child: BlocBuilder<CustomDrawerBloc, CustomDrawerState>(
                   builder: (context, state) {
                     if (state is IsEmptyCustomDrawerState) {
-                      return Center(
+                      return const Center(
                         child: Text("Sem filtros no momento"),
                       );
                     }
@@ -163,7 +163,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                                 color: AppColors.darker,
                                               ),
                                             ),
-                                            SizedBox(height: 16),
+                                            const SizedBox(height: 16),
                                             CustomDropDownMenu(
                                               textController: textController,
                                               cityNames: cityNames,
@@ -226,7 +226,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                                         ),
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 24,
                                     ),
                                     ElevatedButton(

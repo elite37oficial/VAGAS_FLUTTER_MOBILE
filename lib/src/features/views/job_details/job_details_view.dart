@@ -35,21 +35,27 @@ class _JobDetailsViewState extends State<JobDetailsView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 0))
-        .then((value) => _jobDetailController.getDetails(id: widget.id));
+    _jobDetailController.getDetails(id: widget.id);
   }
 
   @override
   Widget build(BuildContext context) {
+    final JobDetailController jobDetailController = JobDetailController(
+      GetDescriptionJobUseCaseImp(
+        GetDescriptionJobRepositoryImp(
+          GetDescriptionJobDataSourceDioImp(),
+        ),
+      ),
+    );
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "Detalhes da vaga",
       ),
       body: ValueListenableBuilder(
         valueListenable: _jobDetailController,
         builder: (context, state, child) {
           if (state is EmptyJobDetailsState) {
-            return Center(
+            return const Center(
               child: Text("Está vaga ainda não tem detalhes disponiveis..."),
             );
           }
@@ -139,20 +145,26 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           ),
                         ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             contactButton(
                               context: context,
                               svgAsset: context.image.linkContact,
+                              onTap: () => jobDetailController
+                                  .openLink(descriptionJob.link),
                             ),
                             contactButton(
                               isWhatsApp: true,
                               context: context,
                               svgAsset: context.image.whatsAppContact,
+                              onTap: () => jobDetailController.openWhatsApp(
+                                  tel: descriptionJob.whatsapp),
                             ),
                             contactButton(
                               context: context,
                               svgAsset: context.image.emailContact,
+                              onTap: () => jobDetailController.openEmail(
+                                  email: descriptionJob.email),
                             ),
                           ],
                         ),
@@ -302,31 +314,39 @@ class _JobDetailsViewState extends State<JobDetailsView> {
     );
   }
 
-  InkWell contactButton({
+  Visibility contactButton({
     bool isWhatsApp = false,
+    bool visible = true,
     required BuildContext context,
     required String svgAsset,
+    required Function onTap,
   }) {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        padding: isWhatsApp == true
-            ? const EdgeInsets.all(8)
-            : const EdgeInsets.all(12),
-        height: 48,
-        width: 48,
-        decoration: BoxDecoration(
-          color: AppColors.light,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: AppColors.lightActive,
-            width: 1,
+    return Visibility(
+      visible: visible,
+      child: Padding(
+        padding: const EdgeInsets.only(right: 20),
+        child: InkWell(
+          onTap: () => onTap(),
+          child: Container(
+            padding: isWhatsApp == true
+                ? const EdgeInsets.all(8)
+                : const EdgeInsets.all(12),
+            height: 48,
+            width: 48,
+            decoration: BoxDecoration(
+              color: AppColors.light,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: AppColors.lightActive,
+                width: 1,
+              ),
+            ),
+            child: SvgPicture.asset(
+              svgAsset,
+              width: 24,
+              height: 24,
+            ),
           ),
-        ),
-        child: SvgPicture.asset(
-          svgAsset,
-          width: 24,
-          height: 24,
         ),
       ),
     );

@@ -14,7 +14,7 @@ class AboutController extends ValueNotifier<AboutState> {
   Future<void> getDevelopers() async {
     try {
       final List<DevelopEntity> listDevelopers = await _getDevelopersUseCase();
-      if (listDevelopers == null) {
+      if (listDevelopers.isEmpty) {
         value = EmptyDevelopersState();
       } else {
         value = GetDevelopersState(listDevelopers: listDevelopers);

@@ -59,13 +59,13 @@ class _ReportJobViewState extends State<ReportJobView> {
     ];
 
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         title: "Central de Ajuda",
       ),
       body: BlocBuilder<ReportJobBloc, ReportJobState>(
         builder: (context, state) {
           if (state is IsEmptyReportJobState) {
-            return Center(
+            return const Center(
               child: Text("Sem opções de report no momento"),
             );
           }
@@ -77,7 +77,7 @@ class _ReportJobViewState extends State<ReportJobView> {
               ),
               child: ListView(
                 children: [
-                  SizedBox(height: 24),
+                  const SizedBox(height: 24),
                   Text(
                     'Denunciar violações das diretrizes da nossa comunidade',
                     style: context.textStyles.textInterBold.copyWith(
@@ -85,7 +85,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       color: AppColors.darker,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 16,
                   ),
                   Text(
@@ -98,7 +98,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                     maxLines: 4,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 32,
                   ),
                   Text(
@@ -108,7 +108,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       color: AppColors.darker,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 8,
                   ),
                   Text(
@@ -118,7 +118,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       color: AppColors.greyLight,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 24,
                   ),
                   Text(
@@ -130,7 +130,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                   ),
                   ListView.builder(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: reportsListText.length,
                     itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.only(top: 16),
@@ -156,7 +156,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   TextFormField(
                     onChanged: (_) {
                       context.read<ReportJobBloc>().add(
@@ -183,15 +183,8 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                     ),
                     keyboardType: TextInputType.text,
-                    validator: (_text) {
-                      final text = _text ?? "";
-                      if (text.trim().isEmpty) {
-                        return "Preencher o campo de report";
-                      }
-                      return null;
-                    },
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   SizedBox(
@@ -206,7 +199,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       style: ElevatedButton.styleFrom(
                         elevation: 0,
                         backgroundColor: AppColors.primary,
-                        fixedSize: Size(300, 100),
+                        fixedSize: const Size(300, 100),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8),
                         ),
@@ -218,7 +211,7 @@ class _ReportJobViewState extends State<ReportJobView> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 31)
+                  const SizedBox(height: 31)
                 ],
               ),
             );

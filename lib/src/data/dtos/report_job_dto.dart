@@ -1,3 +1,4 @@
+// ignore_for_file: overridden_fields, annotate_overrides
 import 'dart:convert';
 import 'package:vagas_flutter_mobile/src/domain/entities/report_job_entity.dart';
 

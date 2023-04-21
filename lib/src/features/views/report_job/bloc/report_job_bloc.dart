@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/data/datasource/post_report_job/dio/post_report_job_datasource_dio_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/post_report_job/post_report_job_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/post_report_job/post_report_job_usecase.dart';
@@ -8,7 +8,7 @@ import 'package:vagas_flutter_mobile/src/features/core/model/report_options.dart
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_dialog.dart';
 import 'package:vagas_flutter_mobile/src/features/core/widgets/custom_dialog_buttom.dart';
-import '../../../core/routes/app_routes.dart';
+
 import '../../../core/styles/app_colors.dart';
 part 'report_job_event.dart';
 part 'report_job_state.dart';
@@ -56,7 +56,7 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
       }
     }
     if (reportsListText[6].isSelect == true) {
-      textReport += "${otherReportText} ";
+      textReport += "$otherReportText ";
     }
     if (textReport.endsWith(" ")) {
       textReport = textReport.substring(0, textReport.length - 1);
@@ -92,7 +92,7 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
       showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (BuildContext context) => CustomDialog());
+          builder: (BuildContext context) => const CustomDialog());
 
       final int response = await postReport(
         jobId: jobId,
@@ -128,14 +128,14 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
 
   Future<int> postReport(
       {required String jobId, required String description}) async {
-    final PostReportJobUseCase _postReportJobUseCase = PostReportJobuseCaseImp(
+    final PostReportJobUseCase postReportJobUseCase = PostReportJobuseCaseImp(
       PostReportJobRepositoryImp(
         PostReportJobDataSourceDioImp(),
       ),
     );
 
     final int response =
-        await _postReportJobUseCase(jobId: jobId, description: description);
+        await postReportJobUseCase(jobId: jobId, description: description);
 
     return response;
   }
