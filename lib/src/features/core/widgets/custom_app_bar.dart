@@ -20,22 +20,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     if (filterAppBar == true) {
-      return Container(
+      return SizedBox(
         child: AppBar(
           elevation: 0,
           leading: leading,
           backgroundColor: AppColors.primary,
           actions: [Container()],
-          title: Padding(
-            padding: const EdgeInsets.only(right: 8),
+          title: const Padding(
+            padding: EdgeInsets.only(right: 8),
             child: CustomSliverAppBar(),
           ),
         ),
       );
     } else {
-      return Container(
+      return SizedBox(
         child: AppBar(
-          actions: actions == null ? [SizedBox()] : actions,
+          actions: actions ?? [const SizedBox()],
           title: title == null
               ? RichText(
                   text: TextSpan(
@@ -44,7 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                       fontSize: 20,
                     ),
                     children: <TextSpan>[
-                      TextSpan(text: "Elite "),
+                      const TextSpan(text: "Elite "),
                       TextSpan(
                           text: "Vagas",
                           style: context.textStyles.textLatoBold),

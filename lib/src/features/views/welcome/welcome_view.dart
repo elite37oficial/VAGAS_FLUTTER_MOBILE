@@ -44,7 +44,7 @@ class WelcomeView extends StatelessWidget {
                         color: AppColors.primary,
                         fontSize: 40,
                       ),
-                      children: <TextSpan>[
+                      children: const <TextSpan>[
                         TextSpan(
                           text: 'Elite',
                         ),

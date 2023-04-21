@@ -1,6 +1,5 @@
 part of 'list_jobs_home_bloc.dart';
 
-@immutable
 abstract class ListJobsHomeState {}
 
 class ListJobsHomeInitialState extends ListJobsHomeState {}

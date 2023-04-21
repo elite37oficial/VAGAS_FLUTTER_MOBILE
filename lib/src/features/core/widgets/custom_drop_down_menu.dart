@@ -20,8 +20,8 @@ class CustomDropDownMenu extends StatefulWidget {
 }
 
 class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
-  @override
   List<String> get cityNames => [...widget.cityNames];
+  @override
   Widget build(BuildContext context) {
     List<String> cityNamesList = cityNames;
     final int listLenght = cityNamesList.length < 4 ? cityNamesList.length : 4;
@@ -31,9 +31,9 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
         Container(
           decoration: BoxDecoration(
             color: AppColors.light,
-            border: cityNamesList.length > 0
+            border: cityNamesList.isNotEmpty
                 ? Border.all(color: AppColors.darker)
-                : Border(),
+                : const Border(),
             borderRadius: BorderRadius.circular(4),
           ),
           child: Row(
@@ -72,7 +72,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                         color: AppColors.lightPrimary,
                         fontSize: 12,
                       ),
-                      border: OutlineInputBorder(
+                      border: const OutlineInputBorder(
                         borderSide: BorderSide.none,
                       )),
                 ),
@@ -80,13 +80,13 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
             ],
           ),
         ),
-        if (cityNamesList.length > 0)
+        if (cityNamesList.isNotEmpty)
           BlocBuilder<CustomDrawerBloc, CustomDrawerState>(
             builder: (context, state) {
               if (state is SelectCustomDrawerState) {
                 return ListView.builder(
                   padding: EdgeInsets.zero,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   itemCount: listLenght,
                   itemBuilder: (context, index) {
@@ -112,8 +112,8 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                       ),
                       splashColor: AppColors.primary,
                       child: Container(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 8, horizontal: 24),
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 8, horizontal: 24),
                         decoration: BoxDecoration(
                           border: Border.fromBorderSide(
                               BorderSide(width: 1, color: AppColors.grey500)),
@@ -136,7 +136,7 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
                   },
                 );
               }
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             },

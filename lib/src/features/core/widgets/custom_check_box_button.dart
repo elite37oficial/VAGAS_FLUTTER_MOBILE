@@ -20,7 +20,7 @@ class CustomCheckBoxButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap != null ? () => onTap!() : null,
-      child: Container(
+      child: SizedBox(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -33,12 +33,12 @@ class CustomCheckBoxButton extends StatelessWidget {
                   width: 1,
                   color: AppColors.darker,
                 ),
-                borderRadius: BorderRadius.all(
+                borderRadius: const BorderRadius.all(
                   Radius.circular(4),
                 ),
               ),
               child: isSelect == true
-                  ? Icon(
+                  ? const Icon(
                       Icons.check,
                       weight: 8,
                       size: 15,
@@ -46,10 +46,10 @@ class CustomCheckBoxButton extends StatelessWidget {
                     )
                   : null,
             ),
-            SizedBox(
+            const SizedBox(
               width: 8,
             ),
-            Container(
+            SizedBox(
               width: wrapText == true ? context.sWidth - 70 : null,
               child: Text(
                 text,

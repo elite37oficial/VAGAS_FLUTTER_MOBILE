@@ -21,26 +21,26 @@ class _SplashScreenViewState extends State<SplashScreenView> {
 
   @override
   Widget build(BuildContext context) {
-    var duration = Future.delayed(Duration(seconds: 4)).then((value) =>
+    Future.delayed(const Duration(seconds: 4)).then((value) =>
         Navigator.of(context).pushReplacementNamed(AppRoutes.welcome));
 
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(8),
+          padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Spacer(),
-                Spacer(),
+                const Spacer(),
+                const Spacer(),
                 SvgPicture.asset(
                   context.image.logoApp,
                   width: 100,
                   height: 100,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 13,
                 ),
                 Row(
@@ -52,7 +52,7 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                           color: AppColors.primary,
                           fontSize: 36,
                         ),
-                        children: <TextSpan>[
+                        children: const <TextSpan>[
                           TextSpan(
                             text: 'Elite',
                           ),
@@ -67,17 +67,17 @@ class _SplashScreenViewState extends State<SplashScreenView> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 ),
-                Container(
+                SizedBox(
                   width: context.percentWidth(0.6),
                   child: LinearProgressIndicator(
                     color: AppColors.primary,
                     backgroundColor: AppColors.lightHover,
                   ),
                 ),
-                Spacer(
+                const Spacer(
                   flex: 2,
                 ),
                 Center(

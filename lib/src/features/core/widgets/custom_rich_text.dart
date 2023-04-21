@@ -26,7 +26,7 @@ class CustomRichText extends StatelessWidget {
           children: [
             TextSpan(text: text != null ? "$text " : null),
             TextSpan(
-              text: url != null ? url : null,
+              text: url,
               style: context.textStyles.textInterRegular
                   .copyWith(color: AppColors.primary),
             ),

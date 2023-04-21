@@ -20,7 +20,7 @@ class CustomSliverAppBar extends StatelessWidget {
           color: AppColors.lightActive,
           width: 1,
         ),
-        borderRadius: BorderRadius.all(
+        borderRadius: const BorderRadius.all(
           Radius.circular(8),
         ),
       ),
@@ -33,7 +33,7 @@ class CustomSliverAppBar extends StatelessWidget {
                   .copyWith(color: AppColors.white),
               decoration: InputDecoration(
                 hintText: "Busque pela vaga ideal...",
-                contentPadding: EdgeInsets.all(12),
+                contentPadding: const EdgeInsets.all(12),
                 hintStyle: context.textStyles.textFilter,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8),
@@ -60,7 +60,7 @@ class CustomSliverAppBar extends StatelessWidget {
                   color: AppColors.lightActive,
                   width: 1,
                 ),
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   topRight: Radius.circular(8),
                   bottomRight: Radius.circular(8),
                 ),

@@ -20,15 +20,13 @@ class AppRoutes {
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
     case AppRoutes.splash:
-      return MaterialPageRoute(builder: (context) => SplashScreenView());
+      return MaterialPageRoute(builder: (context) => const SplashScreenView());
     case AppRoutes.welcome:
-      return MaterialPageRoute(builder: (context) => WelcomeView());
+      return MaterialPageRoute(builder: (context) => const WelcomeView());
     case AppRoutes.home:
-      return MaterialPageRoute(builder: (context) => HomeView());
-    case AppRoutes.home:
-      return MaterialPageRoute(builder: (context) => HomeView());
+      return MaterialPageRoute(builder: (context) => const HomeView());
     case AppRoutes.about:
-      return MaterialPageRoute(builder: (context) => AboutView());
+      return MaterialPageRoute(builder: (context) => const AboutView());
     case AppRoutes.reportJob:
       return MaterialPageRoute(builder: (context) {
         var descriptionJob = settings.arguments as DescriptionJobEntity;
@@ -46,7 +44,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
 
     default:
       return MaterialPageRoute(
-        builder: (context) => Scaffold(body: Text("Página não encontrada")),
+        builder: (context) =>
+            const Scaffold(body: Text("Página não encontrada")),
       );
   }
 }

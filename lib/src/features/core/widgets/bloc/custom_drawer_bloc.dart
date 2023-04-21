@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
-import 'package:vagas_flutter_mobile/src/data/datasource/get_city_options/dio/get_city_options_datasource_dio_imp.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vagas_flutter_mobile/src/data/datasource/get_city_options/mock/get_city_options_datasource_mock_imp.dart';
 import 'package:vagas_flutter_mobile/src/data/repositories/get_city_options/get_city_options_repository_imp.dart';
 import 'package:vagas_flutter_mobile/src/domain/entities/city_entity.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_city_options/get_city_options_usecase.dart';
@@ -49,13 +48,13 @@ class CustomDrawerBloc extends Bloc<CustomDrawerEvent, CustomDrawerState> {
   }
 
   Future<List<CityEntity>> getCityOptions() async {
-    GetCityOptionsUseCase _getCityOptionsUseCase = GetCityOptionsUseCaseImp(
+    GetCityOptionsUseCase getCityOptionsUseCase = GetCityOptionsUseCaseImp(
       GetCityOptionsRepositoryImp(
         GetCityOptionsDataSourceMockImp(),
       ),
     );
 
-    final List<CityEntity> response = await _getCityOptionsUseCase();
+    final List<CityEntity> response = await getCityOptionsUseCase();
 
     return response;
   }
@@ -97,7 +96,9 @@ class CustomDrawerBloc extends Bloc<CustomDrawerEvent, CustomDrawerState> {
       isModalityPresential = event.isModalityPresential ?? isModalityPresential;
       isModalityHibrid = event.isModalityHibrid ?? isModalityHibrid;
       cityFilter = event.cityFilter ?? cityFilter;
-    } catch (e) {}
+    } catch (e) {
+      emit(IsErrorCustomDrawerState());
+    }
     emit(
       SelectCustomDrawerState(
         isRegimeClt: isRegimeClt,

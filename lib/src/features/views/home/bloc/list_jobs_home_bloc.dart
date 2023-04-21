@@ -1,5 +1,4 @@
-import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_home_jobs/get_home_jobs_usecase.dart';
 import '../../../../data/datasource/get_home_jobs/dio/get_home_jobs_datasource_dio_imp.dart';
 import '../../../../data/repositories/get_home_jobs/get_home_jobs_repository_imp.dart';
@@ -17,7 +16,7 @@ class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
 
   Future<void> _listJobs(
       GetListJobsHomeEvent event, Emitter<ListJobsHomeState> emit) async {
-    final GetHomeJobsUseCase _getHomeJobsUseCase = GetHomeJobUseCaseImp(
+    final GetHomeJobsUseCase getHomeJobsUseCase = GetHomeJobUseCaseImp(
       GetHomeJobsRepositoryImp(
         GetHomeJobsDataSourceDioImp(),
       ),
@@ -25,11 +24,11 @@ class ListJobsHomeBloc extends Bloc<ListJobsHomeEvent, ListJobsHomeState> {
 
     emit(ListJobsHomeLoadingState());
     try {
-      listJobs = await _getHomeJobsUseCase(
-        filter: event.filter ?? null,
-        cityFilter: event.cityFilter ?? null,
-        modalityFilter: event.modalityFilter ?? null,
-        regimeFilter: event.regimeFilter ?? null,
+      listJobs = await getHomeJobsUseCase(
+        filter: event.filter,
+        cityFilter: event.cityFilter,
+        modalityFilter: event.modalityFilter,
+        regimeFilter: event.regimeFilter,
       );
       if (listJobs.isEmpty) {
         emit(ListJobsHomeIsEmptyState());

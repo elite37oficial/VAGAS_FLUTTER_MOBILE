@@ -14,10 +14,10 @@ class GetHomeJobsRepositoryImp implements GetHomeJobsRepository {
     String? regimeFilter,
   }) async {
     return _getHomeJobsDataSource(
-      filter: filter ?? null,
-      cityFilter: cityFilter ?? null,
-      modalityFilter: modalityFilter ?? null,
-      regimeFilter: regimeFilter ?? null,
+      filter: filter,
+      cityFilter: cityFilter,
+      modalityFilter: modalityFilter,
+      regimeFilter: regimeFilter,
     );
   }
 }

@@ -1,9 +1,10 @@
 part of 'custom_drawer_bloc.dart';
 
-@immutable
 abstract class CustomDrawerState {}
 
 class IsEmptyCustomDrawerState extends CustomDrawerState {}
+
+class IsErrorCustomDrawerState extends CustomDrawerState {}
 
 class InitialCustomDrawerState extends CustomDrawerState {}
 
