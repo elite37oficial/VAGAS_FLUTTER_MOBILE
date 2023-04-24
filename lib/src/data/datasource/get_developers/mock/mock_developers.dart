@@ -18,7 +18,7 @@ final List<DevelopDto> mockDevelopList = [
     name: "Guilherme Martins",
     atuation: "Mobile",
     linkedinUrl: "https://www.linkedin.com/in/guilherme-martins-0397ab17b/",
-    gitHubUrl: "http://github.com/Guimarte",
+    gitHubUrl: "https://github.com/Guimarte",
   ),
   DevelopDto(
     name: "Teófilo Albuquerque",
