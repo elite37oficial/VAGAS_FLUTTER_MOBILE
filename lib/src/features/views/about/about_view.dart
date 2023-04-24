@@ -94,7 +94,7 @@ class _AboutViewState extends State<AboutView> {
                               text: "Site",
                               url: "www.elite37.com.br",
                               onTap: () => _aboutController
-                                  .openLink("http://www.elite37.com.br"),
+                                  .openLink("https://www.elite37.com.br"),
                             )
                           ],
                         ),
@@ -104,8 +104,8 @@ class _AboutViewState extends State<AboutView> {
                             CustomRichText(
                               text: "Link:",
                               url: "github.com/elite37oficial",
-                              onTap: () => _aboutController
-                                  .openLink("http://github.com/elite37oficial"),
+                              onTap: () => _aboutController.openLink(
+                                  "https://github.com/elite37oficial"),
                             ),
                           ],
                         ),
