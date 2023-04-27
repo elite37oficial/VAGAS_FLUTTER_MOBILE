@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:vagas_flutter_mobile/src/domain/usecases/get_developers/get_developers_usecase_imp.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/app_colors.dart';
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
@@ -28,15 +29,31 @@ class _AboutViewState extends State<AboutView> {
     ),
   );
 
+  PackageInfo _packageInfo = PackageInfo(
+    appName: 'Unknown',
+    packageName: 'Unknown',
+    version: 'Unknown',
+    buildNumber: 'Unknown',
+    buildSignature: 'Unknown',
+    installerStore: 'Unknown',
+  );
+
   @override
   void initState() {
     super.initState();
     _aboutController.getDevelopers();
+    _initPackageInfo();
+  }
+
+  Future<void> _initPackageInfo() async {
+    final info = await PackageInfo.fromPlatform();
+    setState(() {
+      _packageInfo = info;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    const String version = "0.0.1";
     return Scaffold(
       appBar: const CustomAppBar(
         title: "Sobre",
@@ -159,11 +176,11 @@ class _AboutViewState extends State<AboutView> {
                             ),
                           ],
                         ),
-                        const CustomTopic(
+                        CustomTopic(
                           title: "Versão",
                           children: [
                             CustomRichText(
-                              text: version,
+                              text: _packageInfo.version,
                             )
                           ],
                         ),
