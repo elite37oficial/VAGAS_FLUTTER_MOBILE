@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+
 import 'package:vagas_flutter_mobile/src/features/core/styles/text_styles.dart';
 
 import '../styles/app_colors.dart';
 
 class CustomDialog extends StatelessWidget {
-  const CustomDialog({super.key});
+  final String text;
+  const CustomDialog({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class CustomDialog extends StatelessWidget {
                   valueColor: AlwaysStoppedAnimation<Color>(AppColors.primary),
                 ),
               ),
-              Text("Enviando Denúncia...",
+              Text(text,
                   style: context.textStyles.textInterRegular.copyWith(
                     fontSize: 16,
                   )),
