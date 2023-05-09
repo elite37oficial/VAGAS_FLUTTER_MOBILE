@@ -11,6 +11,7 @@ import '../../../domain/usecases/get_description_job/get_description_job_usecase
 import '../../core/constants/constant.dart';
 import '../../core/styles/app_colors.dart';
 import '../../core/widgets/custom_app_bar.dart';
+import '../../core/widgets/custom_dialog.dart';
 
 class JobDetailsView extends StatefulWidget {
   final String id;
@@ -148,24 +149,119 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             contactButton(
-                              context: context,
-                              svgAsset: context.image.linkContact,
-                              onTap: () => jobDetailController
-                                  .openLink(descriptionJob.link),
-                            ),
+                                visible: descriptionJob.link.isEmpty ||
+                                        descriptionJob.link == ""
+                                    ? false
+                                    : true,
+                                context: context,
+                                svgAsset: context.image.linkContact,
+                                onTap: () {
+                                  showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                      title: const Text('Atenção!'),
+                                      content: const Text(
+                                          'Você será redirecionado para um aplicativo externo, deseja continuar?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Não'),
+                                          child: Text('Não',
+                                              style: TextStyle(
+                                                  color: AppColors.primary)),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context, 'Sim');
+                                            jobDetailController
+                                                .openLink(descriptionJob.link);
+                                          },
+                                          child: Text('Sim',
+                                              style: TextStyle(
+                                                  color: AppColors.primary)),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
                             contactButton(
-                              isWhatsApp: true,
-                              context: context,
-                              svgAsset: context.image.whatsAppContact,
-                              onTap: () => jobDetailController.openWhatsApp(
-                                  tel: descriptionJob.whatsapp),
-                            ),
+                                visible: descriptionJob.whatsapp.isEmpty ||
+                                        descriptionJob.whatsapp == ""
+                                    ? false
+                                    : true,
+                                isWhatsApp: true,
+                                context: context,
+                                svgAsset: context.image.whatsAppContact,
+                                onTap: () {
+                                  showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                      title: const Text('Atenção!'),
+                                      content: const Text(
+                                          'Você será redirecionado para um aplicativo externo, deseja continuar?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Não'),
+                                          child: Text('Não',
+                                              style: TextStyle(
+                                                  color: AppColors.primary)),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context, 'Sim');
+                                            jobDetailController.openWhatsApp(
+                                                tel: descriptionJob.whatsapp);
+                                          },
+                                          child: Text('Sim',
+                                              style: TextStyle(
+                                                  color: AppColors.primary)),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
                             contactButton(
-                              context: context,
-                              svgAsset: context.image.emailContact,
-                              onTap: () => jobDetailController.openEmail(
-                                  email: descriptionJob.email),
-                            ),
+                                visible: descriptionJob.email.isEmpty ||
+                                        descriptionJob.email == ""
+                                    ? false
+                                    : true,
+                                context: context,
+                                svgAsset: context.image.emailContact,
+                                onTap: () {
+                                  showDialog<String>(
+                                    context: context,
+                                    builder: (BuildContext context) =>
+                                        AlertDialog(
+                                      title: const Text('Atenção!'),
+                                      content: const Text(
+                                          'Você será redirecionado para um aplicativo externo, deseja continuar?'),
+                                      actions: <Widget>[
+                                        TextButton(
+                                          onPressed: () =>
+                                              Navigator.pop(context, 'Não'),
+                                          child: Text(
+                                            'Não',
+                                            style: TextStyle(
+                                                color: AppColors.primary),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.pop(context, 'Sim');
+                                            jobDetailController.openEmail(
+                                                email: descriptionJob.email);
+                                          },
+                                          child: Text('Sim',
+                                              style: TextStyle(
+                                                  color: AppColors.primary)),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }),
                           ],
                         ),
                       ],
