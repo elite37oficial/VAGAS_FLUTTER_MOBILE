@@ -148,12 +148,20 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             contactButton(
+                              visible: descriptionJob.link.isEmpty ||
+                                      descriptionJob.link == ""
+                                  ? false
+                                  : true,
                               context: context,
                               svgAsset: context.image.linkContact,
                               onTap: () => jobDetailController
                                   .openLink(descriptionJob.link),
                             ),
                             contactButton(
+                              visible: descriptionJob.whatsapp.isEmpty ||
+                                      descriptionJob.whatsapp == ""
+                                  ? false
+                                  : true,
                               isWhatsApp: true,
                               context: context,
                               svgAsset: context.image.whatsAppContact,
@@ -161,6 +169,10 @@ class _JobDetailsViewState extends State<JobDetailsView> {
                                   tel: descriptionJob.whatsapp),
                             ),
                             contactButton(
+                              visible: descriptionJob.email.isEmpty ||
+                                      descriptionJob.email == ""
+                                  ? false
+                                  : true,
                               context: context,
                               svgAsset: context.image.emailContact,
                               onTap: () => jobDetailController.openEmail(
