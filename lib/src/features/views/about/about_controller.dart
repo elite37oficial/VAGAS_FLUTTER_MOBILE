@@ -26,7 +26,7 @@ class AboutController extends ValueNotifier<AboutState> {
 
   Future<void> openLink(String url) async {
     final uri = Uri.parse(url);
-    if (!await launchUrl(uri)) {
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $url');
     }
   }

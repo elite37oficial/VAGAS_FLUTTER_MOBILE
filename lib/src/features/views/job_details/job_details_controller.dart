@@ -41,7 +41,7 @@ class JobDetailController extends ValueNotifier<JobDetailsState> {
 
     Uri uri = Uri.parse("mailto:$email?subject=$subject&body=$body");
 
-    if (!await launchUrl(uri)) {
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not launch $uri');
     }
   }

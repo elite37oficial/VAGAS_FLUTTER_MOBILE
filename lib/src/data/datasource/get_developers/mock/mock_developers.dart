@@ -10,8 +10,7 @@ final List<DevelopDto> mockDevelopList = [
   DevelopDto(
     name: "Raquel Valgas",
     atuation: "Backend",
-    linkedinUrl:
-        "https://www.linkedin.com/in/raquel-gon%C3%A7alves-valgas-6989a217a/",
+    linkedinUrl: "https://www.linkedin.com/in/raquel-valgas-6989a217a/",
     gitHubUrl: "https://github.com/RaquelValgas",
   ),
   DevelopDto(
