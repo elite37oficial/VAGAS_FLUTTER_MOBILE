@@ -92,7 +92,9 @@ class ReportJobBloc extends Bloc<ReportJobEvent, ReportJobState> {
       showDialog(
           barrierDismissible: false,
           context: context,
-          builder: (BuildContext context) => const CustomDialog());
+          builder: (BuildContext context) => const CustomDialog(
+                text: "Enviando Denúncia...",
+              ));
 
       final int response = await postReport(
         jobId: jobId,
